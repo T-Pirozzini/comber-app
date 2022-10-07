@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#031926",
     borderRadius: 6,
     margin: 10,
+    marginTop: 150,
   },
   currentLocation: {
     color: '#7DD181' 
