@@ -4,7 +4,6 @@ import { Text, View } from './Themed';
 export default function LocationSearchHome() {
   return (
     <View>
-
       <View style={styles.locationContainer}>        
         <TextInput
           style={styles.input}
@@ -17,8 +16,7 @@ export default function LocationSearchHome() {
             color="#B74F6F"                       
           />
         </View>
-      </View>
-      
+      </View>      
     </View>
   );
 }
@@ -30,6 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#031926",
     borderRadius: 6,
     margin: 10,
+    marginTop: 150,
   },
   currentLocation: {
     color: '#7DD181' 
