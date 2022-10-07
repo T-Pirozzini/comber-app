@@ -1,5 +1,6 @@
 import { StyleSheet, TextInput } from 'react-native';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import LocationSearchHome from '../components/LocationSearchHome';
 
 import { Text, View } from '../components/Themed';
@@ -10,6 +11,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
     <View style={styles.container}>
       <Header />   
       <LocationSearchHome />
+      <Footer />
     </View>
   );
 }
