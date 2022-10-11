@@ -6,7 +6,7 @@ import Footer from "./Footer";
 export default function About() {
   return (
     <View style={styles.container}>
-      <Header />
+      {/* <Header /> */}
       <Text>This is the About Page.</Text>
       <Footer />
     </View>
