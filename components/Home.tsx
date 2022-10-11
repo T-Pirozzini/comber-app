@@ -7,7 +7,7 @@ import LocationSearchHome from "./LocationSearchHome";
 export default function Home() {
   return (
     <View style={styles.container}>
-      <Header />
+      {/* <Header /> */}
       <Text>This is the Home Page.</Text>
       <LocationSearchHome />
       <Footer />
