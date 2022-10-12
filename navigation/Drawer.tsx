@@ -3,6 +3,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import About from "../components/About";
 import Home from "../components/Home";
+import Map from "../components/Map";
 import Header from "../components/Header";
 
 const Drawer = createDrawerNavigator();
@@ -43,6 +44,7 @@ export default function NavDrawer() {
             
            />
         <Drawer.Screen name="About" component={About} />
+        <Drawer.Screen name="Map" component={Map} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
