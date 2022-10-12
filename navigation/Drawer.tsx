@@ -8,11 +8,11 @@ const Drawer = createDrawerNavigator();
 export default function NavDrawer() {
   return (
     <NavigationContainer>
-      <Header />
       <Drawer.Navigator initialRouteName="Home">
         <Drawer.Screen name="Home" component={Home} />
         <Drawer.Screen name="About" component={About} />
       </Drawer.Navigator>
+      <Header />
     </NavigationContainer>
   );
 }
