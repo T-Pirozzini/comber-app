@@ -1,4 +1,11 @@
-import { Button, View, Text, StyleSheet, Image, SafeAreaView } from "react-native";
+import {
+  Button,
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  SafeAreaView,
+} from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import About from "../components/About";
@@ -30,23 +37,22 @@ export default function NavDrawer() {
           name="Home" 
           component={Home} 
           options={{
-            title: 'Comb',
-            headerTitleAlign: 'center',
+            title: "Comb",
+            headerTitleAlign: "center",
             headerTintColor: "#B74F6F",
+
             headerStyle: {backgroundColor: '#031926'},                         
-            }}            
+            }}             
         />
         <Drawer.Screen name="About" component={About} />
         <Drawer.Screen name="Map" component={Map} />
-      </Drawer.Navigator>
+      </Drawer.Navigator>      
     </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   heading: {
-    color: 'red',
-  }
-
-
-})
+    color: "red",
+  },
+});
