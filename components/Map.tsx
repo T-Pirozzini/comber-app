@@ -30,7 +30,6 @@ export default function Map() {
   //   }
   // }, []);
 
-  // Testing button to take you to specific coordinates
   const vancouverArea = {
     latitude: 49.2827,
     longitude: -123.1207,
@@ -42,7 +41,7 @@ export default function Map() {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
   };
-
+  //testing if not null then execute goToVancouver function
   // useEffect(() => {
   //   if (mapRef.current !== null) {
   //     goToVancouver;
@@ -53,6 +52,7 @@ export default function Map() {
   //     goToVancouver;
   //   }
   // }, []);
+
   return (
     <View style={styles.container}>
       <Text>MAP TESTING TESTING 123</Text>
