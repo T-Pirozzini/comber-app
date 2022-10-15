@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 
 import MapView from "react-native-maps";
 
@@ -20,10 +20,17 @@ export default function Map() {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   });
+  // because of Typescript, need to set type to not null. Maybe use useEffect?
+  const mapRef = useRef(null);
+  // useEffect(() => {
+  //   // 👉️ ref could be null here
+  //   if (mapRef.current !== null) {
+  //     // 👉️ TypeScript knows that ref is not null here
+  //     mapRef.current.focus();
+  //   }
+  // }, []);
 
   // Testing button to take you to specific coordinates
-  const mapRef = useRef(null);
-  <MapView ref={mapRef} />;
   const vancouverArea = {
     latitude: 49.2827,
     longitude: 123.1207,
@@ -34,10 +41,22 @@ export default function Map() {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
   };
+
+  // useEffect(() => {
+  //   if (mapRef.current !== null) {
+  //     goToVancouver;
+  //   }
+  // }, []);
+  // useLayoutEffect(() => {
+  //   if (mapRef.current !== null) {
+  //     goToVancouver;
+  //   }
+  // }, []);
   return (
     <View style={styles.container}>
       <Text>MAP TESTING TESTING 123</Text>
       <MapView
+        ref={mapRef}
         style={{ height: "80%", width: "100%" }}
         initialRegion={{
           latitude: 37.78825,
@@ -46,6 +65,7 @@ export default function Map() {
           longitudeDelta: 0.0421,
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
+        showsMyLocationButton={true}
       />
       <Button onPress={() => goToVancouver()} title="Go to Vancouver" />
       <StatusBar style="auto" />
