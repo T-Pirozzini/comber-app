@@ -33,10 +33,11 @@ export default function Map() {
   // Testing button to take you to specific coordinates
   const vancouverArea = {
     latitude: 49.2827,
-    longitude: 123.1207,
+    longitude: -123.1207,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
+  // this function works even though shows error
   const goToVancouver = () => {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
