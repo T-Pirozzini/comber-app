@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 
-import MapView from "react-native-maps";
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 import { Button, View, Text, StyleSheet, Dimensions } from "react-native";
 // import Header from "./Header";
 import Footer from "./Footer";
 import { StatusBar } from "expo-status-bar";
-
+import { MaterialIcons } from "@expo/vector-icons";
+import Geolocation from "@react-native-community/geolocation";
 {
   /* <LeafletView 
   
@@ -36,7 +37,7 @@ export default function Map() {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
-  // this function works even though shows error
+  // this function below works even though shows error
   const goToVancouver = () => {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
@@ -53,10 +54,34 @@ export default function Map() {
   //   }
   // }, []);
 
+  const goToMyLocation = () => {
+    console.log("gotToMyLocation is called");
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => {
+        console.log("curent location: ", coords);
+        console.log(this.map);
+        if (this.map) {
+          console.log("curent location: ", coords);
+          this.map.animateToRegion({
+            latitude: coords.latitude,
+            longitude: coords.longitude,
+            latitudeDelta: 0.005,
+            longitudeDelta: 0.005,
+          });
+        }
+      },
+      (error) => alert("Error: Are location services on?"),
+      { enableHighAccuracy: true }
+    );
+  };
+
   return (
     <View style={styles.container}>
       <Text>MAP TESTING TESTING 123</Text>
       <MapView
+        provider={PROVIDER_GOOGLE}
+        showsUserLocation={true}
+        showsMyLocationButton={true}
         ref={mapRef}
         style={{ height: "80%", width: "100%" }}
         initialRegion={{
@@ -66,9 +91,9 @@ export default function Map() {
           longitudeDelta: 0.0421,
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
-        showsMyLocationButton={true}
       />
       <Button onPress={() => goToVancouver()} title="Go to Vancouver" />
+      {/* <MaterialIcons={styles.myLocationIcon} */}
       <StatusBar style="auto" />
       {/* Display user's current region */}
       <Text style={styles.text}>Current latitude: {region.latitude}</Text>
