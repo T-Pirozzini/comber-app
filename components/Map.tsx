@@ -2,7 +2,15 @@ import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
-import { Button, View, Text, StyleSheet, Dimensions } from "react-native";
+import {
+  Button,
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 // import Header from "./Header";
 import Footer from "./Footer";
 import { StatusBar } from "expo-status-bar";
@@ -58,11 +66,11 @@ export default function Map() {
     console.log("gotToMyLocation is called");
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
-        console.log("curent location: ", coords);
-        console.log(this.map);
-        if (this.map) {
+        // console.log("curent location: ", coords);
+        // console.log(this.map);
+        if (region.Map) {
           console.log("curent location: ", coords);
-          this.map.animateToRegion({
+          mapRef.current.animateToRegion({
             latitude: coords.latitude,
             longitude: coords.longitude,
             latitudeDelta: 0.005,
@@ -83,7 +91,7 @@ export default function Map() {
         showsUserLocation={true}
         showsMyLocationButton={true}
         ref={mapRef}
-        style={{ height: "80%", width: "100%" }}
+        style={styles.map}
         initialRegion={{
           latitude: 37.78825,
           longitude: -122.4324,
@@ -92,8 +100,44 @@ export default function Map() {
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
       />
-      <Button onPress={() => goToVancouver()} title="Go to Vancouver" />
+      <Button
+        // style={}
+        onPress={() => goToVancouver()}
+        title="Go to Vancouver"
+      />
       {/* <MaterialIcons={styles.myLocationIcon} */}
+      {/* <TouchableOpacity
+        onPress={() => goToMyLocation()}
+        style={[
+          styles.button,
+          {
+            width: 60,
+            height: 60,
+            position: "absolute",
+            bottom: 20,
+            right: 20,
+            borderRadius: 30,
+            backgroundColor: "#d2d2d2",
+          },
+        ]}
+      >
+        <Image
+          style={[
+            styles.button,
+            {
+              width: 60,
+              height: 60,
+              position: "absolute",
+              bottom: 20,
+              borderRadius: 30,
+              backgroundColor: "#d2d2d2",
+            },
+          ]}
+          source={{
+            uri: "https://www.pngitem.com/pimgs/m/9-98234_my-location-icon-vector-clipart-png-download-google.png",
+          }}
+        />
+      </TouchableOpacity> */}
       <StatusBar style="auto" />
       {/* Display user's current region */}
       <Text style={styles.text}>Current latitude: {region.latitude}</Text>
@@ -116,10 +160,20 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-end",
+    ...StyleSheet.absoluteFillObject,
   },
   text: {
     fontSize: 18,
     backgroundColor: "lightblue",
+  },
+  map: {
+    flex: 1,
+    // height: "100%",
+    // width: "100%",
+    ...StyleSheet.absoluteFillObject,
+  },
+  button: {
+    alignItems: "flex-end",
   },
 });
