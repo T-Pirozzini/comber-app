@@ -22,6 +22,9 @@ import Geolocation from "@react-native-community/geolocation";
 /> */
 }
 
+{
+  /* <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />; */
+}
 export default function Map() {
   const [region, setRegion] = useState({
     latitude: 51.5079145,
@@ -90,6 +93,7 @@ export default function Map() {
         provider={PROVIDER_GOOGLE}
         showsUserLocation={true}
         showsMyLocationButton={true}
+        showsCompass={true}
         ref={mapRef}
         style={styles.map}
         initialRegion={{
@@ -104,6 +108,11 @@ export default function Map() {
         // style={}
         onPress={() => goToVancouver()}
         title="Go to Vancouver"
+      />
+      <Button
+        // style={}
+        onPress={() => goToMyLocation()}
+        title="Go to my Location"
       />
       {/* <MaterialIcons={styles.myLocationIcon} */}
       {/* <TouchableOpacity
@@ -158,7 +167,7 @@ export default function Map() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFFFFF",
     alignItems: "center",
     justifyContent: "flex-end",
     ...StyleSheet.absoluteFillObject,
