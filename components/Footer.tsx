@@ -1,11 +1,11 @@
 import { StyleSheet, TouchableOpacity, Text, View, Image, TextInput, Button, FlatList } from 'react-native';
 
+
 export default function Footer() {
   return (
     <View style={styles.footer}>
-
       <Text style={styles.quote}>Your foraging companion.</Text>
-    </View>
+    </View>   
   )
 }
 
