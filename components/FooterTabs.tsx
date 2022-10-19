@@ -2,9 +2,10 @@ import { StyleSheet, TouchableOpacity, Text, View, Image, TextInput, Button, Fla
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from "@react-navigation/native";
-import Home from "./Home"
-import Map from "./Map"
+import Home from "./Home";
+import Map from "./Map";
 import Recipes from './Recipes';
+import Info from './Info';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -12,8 +13,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 const Tab = createBottomTabNavigator();
 
 export default function FooterTabs() {
-  return (
-    // <NavigationContainer>
+  return (    
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
@@ -32,9 +32,9 @@ export default function FooterTabs() {
       />
       <Tab.Screen name="Map" component={Map} />
       <Tab.Screen name="Recipes" component={Recipes} />
+      <Tab.Screen name="Info" component={Info} />
 
-    </Tab.Navigator>
-    /* </NavigationContainer> */
+    </Tab.Navigator>    
   )
 }
 

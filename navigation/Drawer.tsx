@@ -9,6 +9,8 @@ import {
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import About from "../components/About";
+import Login from "../components/Login"
+import Register from "../components/Register"
 import Home from "../components/Home";
 import Map from "../components/Map";
 import Header from "../components/Header";
@@ -45,7 +47,8 @@ export default function NavDrawer() {
             }}             
         />
         <Drawer.Screen name="About" component={About} />
-        <Drawer.Screen name="Map" component={Map} />
+        <Drawer.Screen name="Login" component={Login} />
+        <Drawer.Screen name="Register" component={Register} />
       </Drawer.Navigator>    
   );
 }
