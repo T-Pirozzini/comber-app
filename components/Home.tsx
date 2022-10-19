@@ -10,7 +10,7 @@ export default function Home() {
       {/* <Header /> */}
       <Text>This is the Home Page.</Text>
       <LocationSearchHome />      
-      <Footer />
+      {/* <Footer /> */}
     </View>
   );
 }

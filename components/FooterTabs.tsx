@@ -17,7 +17,11 @@ export default function FooterTabs() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
-      tabBarActiveTintColor: '#e91e63',
+      tabBarActiveTintColor: '#7DD181',
+      tabBarActiveBackgroundColor: "#031926",
+      tabBarInactiveBackgroundColor: "white",
+      
+      
     }}
     >
       <Tab.Screen         
@@ -56,7 +60,7 @@ export default function FooterTabs() {
         options= {{
           tabBarLabel: 'Info',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="information" color={color} size={size} />
+            <MaterialCommunityIcons name="information-outline" color={color} size={size} />            
           ),
         }}
       />
