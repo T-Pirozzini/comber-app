@@ -15,7 +15,10 @@ import {
 import Footer from "./Footer";
 import { StatusBar } from "expo-status-bar";
 import { MaterialIcons } from "@expo/vector-icons";
-import Geolocation from "@react-native-community/geolocation";
+// import Geolocation from "@react-native-community/geolocation"; // Not using
+
+import * as Location from "expo-location";
+
 {
   /* <LeafletView 
   
@@ -25,7 +28,32 @@ import Geolocation from "@react-native-community/geolocation";
 {
   /* <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />; */
 }
+
 export default function Map() {
+  // expo location package
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    })();
+  }, []);
+
+  let text = "Waiting..";
+  if (errorMsg) {
+    text = errorMsg;
+  } else if (location) {
+    text = JSON.stringify(location);
+  }
+
   const [region, setRegion] = useState({
     latitude: 51.5079145,
     longitude: -0.0899163,
@@ -34,14 +62,6 @@ export default function Map() {
   });
   // because of Typescript, need to set type to not null. Maybe use useEffect?
   const mapRef = useRef(null);
-  // useEffect(() => {
-  //   // 👉️ ref could be null here
-  //   if (mapRef.current !== null) {
-  //     // 👉️ TypeScript knows that ref is not null here
-  //     mapRef.current.focus();
-  //   }
-  // }, []);
-
   const vancouverArea = {
     latitude: 49.2827,
     longitude: -123.1207,
@@ -53,49 +73,36 @@ export default function Map() {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
   };
-  //testing if not null then execute goToVancouver function
-  // useEffect(() => {
-  //   if (mapRef.current !== null) {
-  //     goToVancouver;
-  //   }
-  // }, []);
-  // useLayoutEffect(() => {
-  //   if (mapRef.current !== null) {
-  //     goToVancouver;
-  //   }
-  // }, []);
 
-  const goToMyLocation = () => {
-    console.log("gotToMyLocation is called");
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        // console.log("curent location: ", coords);
-        // console.log(this.map);
-        if (region.Map) {
-          console.log("curent location: ", coords);
-          mapRef.current.animateToRegion({
-            latitude: coords.latitude,
-            longitude: coords.longitude,
-            latitudeDelta: 0.005,
-            longitudeDelta: 0.005,
-          });
-        }
-      },
-      (error) => alert("Error: Are location services on?"),
-      { enableHighAccuracy: true }
-    );
-  };
+  // const goToMyLocation = () => {
+  //   console.log("gotToMyLocation is called");
+  //   Geolocation.getCurrentPosition(
+  //     ({ coords }) => {
+  //       // console.log("curent location: ", coords);
+  //       // console.log(this.map);
+  //       console.log("curent location: ", coords);
+  //       // mapRef.current.animateToRegion({
+  //       //   latitude: coords.latitude,
+  //       //   longitude: coords.longitude,
+  //       //   latitudeDelta: 0.005,
+  //       //   longitudeDelta: 0.005,
+  //       // });
+  //     },
+  //     (error) => alert("Error: Are location services on?"),
+  //     { enableHighAccuracy: true }
+  //   );
+  // };
 
   return (
     <View style={styles.container}>
-      <Text>MAP TESTING TESTING 123</Text>
+      <Text>EXPO LOCATION OUTPUT: {text}</Text>
       <MapView
         provider={PROVIDER_GOOGLE}
-        showsUserLocation={true}
-        showsMyLocationButton={true}
         showsCompass={true}
         ref={mapRef}
         style={styles.map}
+        showsUserLocation={true}
+        showsMyLocationButton={true}
         initialRegion={{
           latitude: 37.78825,
           longitude: -122.4324,
@@ -104,16 +111,17 @@ export default function Map() {
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
       />
+      {/* <Text>EXPO LOCATION OUTPUT: {text}</Text> */}
       <Button
         // style={}
         onPress={() => goToVancouver()}
         title="Go to Vancouver"
       />
-      <Button
+      {/* <Button
         // style={}
         onPress={() => goToMyLocation()}
         title="Go to my Location"
-      />
+      /> */}
       {/* <MaterialIcons={styles.myLocationIcon} */}
       {/* <TouchableOpacity
         onPress={() => goToMyLocation()}
