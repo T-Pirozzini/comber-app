@@ -9,8 +9,8 @@ export default function Home() {
     <View style={styles.container}>
       {/* <Header /> */}
       <Text>This is the Home Page.</Text>
-      <LocationSearchHome />
-      <Footer />
+      <LocationSearchHome />      
+      {/* <Footer /> */}
     </View>
   );
 }

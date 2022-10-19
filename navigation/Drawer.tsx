@@ -9,16 +9,18 @@ import {
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import About from "../components/About";
+import Login from "../components/Login"
+import Register from "../components/Register"
 import Home from "../components/Home";
 import Map from "../components/Map";
 import Header from "../components/Header";
 import { greaterThan } from "react-native-reanimated";
+import FooterTabs from "../components/FooterTabs";
 
 const Drawer = createDrawerNavigator();
 
 export default function NavDrawer() {
-  return (
-    <NavigationContainer>              
+  return (                 
       <Drawer.Navigator 
         initialRouteName="Home"
         screenOptions={{
@@ -35,9 +37,9 @@ export default function NavDrawer() {
       >
         <Drawer.Screen                  
           name="Home" 
-          component={Home} 
+          component={FooterTabs} 
           options={{
-            title: "Comb",
+            title: "Home",
             headerTitleAlign: "center",
             headerTintColor: "#B74F6F",
 
@@ -45,9 +47,9 @@ export default function NavDrawer() {
             }}             
         />
         <Drawer.Screen name="About" component={About} />
-        <Drawer.Screen name="Map" component={Map} />
-      </Drawer.Navigator>      
-    </NavigationContainer>
+        <Drawer.Screen name="Login" component={Login} />
+        <Drawer.Screen name="Register" component={Register} />
+      </Drawer.Navigator>    
   );
 }
 
