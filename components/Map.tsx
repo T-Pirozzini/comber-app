@@ -19,16 +19,6 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import * as Location from "expo-location";
 
-{
-  /* <LeafletView 
-  
-/> */
-}
-
-{
-  /* <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />; */
-}
-
 export default function Map() {
   // expo location package
   const [location, setLocation] = useState(null);
