@@ -56,7 +56,7 @@ export default function FooterTabs() {
         options= {{
           tabBarLabel: 'Info',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="info" color={color} size={size} />
+            <MaterialCommunityIcons name="information" color={color} size={size} />
           ),
         }}
       />

@@ -39,7 +39,7 @@ export default function NavDrawer() {
           name="Home" 
           component={FooterTabs} 
           options={{
-            title: "Comb",
+            title: "Home",
             headerTitleAlign: "center",
             headerTintColor: "#B74F6F",
 
