@@ -30,10 +30,36 @@ export default function FooterTabs() {
           ),
         }}
       />
-      <Tab.Screen name="Map" component={Map} />
-      <Tab.Screen name="Recipes" component={Recipes} />
-      <Tab.Screen name="Info" component={Info} />
-
+      <Tab.Screen 
+        name="Map" 
+        component={Map}
+        options= {{
+          tabBarLabel: 'Map',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="map" color={color} size={size} />
+          ),
+        }}        
+      />
+      <Tab.Screen 
+        name="Recipes" 
+        component={Recipes}
+        options= {{
+          tabBarLabel: 'Recipes',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="food" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen 
+        name="Info" 
+        component={Info}
+        options= {{
+          tabBarLabel: 'Info',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="info" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>    
   )
 }
