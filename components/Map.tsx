@@ -23,7 +23,10 @@ export default function Map() {
   // expo location package
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+  const [address, setAddress] = useState(null);
+  const [getLocation, setGetLocation] = useState(false);
 
+  // get current location/set current location on compass click
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -31,9 +34,29 @@ export default function Map() {
         setErrorMsg("Permission to access location was denied");
         return;
       }
+      // if compass clicked do this
+      let currentLocation = await Location.getCurrentPositionAsync({});
+      if (currentLocation) {
+        setLocation(currentLocation);
+        console.log("LOCATION:", location);
+      }
 
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
+      // search form submitted do this
+      let address = await Location.reverseGeocodeAsync(region.coords);
+      console.log("ADDRESS", address);
+
+      if (location) {
+        let latitude = location.coords.latitude;
+        let longitude = location.coords.longitude;
+
+        let regionName = await Location.reverseGeocodeAsync({
+          longitude,
+          latitude,
+        });
+        setAddress(regionName[0]);
+        console.log("REGIONNAME", address);
+        console.log(regionName, "nothing");
+      }
     })();
   }, []);
 
@@ -45,8 +68,7 @@ export default function Map() {
   }
 
   const [region, setRegion] = useState({
-    latitude: 51.5079145,
-    longitude: -0.0899163,
+    coords: { latitude: 37.78825, longitude: -122.4324 },
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   });
@@ -64,28 +86,8 @@ export default function Map() {
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
   };
 
-  // const goToMyLocation = () => {
-  //   console.log("gotToMyLocation is called");
-  //   Geolocation.getCurrentPosition(
-  //     ({ coords }) => {
-  //       // console.log("curent location: ", coords);
-  //       // console.log(this.map);
-  //       console.log("curent location: ", coords);
-  //       // mapRef.current.animateToRegion({
-  //       //   latitude: coords.latitude,
-  //       //   longitude: coords.longitude,
-  //       //   latitudeDelta: 0.005,
-  //       //   longitudeDelta: 0.005,
-  //       // });
-  //     },
-  //     (error) => alert("Error: Are location services on?"),
-  //     { enableHighAccuracy: true }
-  //   );
-  // };
-
   return (
     <View style={styles.container}>
-      <Text>EXPO LOCATION OUTPUT: {text}</Text>
       <MapView
         provider={PROVIDER_GOOGLE}
         showsCompass={true}
@@ -101,64 +103,18 @@ export default function Map() {
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
       />
-      {/* <Text>EXPO LOCATION OUTPUT: {text}</Text> */}
+      <Text>EXPO LOCATION OUTPUT: {text}</Text>
       <Button
         // style={}
         onPress={() => goToVancouver()}
         title="Go to Vancouver"
       />
-      {/* <Button
-        // style={}
-        onPress={() => goToMyLocation()}
-        title="Go to my Location"
-      /> */}
-      {/* <MaterialIcons={styles.myLocationIcon} */}
-      {/* <TouchableOpacity
-        onPress={() => goToMyLocation()}
-        style={[
-          styles.button,
-          {
-            width: 60,
-            height: 60,
-            position: "absolute",
-            bottom: 20,
-            right: 20,
-            borderRadius: 30,
-            backgroundColor: "#d2d2d2",
-          },
-        ]}
-      >
-        <Image
-          style={[
-            styles.button,
-            {
-              width: 60,
-              height: 60,
-              position: "absolute",
-              bottom: 20,
-              borderRadius: 30,
-              backgroundColor: "#d2d2d2",
-            },
-          ]}
-          source={{
-            uri: "https://www.pngitem.com/pimgs/m/9-98234_my-location-icon-vector-clipart-png-download-google.png",
-          }}
-        />
-      </TouchableOpacity> */}
+
       <StatusBar style="auto" />
       {/* Display user's current region */}
       <Text style={styles.text}>Current latitude: {region.latitude}</Text>
       <Text style={styles.text}>Current longitude: {region.longitude}</Text>
     </View>
-
-    //   <View style={styles.container}>
-    //     {/* <Header /> */}
-    //     <Text>This is the Map Page.</Text>
-
-    //     <Footer />
-    //   </View>
-
-    // </View>
   );
 }
 
