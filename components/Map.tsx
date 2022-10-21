@@ -21,11 +21,11 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import * as Location from "expo-location";
 
-import envs from "../config/env"
+import googleMapVariables from "../config/env"
 
 // add google api key
-const { GOOGLE_API_KEY } = envs;
-let googleKey = GOOGLE_API_KEY
+const { GOOGLE_API_KEY } = googleMapVariables;
+// let googleKey = GOOGLE_API_KEY
 
 export default function Map() {
   // expo location package
@@ -150,7 +150,7 @@ export default function Map() {
           })          
         }}
         query={{
-          key: googleKey,
+          key: `${GOOGLE_API_KEY}`,
           language: 'en',
           components: "country:us",
           types: "establishment",
