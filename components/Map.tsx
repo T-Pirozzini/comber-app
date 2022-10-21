@@ -31,6 +31,8 @@ export default function Map() {
 
   const [coords, setCoords] = useState(null);
 
+  const [pin, setPin] = useState({latitude: 37.78825, longitude: -122.4324});
+
 
   useEffect(() => {
   if (targetClicked) {
@@ -137,8 +139,16 @@ export default function Map() {
         onRegionChangeComplete={(region) => setRegion(region)}
       >
         <Marker 
-          coordinate={{latitude: 37.78825, longitude: -122.4324}}
+          coordinate={pin}
           pinColor="blue"
+          draggable={true}
+          onDragStart={(e) => {console.log("Drag Start", e.nativeEvent.coordinate)}}
+          onDragEnd={(e) => {
+            setPin({
+              latitude: e.nativeEvent.coordinate.latitude,
+              longitude: e.nativeEvent.coordinate.longitude
+            })
+          }}          
         >
           <Callout>
             <Text>I'm here!</Text>
