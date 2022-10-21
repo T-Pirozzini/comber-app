@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 
-import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { Callout, Marker, Polygon, PROVIDER_GOOGLE } from "react-native-maps";
 
 import {
   Button,
@@ -24,40 +24,72 @@ export default function Map() {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [address, setAddress] = useState(null);
-  const [getLocation, setGetLocation] = useState(false);
+  const [getLocation, setGetLocation] = useState(null);
+
+  // const [currentLocation, setCurrentLocation] = useState(null);
+  const [targetClicked, setTargetClicked] = useState(false);
+
+  const [coords, setCoords] = useState(null);
+
+
+  useEffect(() => {
+  if (targetClicked) {
+    // if compass clicked do this
+    const getCurrentLocation = async () => {
+      let { coords } = await Location.getCurrentPositionAsync({});  
+      console.log('PRE: LOCATION COORDS:', coords)
+      setTargetClicked(false);             
+      if (!coords){
+        console.log('No Location')
+      }
+      if (coords) {          
+        setLocation(coords)
+        console.log("POST: LOCATION COORDS:", location)
+        console.log(targetClicked)                   
+      };
+    };
+
+    getCurrentLocation();
+  };
+}, [location]);
+
+
 
   // get current location/set current location on compass click
   useEffect(() => {
-    (async () => {
+    const getLocationPermission = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
+        console.log(errorMsg)
         return;
-      }
-      // if compass clicked do this
-      let currentLocation = await Location.getCurrentPositionAsync({});
-      if (currentLocation) {
-        setLocation(currentLocation);
-        console.log("LOCATION:", location);
-      }
+      };
+      if (status == "granted") {
+        setTargetClicked(true);
+      }      
+    };  
+
+    getLocationPermission();
+
+      
 
       // search form submitted do this
-      let address = await Location.reverseGeocodeAsync(region.coords);
-      console.log("ADDRESS", address);
+      // let address = await Location.reverseGeocodeAsync(region.coords);
+      // console.log("ADDRESS", address);
 
-      if (location) {
-        let latitude = location.coords.latitude;
-        let longitude = location.coords.longitude;
+      // if (location) {
+      //   let latitude = location.coords.latitude;
+      //   let longitude = location.coords.longitude;
 
-        let regionName = await Location.reverseGeocodeAsync({
-          longitude,
-          latitude,
-        });
-        setAddress(regionName[0]);
-        console.log("REGIONNAME", address);
-        console.log(regionName, "nothing");
-      }
-    })();
+      //   let regionName = await Location.reverseGeocodeAsync({
+      //     longitude,
+      //     latitude,
+      //   });
+      //   setAddress(regionName[0]);
+      //   console.log("REGIONNAME", address);
+      //   console.log(regionName, "nothing");
+      // }
+    // })();
   }, []);
 
   let text = "Waiting..";
@@ -84,6 +116,7 @@ export default function Map() {
   const goToVancouver = () => {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
+    setLocation()
   };
 
   return (
@@ -102,7 +135,41 @@ export default function Map() {
           longitudeDelta: 0.0421,
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
-      />
+      >
+        <Marker 
+          coordinate={{latitude: 37.78825, longitude: -122.4324}}
+          pinColor="blue"
+        >
+          <Callout>
+            <Text>I'm here!</Text>
+          </Callout>
+        </Marker>
+        <Polygon coordinates={
+          [
+            {
+              latitude: 37.78825,
+              longitude: -122.4324
+            },
+            {
+              latitude: 37.79825,
+              longitude: -122.5324
+            },
+            {
+              latitude: 37.88825,
+              longitude: -122.4324
+            },
+            {
+              latitude: 37.8825,
+              longitude: -122.4324
+            },
+          ]
+        }        
+        fillColor="rgba(207, 47, 116, 0.5)"        
+        >
+
+        </Polygon>
+      </MapView>
+
       <Text>EXPO LOCATION OUTPUT: {text}</Text>
       <Button
         // style={}
