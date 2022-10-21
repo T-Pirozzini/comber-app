@@ -1,31 +1,12 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
-
 import MapView, { Callout, Marker, Polygon, PROVIDER_GOOGLE } from "react-native-maps";
-
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-
-import {
-  Button,
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  Image,
-} from "react-native";
-// import Header from "./Header";
-import Footer from "./Footer";
-import { StatusBar } from "expo-status-bar";
+import { Button, View, Text, StyleSheet, Dimensions, TouchableOpacity, Image} from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
-// import Geolocation from "@react-native-community/geolocation"; // Not using
-
 import * as Location from "expo-location";
 
-import googleMapVariables from "../config/env"
-
-// add google api key
-const { GOOGLE_API_KEY } = googleMapVariables;
-// let googleKey = GOOGLE_API_KEY
+// Google places api
+const googleKey = process.env.REACT_APP_GOOGLE_API_KEY
 
 export default function Map() {
   // expo location package
@@ -150,7 +131,7 @@ export default function Map() {
           })          
         }}
         query={{
-          key: `${GOOGLE_API_KEY}`,
+          key: googleKey,
           language: 'en',
           components: "country:us",
           types: "establishment",
@@ -229,9 +210,7 @@ export default function Map() {
           // style={}
           onPress={() => goToVancouver()}
           title="Go to Vancouver"
-        />
-
-        <StatusBar style="auto" />
+        />        
         {/* Display user's current region */}
         <Text style={styles.text}>Current latitude: {region.latitude}</Text>
         <Text style={styles.text}>Current longitude: {region.longitude}</Text>
