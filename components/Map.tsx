@@ -24,6 +24,9 @@ export default function Map() {
   const [regionGoogleMap, setRegionGoogleMap] = useState({latitude: 37.78825, longitude: -122.4324, latitudeDelta: 0.0922, longitudeDelta: 0.0421,});
 
 
+  // Attempting to split up useEffects for location data retrieval //
+
+  // 1 . Current location Data
   useEffect(() => {
   if (targetClicked) {
     // if compass clicked do this
@@ -45,9 +48,7 @@ export default function Map() {
   };
 }, [location]);
 
-
-
-  // get current location/set current location on compass click
+  // 2. Location permission status data
   useEffect(() => {
     const getLocationPermission = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -64,6 +65,7 @@ export default function Map() {
     getLocationPermission();
 
       
+    // 3. Get specific city data by using coordinates data
 
       // search form submitted do this
       // let address = await Location.reverseGeocodeAsync(region.coords);
@@ -84,6 +86,42 @@ export default function Map() {
     // })();
   }, []);
 
+  // 3. The original useEffect before I messed around with it
+  // get current location/set current location on compass click
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+      // if compass clicked do this
+      let currentLocation = await Location.getCurrentPositionAsync({});
+      if (currentLocation) {
+        setLocation(currentLocation);
+        console.log("LOCATION:", location);
+      }
+
+      // search form submitted do this
+      let address = await Location.reverseGeocodeAsync(region.coords);
+      console.log("ADDRESS", address);
+
+      if (location) {
+        let latitude = location.coords.latitude;
+        let longitude = location.coords.longitude;
+
+        let regionName = await Location.reverseGeocodeAsync({
+          longitude,
+          latitude,
+        });
+        setAddress(regionName[0]);
+        console.log("REGIONNAME", address);
+        console.log(regionName, "nothing");
+      }
+    })();
+  }, []);
+
+  
   let text = "Waiting..";
   if (errorMsg) {
     text = errorMsg;
@@ -96,6 +134,7 @@ export default function Map() {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   });
+
   // because of Typescript, need to set type to not null. Maybe use useEffect?
   const mapRef = useRef(null);
   const vancouverArea = {
@@ -104,6 +143,7 @@ export default function Map() {
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   };
+
   // this function below works even though shows error
   const goToVancouver = () => {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
@@ -121,8 +161,9 @@ export default function Map() {
         }}
         onPress={(data, details = null) => {
           // 'details' is provided when fetchDetails = true
-          console.log(data, details)
-          console.log("REGION", regionGoogleMap)
+          // console.log(data, details)
+          // console.log("REGION", regionGoogleMap)
+          console.log("SearchLocationCoords", details.geometry.location.lat, details.geometry.location.lng,)
           setRegionGoogleMap({
             latitude: details.geometry.location.lat,
             longitude: details.geometry.location.lng,
@@ -160,7 +201,7 @@ export default function Map() {
         onRegionChangeComplete={(region) => setRegion(region)}
       >
         <Marker
-          coordinate={{latitude: regionGoogleMap.latitudeDelta, longitude: regionGoogleMap.longitude}}
+          coordinate={{latitude: regionGoogleMap.latitude, longitude: regionGoogleMap.longitude}}
         />
         <Marker 
           coordinate={pin}
