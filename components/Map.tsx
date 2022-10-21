@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
 
 import MapView, { Callout, Marker, Polygon, PROVIDER_GOOGLE } from "react-native-maps";
 
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+
 import {
   Button,
   View,
@@ -19,6 +21,8 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import * as Location from "expo-location";
 
+
+
 export default function Map() {
   // expo location package
   const [location, setLocation] = useState(null);
@@ -32,6 +36,7 @@ export default function Map() {
   const [coords, setCoords] = useState(null);
 
   const [pin, setPin] = useState({latitude: 37.78825, longitude: -122.4324});
+  const [regionGoogleMap, setRegionGoogleMap] = useState({latitude: 37.78825, longitude: -122.4324, latitudeDelta: 0.0922, longitudeDelta: 0.0421,});
 
 
   useEffect(() => {
@@ -117,12 +122,43 @@ export default function Map() {
   // this function below works even though shows error
   const goToVancouver = () => {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
-    mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
-    setLocation()
+    mapRef.current.animateToRegion(vancouverArea, 3 * 1000);    
   };
 
   return (
     <View style={styles.container}>
+
+      <GooglePlacesAutocomplete
+        placeholder='Search'
+        fetchDetails={true}
+        GooglePlacesSearchQuery={{
+          rankby: "distance",
+        }}
+        onPress={(data, details = null) => {
+          // 'details' is provided when fetchDetails = true
+          console.log(data, details)
+          console.log("REGION", regionGoogleMap)
+          setRegionGoogleMap({
+            latitude: details.geometry.location.lat,
+            longitude: details.geometry.location.lng,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          })          
+        }}
+        query={{
+          key: 'AIzaSyAdvR_n-KGKfPRyPnqiKqzscpRx-yFf5wg',
+          language: 'en',
+          components: "country:us",
+          types: "establishment",
+          radius: 30000,
+          location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`
+        }}
+        styles={{
+          container: { flex: 1, position: "absolute", top:10, width: "80%", zIndex: 1},
+          listView: {backgroundColor: "white" }
+        }}
+      />
+
       <MapView
         provider={PROVIDER_GOOGLE}
         showsCompass={true}
@@ -138,6 +174,9 @@ export default function Map() {
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
       >
+        <Marker
+          coordinate={{latitude: regionGoogleMap.latitudeDelta, longitude: regionGoogleMap.longitude}}
+        />
         <Marker 
           coordinate={pin}
           pinColor="blue"
@@ -180,17 +219,20 @@ export default function Map() {
         </Polygon>
       </MapView>
 
-      <Text>EXPO LOCATION OUTPUT: {text}</Text>
-      <Button
-        // style={}
-        onPress={() => goToVancouver()}
-        title="Go to Vancouver"
-      />
+      <View style={styles.data}>
+        <Text>EXPO LOCATION OUTPUT: {text}</Text>
+        <Button
+          // style={}
+          onPress={() => goToVancouver()}
+          title="Go to Vancouver"
+        />
 
-      <StatusBar style="auto" />
-      {/* Display user's current region */}
-      <Text style={styles.text}>Current latitude: {region.latitude}</Text>
-      <Text style={styles.text}>Current longitude: {region.longitude}</Text>
+        <StatusBar style="auto" />
+        {/* Display user's current region */}
+        <Text style={styles.text}>Current latitude: {region.latitude}</Text>
+        <Text style={styles.text}>Current longitude: {region.longitude}</Text>
+      </View>
+     
     </View>
   );
 }
@@ -198,22 +240,26 @@ export default function Map() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
-    alignItems: "center",
-    justifyContent: "flex-end",
+    backgroundColor: "#FFF",    
     ...StyleSheet.absoluteFillObject,
   },
   text: {
     fontSize: 18,
-    backgroundColor: "lightblue",
+    backgroundColor: "rgba(12,45,34,.07)"    
   },
   map: {
     flex: 1,
-    // height: "100%",
-    // width: "100%",
-    ...StyleSheet.absoluteFillObject,
+    width: Dimensions.get("window").width,
+    height: Dimensions.get("window").height,
+    ...StyleSheet.absoluteFillObject 
   },
   button: {
-    alignItems: "flex-end",
+    alignItems: "flex-end"    
   },
+  data: {
+    flex: 0,
+    justifyContent: 'flex-end',
+    alignItems: 'center',    
+    ...StyleSheet.absoluteFillObject    
+  }
 });
