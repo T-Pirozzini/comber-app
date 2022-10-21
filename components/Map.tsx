@@ -23,7 +23,8 @@ import * as Location from "expo-location";
 
 import envs from "../config/env"
 
-const {GOOGLE_API_KEY} = envs;
+// add google api key
+const { GOOGLE_API_KEY } = envs;
 let googleKey = GOOGLE_API_KEY
 
 export default function Map() {
