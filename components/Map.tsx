@@ -164,7 +164,6 @@ export default function Map() {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
   };
-
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete
@@ -174,6 +173,13 @@ export default function Map() {
           rankby: "distance",
         }}
         onPress={(data, details = null) => {
+          // Trying to test animating to clicked on location
+          setRegionGoogleMap({
+            latitude: details.geometry.location.lat,
+            longitude: details.geometry.location.lng,
+            latitudeDelta: 0.0922,
+            longitudeDelta: 0.0421,
+          });
           // 'details' is provided when fetchDetails = true
           // console.log(data, details)
           // console.log("REGION", regionGoogleMap)
@@ -186,15 +192,11 @@ export default function Map() {
           let searchDestination = {
             latitude: details.geometry.location.lat,
             longitude: details.geometry.location.lng,
-          };
-          // Trying to test animating to clicked on location
-          mapRef.current.animateToRegion(searchDestination, 3 * 1000);
-          setRegionGoogleMap({
-            latitude: details.geometry.location.lat,
-            longitude: details.geometry.location.lng,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-          });
+          };
+          // Animating to selected location
+          mapRef.current.animateToRegion(searchDestination, 3 * 1000);
         }}
         query={{
           key: googleKey,
