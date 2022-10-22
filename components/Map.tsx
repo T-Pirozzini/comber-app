@@ -201,7 +201,7 @@ export default function Map() {
         query={{
           key: googleKey,
           language: "en",
-          components: "country:us",
+          components: "country:ca",
           types: "establishment",
           radius: 30000,
           location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
