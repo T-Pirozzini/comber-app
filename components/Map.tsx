@@ -188,7 +188,7 @@ export default function Map() {
             longitude: details.geometry.location.lng,
           };
           // Trying to test animating to clicked on location
-          // mapRef.current.animateToRegion(searchDestination, 3 * 1000);
+          mapRef.current.animateToRegion(searchDestination, 3 * 1000);
           setRegionGoogleMap({
             latitude: details.geometry.location.lat,
             longitude: details.geometry.location.lng,
