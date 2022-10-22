@@ -1,12 +1,25 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
-import MapView, { Callout, Marker, Polygon, PROVIDER_GOOGLE } from "react-native-maps";
-import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { Button, View, Text, StyleSheet, Dimensions, TouchableOpacity, Image} from "react-native";
+import MapView, {
+  Callout,
+  Marker,
+  Polygon,
+  PROVIDER_GOOGLE,
+} from "react-native-maps";
+import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
+import {
+  Button,
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+  Image,
+} from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import * as Location from "expo-location";
 
 // Google places api
-const googleKey = process.env.REACT_APP_GOOGLE_API_KEY
+const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export default function Map() {
   // expo location package
@@ -20,33 +33,37 @@ export default function Map() {
 
   const [coords, setCoords] = useState(null);
 
-  const [pin, setPin] = useState({latitude: 37.78825, longitude: -122.4324});
-  const [regionGoogleMap, setRegionGoogleMap] = useState({latitude: 37.78825, longitude: -122.4324, latitudeDelta: 0.0922, longitudeDelta: 0.0421,});
-
+  const [pin, setPin] = useState({ latitude: 37.78825, longitude: -122.4324 });
+  const [regionGoogleMap, setRegionGoogleMap] = useState({
+    latitude: 37.78825,
+    longitude: -122.4324,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421,
+  });
 
   // Attempting to split up useEffects for location data retrieval //
 
   // 1 . Current location Data
   useEffect(() => {
-  if (targetClicked) {
-    // if compass clicked do this
-    const getCurrentLocation = async () => {
-      let { coords } = await Location.getCurrentPositionAsync({});  
-      console.log('PRE: LOCATION COORDS:', coords)
-      setTargetClicked(false);             
-      if (!coords){
-        console.log('No Location')
-      }
-      if (coords) {          
-        setLocation(coords)
-        console.log("POST: LOCATION COORDS:", location)
-        console.log(targetClicked)                   
+    if (targetClicked) {
+      // if compass clicked do this
+      const getCurrentLocation = async () => {
+        let { coords } = await Location.getCurrentPositionAsync({});
+        console.log("PRE: LOCATION COORDS:", coords);
+        setTargetClicked(false);
+        if (!coords) {
+          console.log("No Location");
+        }
+        if (coords) {
+          setLocation(coords);
+          console.log("POST: LOCATION COORDS:", location);
+          console.log(targetClicked);
+        }
       };
-    };
 
-    getCurrentLocation();
-  };
-}, [location]);
+      getCurrentLocation();
+    }
+  }, [location]);
 
   // 2. Location permission status data
   useEffect(() => {
@@ -54,35 +71,34 @@ export default function Map() {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
-        console.log(errorMsg)
+        console.log(errorMsg);
         return;
-      };
+      }
       if (status == "granted") {
         setTargetClicked(true);
-      }      
-    };  
+      }
+    };
 
     getLocationPermission();
 
-      
     // 3. Get specific city data by using coordinates data
 
-      // search form submitted do this
-      // let address = await Location.reverseGeocodeAsync(region.coords);
-      // console.log("ADDRESS", address);
+    // search form submitted do this
+    // let address = await Location.reverseGeocodeAsync(region.coords);
+    // console.log("ADDRESS", address);
 
-      // if (location) {
-      //   let latitude = location.coords.latitude;
-      //   let longitude = location.coords.longitude;
+    // if (location) {
+    //   let latitude = location.coords.latitude;
+    //   let longitude = location.coords.longitude;
 
-      //   let regionName = await Location.reverseGeocodeAsync({
-      //     longitude,
-      //     latitude,
-      //   });
-      //   setAddress(regionName[0]);
-      //   console.log("REGIONNAME", address);
-      //   console.log(regionName, "nothing");
-      // }
+    //   let regionName = await Location.reverseGeocodeAsync({
+    //     longitude,
+    //     latitude,
+    //   });
+    //   setAddress(regionName[0]);
+    //   console.log("REGIONNAME", address);
+    //   console.log(regionName, "nothing");
+    // }
     // })();
   }, []);
 
@@ -121,7 +137,6 @@ export default function Map() {
     })();
   }, []);
 
-  
   let text = "Waiting..";
   if (errorMsg) {
     text = errorMsg;
@@ -135,7 +150,7 @@ export default function Map() {
     longitudeDelta: 0.01,
   });
 
-  // because of Typescript, need to set type to not null. Maybe use useEffect?
+  // because of Typescript, need to set type to not null.
   const mapRef = useRef(null);
   const vancouverArea = {
     latitude: 49.2827,
@@ -147,14 +162,13 @@ export default function Map() {
   // this function below works even though shows error
   const goToVancouver = () => {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
-    mapRef.current.animateToRegion(vancouverArea, 3 * 1000);    
+    mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
   };
 
   return (
     <View style={styles.container}>
-
       <GooglePlacesAutocomplete
-        placeholder='Search'
+        placeholder="Search"
         fetchDetails={true}
         GooglePlacesSearchQuery={{
           rankby: "distance",
@@ -163,25 +177,42 @@ export default function Map() {
           // 'details' is provided when fetchDetails = true
           // console.log(data, details)
           // console.log("REGION", regionGoogleMap)
-          console.log("SearchLocationCoords", details.geometry.location.lat, details.geometry.location.lng,)
+          console.log(
+            "SearchLocationCoords",
+            details.geometry.location.lat,
+            details.geometry.location.lng
+          );
+          // coordinates for selected location
+          let searchDestination = {
+            latitude: details.geometry.location.lat,
+            longitude: details.geometry.location.lng,
+          };
+          // Trying to test animating to clicked on location
+          // mapRef.current.animateToRegion(searchDestination, 3 * 1000);
           setRegionGoogleMap({
             latitude: details.geometry.location.lat,
             longitude: details.geometry.location.lng,
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
-          })          
+          });
         }}
         query={{
           key: googleKey,
-          language: 'en',
+          language: "en",
           components: "country:us",
           types: "establishment",
           radius: 30000,
-          location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`
+          location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
         }}
         styles={{
-          container: { flex: 1, position: "absolute", top:10, width: "80%", zIndex: 1},
-          listView: {backgroundColor: "white" }
+          container: {
+            flex: 1,
+            position: "absolute",
+            top: 10,
+            width: "80%",
+            zIndex: 1,
+          },
+          listView: { backgroundColor: "white" },
         }}
       />
 
@@ -201,48 +232,50 @@ export default function Map() {
         onRegionChangeComplete={(region) => setRegion(region)}
       >
         <Marker
-          coordinate={{latitude: regionGoogleMap.latitude, longitude: regionGoogleMap.longitude}}
+          coordinate={{
+            latitude: regionGoogleMap.latitude,
+            longitude: regionGoogleMap.longitude,
+          }}
         />
-        <Marker 
+        <Marker
           coordinate={pin}
           pinColor="blue"
           draggable={true}
-          onDragStart={(e) => {console.log("Drag Start", e.nativeEvent.coordinate)}}
+          onDragStart={(e) => {
+            console.log("Drag Start", e.nativeEvent.coordinate);
+          }}
           onDragEnd={(e) => {
             setPin({
               latitude: e.nativeEvent.coordinate.latitude,
-              longitude: e.nativeEvent.coordinate.longitude
-            })
-          }}          
+              longitude: e.nativeEvent.coordinate.longitude,
+            });
+          }}
         >
           <Callout>
             <Text>I'm here!</Text>
           </Callout>
         </Marker>
-        <Polygon coordinates={
-          [
+        <Polygon
+          coordinates={[
             {
               latitude: 37.78825,
-              longitude: -122.4324
+              longitude: -122.4324,
             },
             {
               latitude: 37.79825,
-              longitude: -122.5324
+              longitude: -122.5324,
             },
             {
               latitude: 37.88825,
-              longitude: -122.4324
+              longitude: -122.4324,
             },
             {
               latitude: 37.8825,
-              longitude: -122.4324
+              longitude: -122.4324,
             },
-          ]
-        }        
-        fillColor="rgba(207, 47, 116, 0.5)"        
-        >
-
-        </Polygon>
+          ]}
+          fillColor="rgba(207, 47, 116, 0.5)"
+        ></Polygon>
       </MapView>
 
       <View style={styles.data}>
@@ -251,12 +284,11 @@ export default function Map() {
           // style={}
           onPress={() => goToVancouver()}
           title="Go to Vancouver"
-        />        
+        />
         {/* Display user's current region */}
         <Text style={styles.text}>Current latitude: {region.latitude}</Text>
         <Text style={styles.text}>Current longitude: {region.longitude}</Text>
       </View>
-     
     </View>
   );
 }
@@ -264,26 +296,26 @@ export default function Map() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FFF",    
+    backgroundColor: "#FFF",
     ...StyleSheet.absoluteFillObject,
   },
   text: {
     fontSize: 18,
-    backgroundColor: "rgba(12,45,34,.07)"    
+    backgroundColor: "rgba(12,45,34,.07)",
   },
   map: {
     flex: 1,
     width: Dimensions.get("window").width,
     height: Dimensions.get("window").height,
-    ...StyleSheet.absoluteFillObject 
+    ...StyleSheet.absoluteFillObject,
   },
   button: {
-    alignItems: "flex-end"    
+    alignItems: "flex-end",
   },
   data: {
     flex: 0,
-    justifyContent: 'flex-end',
-    alignItems: 'center',    
-    ...StyleSheet.absoluteFillObject    
-  }
+    justifyContent: "flex-end",
+    alignItems: "center",
+    ...StyleSheet.absoluteFillObject,
+  },
 });
