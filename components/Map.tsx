@@ -14,8 +14,9 @@ import {
   Dimensions,
   TouchableOpacity,
   Image,
+  TextInput,
 } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 import * as Location from "expo-location";
 
 // Google places api
@@ -23,7 +24,9 @@ const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export default function Map() {
   // expo location package
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState({
+    destination: "",
+  });
   const [errorMsg, setErrorMsg] = useState(null);
   const [address, setAddress] = useState(null);
   const [getLocation, setGetLocation] = useState(null);
@@ -152,6 +155,7 @@ export default function Map() {
 
   // because of Typescript, need to set type to not null.
   const mapRef = useRef(null);
+  const googlePlacesAutoCompleteRef = useRef(null);
   const vancouverArea = {
     latitude: 49.2827,
     longitude: -123.1207,
@@ -167,6 +171,7 @@ export default function Map() {
   return (
     <View style={styles.container}>
       <GooglePlacesAutocomplete
+        ref={googlePlacesAutoCompleteRef}
         placeholder="Search"
         fetchDetails={true}
         GooglePlacesSearchQuery={{
@@ -189,7 +194,7 @@ export default function Map() {
             details.geometry.location.lng
           );
           // coordinates for selected location
-          let searchDestination = {
+          const searchDestination = {
             latitude: details.geometry.location.lat,
             longitude: details.geometry.location.lng,
             latitudeDelta: 0.0922,
@@ -197,6 +202,8 @@ export default function Map() {
           };
           // Animating to selected location
           mapRef.current.animateToRegion(searchDestination, 3 * 1000);
+          // mapRef.setAdd
+          // this.GooglePlacesAutocomplete.setAddressText("");
         }}
         query={{
           key: googleKey,
@@ -206,6 +213,28 @@ export default function Map() {
           radius: 30000,
           location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
         }}
+        //Clearing Text Input, will only show up when typing
+        renderRightButton={() =>
+          googlePlacesAutoCompleteRef.current?.getAddressText() ? (
+            <TouchableOpacity
+              // style={styles.clearButton}
+              onPress={() => {
+                googlePlacesAutoCompleteRef.current?.setAddressText("");
+              }}
+            >
+              <AntDesign
+                //white background, white circle X
+                // gonna Search how to implement how to add button inside Search Bar
+                // name={"closecircleo"}
+                // black background, black circle X
+                name={"closecircle"}
+                color={"black"}
+                size={20}
+                style={styles.clearButton}
+              />
+            </TouchableOpacity>
+          ) : null
+        }
         styles={{
           container: {
             flex: 1,
@@ -279,7 +308,6 @@ export default function Map() {
           fillColor="rgba(207, 47, 116, 0.5)"
         ></Polygon>
       </MapView>
-
       <View style={styles.data}>
         <Text>EXPO LOCATION OUTPUT: {text}</Text>
         <Button
@@ -319,5 +347,9 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
     ...StyleSheet.absoluteFillObject,
+  },
+  clearButton: {
+    paddingLeft: 5,
+    paddingTop: 10,
   },
 });
