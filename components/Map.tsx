@@ -202,8 +202,6 @@ export default function Map() {
           };
           // Animating to selected location
           mapRef.current.animateToRegion(searchDestination, 3 * 1000);
-          // mapRef.setAdd
-          // this.GooglePlacesAutocomplete.setAddressText("");
         }}
         query={{
           key: googleKey,
@@ -230,6 +228,7 @@ export default function Map() {
                 //white background, white circle X
                 // gonna Search how to implement how to add button inside Search Bar
                 // name={"closecircleo"}
+
                 // black background, black circle X
                 name={"closecircle"}
                 color={"black"}
