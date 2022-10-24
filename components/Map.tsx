@@ -221,6 +221,7 @@ export default function Map() {
               onPress={() => {
                 // Clear button always shows after initial input
                 // googlePlacesAutoCompleteRef.current?.clear();
+
                 // Clear button disappears after clicking clear and clicking input field again
                 googlePlacesAutoCompleteRef.current?.setAddressText("");
               }}
