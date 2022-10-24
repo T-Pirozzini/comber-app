@@ -219,6 +219,10 @@ export default function Map() {
             <TouchableOpacity
               // style={styles.clearButton}
               onPress={() => {
+                // Clear button always shows after initial input
+                // googlePlacesAutoCompleteRef.current?.clear();
+
+                // Clear button disappears after clicking clear and clicking input field again
                 googlePlacesAutoCompleteRef.current?.setAddressText("");
               }}
             >
