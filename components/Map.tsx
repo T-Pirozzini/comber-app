@@ -1,21 +1,7 @@
 import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
-import MapView, {
-  Callout,
-  Marker,
-  Polygon,
-  PROVIDER_GOOGLE,
-} from "react-native-maps";
+import MapView, {  Callout,  Marker,  Polygon,  PROVIDER_GOOGLE,} from "react-native-maps";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import {
-  Button,
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TouchableOpacity,
-  Image,
-  TextInput,
-} from "react-native";
+import { Button,  View,  Text,  StyleSheet,  Dimensions,  TouchableOpacity,  Image,  TextInput,} from "react-native";
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 import * as Location from "expo-location";
 
@@ -170,13 +156,15 @@ export default function Map() {
   };
   return (
     <View style={styles.container}>
+
+      {/* Google Places Autocomplete Component       */}
       <GooglePlacesAutocomplete
         ref={googlePlacesAutoCompleteRef}
-        placeholder="Search"
-        fetchDetails={true}
+        placeholder="Enter a City"
+        fetchDetails={true}        
         GooglePlacesSearchQuery={{
           rankby: "distance",
-        }}
+        }}              
         onPress={(data, details = null) => {
           // Trying to test animating to clicked on location
           setRegionGoogleMap({
@@ -192,27 +180,37 @@ export default function Map() {
             "SearchLocationCoords",
             details.geometry.location.lat,
             details.geometry.location.lng
-          );
-          // coordinates for selected location
-          const searchDestination = {
-            latitude: details.geometry.location.lat,
-            longitude: details.geometry.location.lng,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          };
-          // Animating to selected location
-          mapRef.current.animateToRegion(searchDestination, 3 * 1000);
-        }}
-        query={{
-          key: googleKey,
-          language: "en",
-          components: "country:ca",
-          types: "establishment",
-          radius: 30000,
-          location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
-        }}
-        //Clearing Text Input, will only show up when typing
-        renderRightButton={() =>
+            );
+            // coordinates for selected location
+            const searchDestination = {
+              latitude: details.geometry.location.lat,
+              longitude: details.geometry.location.lng,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            };
+            // Animating to selected location
+            mapRef.current.animateToRegion(searchDestination, 3 * 1000);
+          }}
+          query={{
+            key: googleKey,
+            language: "en",
+            components: "country:ca",
+            types: "establishment",
+            radius: 30000,
+            location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
+          }}
+
+          // Search icon
+          renderLeftButton={()  => 
+            <MaterialIcons
+            name={'search'}
+            size={32}
+            color={'white'}
+            style={styles.searchIcon}           
+            />}
+
+            //Clearing Text Input, will only show up when typing
+          renderRightButton={() =>
           googlePlacesAutoCompleteRef.current?.getAddressText() ? (
             <TouchableOpacity
               // style={styles.clearButton}
@@ -231,13 +229,13 @@ export default function Map() {
 
                 // black background, black circle X
                 name={"closecircle"}
-                color={"black"}
+                color={"#7DD181"}
                 size={20}
                 style={styles.clearButton}
               />
             </TouchableOpacity>
           ) : null
-        }
+        }        
         styles={{
           container: {
             flex: 1,
@@ -245,11 +243,30 @@ export default function Map() {
             top: 10,
             width: "80%",
             zIndex: 1,
+            backgroundColor: 'rgba(3, 25, 38, .8)',
+            margin: 5,
+            marginTop: 0,
+            borderRadius: 10,
           },
-          listView: { backgroundColor: "white" },
+          textInputContainer: {            
+            padding: 5,
+            paddingBottom: 1,                        
+          },
+          textInput: {
+            height: 38,
+            color: '#5d5d5d',
+            fontSize: 20,                               
+          },          
+          description: {
+            color: 'white',
+            fontSize: 16,            
+          },
+          row: {
+            backgroundColor: 'rgba(3, 25, 38, .1)',
+          },          
         }}
-      />
-
+      />  
+        
       <MapView
         provider={PROVIDER_GOOGLE}
         showsCompass={true}
@@ -355,4 +372,12 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     paddingTop: 10,
   },
+  tinylogo: {
+    width: 40,
+    height: 20,
+  },
+  searchIcon: {
+    marginTop: 3,    
+  }
+  
 });
