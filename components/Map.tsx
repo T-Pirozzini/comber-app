@@ -170,9 +170,10 @@ export default function Map() {
   };
   return (
     <View style={styles.container}>
+      {/* Google Places Autocomplete Component       */}
       <GooglePlacesAutocomplete
         ref={googlePlacesAutoCompleteRef}
-        placeholder="Search"
+        placeholder="Enter a City"
         fetchDetails={true}
         GooglePlacesSearchQuery={{
           rankby: "distance",
@@ -207,7 +208,7 @@ export default function Map() {
           key: googleKey,
           language: "en",
           components: "country:ca",
-          types: "locality",
+          types: "establishment",
           radius: 30000,
           location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
         }}
@@ -231,13 +232,22 @@ export default function Map() {
                 // name={"closecircleo"}
                 // black background, black circle X
                 name={"closecircle"}
-                color={"black"}
+                color={"#7DD181"}
                 size={20}
                 style={styles.clearButton}
               />
             </TouchableOpacity>
           ) : null
         }
+        // Search icon
+        renderLeftButton={() => (
+          <MaterialIcons
+            name={"search"}
+            size={32}
+            color={"white"}
+            style={styles.searchIcon}
+          />
+        )}
         styles={{
           container: {
             flex: 1,
@@ -245,8 +255,27 @@ export default function Map() {
             top: 10,
             width: "80%",
             zIndex: 1,
+            backgroundColor: "rgba(3, 25, 38, .8)",
+            margin: 5,
+            marginTop: 0,
+            borderRadius: 10,
           },
-          listView: { backgroundColor: "white" },
+          textInputContainer: {
+            padding: 5,
+            paddingBottom: 1,
+          },
+          textInput: {
+            height: 38,
+            color: "#5d5d5d",
+            fontSize: 20,
+          },
+          description: {
+            color: "white",
+            fontSize: 16,
+          },
+          row: {
+            backgroundColor: "rgba(3, 25, 38, .1)",
+          },
         }}
       />
 
@@ -375,5 +404,12 @@ const styles = StyleSheet.create({
   clearButton: {
     paddingLeft: 5,
     paddingTop: 10,
+  },
+  tinylogo: {
+    width: 40,
+    height: 20,
+  },
+  searchIcon: {
+    marginTop: 3,
   },
 });
