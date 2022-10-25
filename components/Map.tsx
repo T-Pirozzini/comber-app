@@ -164,8 +164,7 @@ export default function Map() {
         fetchDetails={true}        
         GooglePlacesSearchQuery={{
           rankby: "distance",
-        }}
-        renderLeftButton={()  => <Image source={require('https://i.ya-webdesign.com/images/transparent-pin-google-2.png')} style={styles.tinylogo} />}
+        }}              
         onPress={(data, details = null) => {
           // Trying to test animating to clicked on location
           setRegionGoogleMap({
@@ -181,27 +180,37 @@ export default function Map() {
             "SearchLocationCoords",
             details.geometry.location.lat,
             details.geometry.location.lng
-          );
-          // coordinates for selected location
-          const searchDestination = {
-            latitude: details.geometry.location.lat,
-            longitude: details.geometry.location.lng,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          };
-          // Animating to selected location
-          mapRef.current.animateToRegion(searchDestination, 3 * 1000);
-        }}
-        query={{
-          key: googleKey,
-          language: "en",
-          components: "country:ca",
-          types: "establishment",
-          radius: 30000,
-          location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
-        }}
-        //Clearing Text Input, will only show up when typing
-        renderRightButton={() =>
+            );
+            // coordinates for selected location
+            const searchDestination = {
+              latitude: details.geometry.location.lat,
+              longitude: details.geometry.location.lng,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            };
+            // Animating to selected location
+            mapRef.current.animateToRegion(searchDestination, 3 * 1000);
+          }}
+          query={{
+            key: googleKey,
+            language: "en",
+            components: "country:ca",
+            types: "establishment",
+            radius: 30000,
+            location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
+          }}
+
+          // Search icon
+          renderLeftButton={()  => 
+            <MaterialIcons
+            name={'search'}
+            size={32}
+            color={'white'}
+            style={styles.searchIcon}           
+            />}
+
+            //Clearing Text Input, will only show up when typing
+          renderRightButton={() =>
           googlePlacesAutoCompleteRef.current?.getAddressText() ? (
             <TouchableOpacity
               // style={styles.clearButton}
@@ -226,7 +235,7 @@ export default function Map() {
               />
             </TouchableOpacity>
           ) : null
-        }
+        }        
         styles={{
           container: {
             flex: 1,
@@ -241,12 +250,12 @@ export default function Map() {
           },
           textInputContainer: {            
             padding: 5,
-            paddingBottom: 1,            
+            paddingBottom: 1,                        
           },
           textInput: {
             height: 38,
             color: '#5d5d5d',
-            fontSize: 20,                     
+            fontSize: 20,                               
           },          
           description: {
             color: 'white',
@@ -254,10 +263,7 @@ export default function Map() {
           },
           row: {
             backgroundColor: 'rgba(3, 25, 38, .1)',
-          },
-          powered: {
-
-          }     
+          },          
         }}
       />  
         
@@ -369,6 +375,9 @@ const styles = StyleSheet.create({
   tinylogo: {
     width: 40,
     height: 20,
+  },
+  searchIcon: {
+    marginTop: 3,    
   }
   
 });
