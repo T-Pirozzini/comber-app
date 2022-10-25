@@ -207,7 +207,7 @@ export default function Map() {
           key: googleKey,
           language: "en",
           components: "country:ca",
-          types: "establishment",
+          types: "locality",
           radius: 30000,
           location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
         }}
@@ -216,19 +216,19 @@ export default function Map() {
           googlePlacesAutoCompleteRef.current?.getAddressText() ? (
             <TouchableOpacity
               // style={styles.clearButton}
+
               onPress={() => {
                 // Clear button always shows after initial input
                 // googlePlacesAutoCompleteRef.current?.clear();
-
+                // setEx(false);
                 // Clear button disappears after clicking clear and clicking input field again
-                googlePlacesAutoCompleteRef.current?.setAddressText("");
+                // googlePlacesAutoCompleteRef.current?.setAddressText("");
               }}
             >
               <AntDesign
                 //white background, white circle X
-                // gonna Search how to implement how to add button inside Search Bar
+                // gonna Search how to implement how to add button inside Search Bar (not sure if possible)
                 // name={"closecircleo"}
-
                 // black background, black circle X
                 name={"closecircle"}
                 color={"black"}
@@ -307,6 +307,27 @@ export default function Map() {
               latitude: 37.8825,
               longitude: -122.4324,
             },
+          ]}
+          fillColor="rgba(207, 47, 116, 0.5)"
+        ></Polygon>
+        <Polygon
+          coordinates={[
+            {
+              latitude: 49.1527,
+              longitude: -124.0712,
+            },
+            {
+              latitude: 49.1525,
+              longitude: -124.0554,
+            },
+            // {
+            //   latitude: 50.25,
+            //   longitude: -124.65,
+            // },
+            // {
+            //   latitude: 49.15,
+            //   longitude: -124.07,
+            // },
           ]}
           fillColor="rgba(207, 47, 116, 0.5)"
         ></Polygon>
