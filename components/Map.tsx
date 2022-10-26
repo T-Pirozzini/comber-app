@@ -23,6 +23,7 @@ import * as Location from "expo-location";
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export default function Map() {
+  
   // expo location package
   const [location, setLocation] = useState({
     destination: "",
@@ -298,8 +299,11 @@ export default function Map() {
           coordinate={{
             latitude: regionGoogleMap.latitude,
             longitude: regionGoogleMap.longitude,
-          }}
-        />
+          }}>
+          <Callout>
+            <Text>I'm Here!!</Text>
+          </Callout>
+        </Marker>
         <Marker
           coordinate={pin}
           pinColor="blue"
@@ -315,7 +319,7 @@ export default function Map() {
           }}
         >
           <Callout>
-            <Text>I'm here!</Text>
+            <Text>I'm here!!!!!!</Text>
           </Callout>
         </Marker>
         <Polygon

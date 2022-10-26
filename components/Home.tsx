@@ -3,13 +3,15 @@ import { Button, View, Text, StyleSheet } from "react-native";
 import Header from "./Header";
 import Footer from "./Footer";
 import LocationSearchHome from "./LocationSearchHome";
+import Tide from "./Tide"
 
 export default function Home() {
   return (
     <View style={styles.container}>
       {/* <Header /> */}
       <Text>This is the Home Page.</Text>
-      <LocationSearchHome />      
+      <LocationSearchHome />
+      <Tide />      
       {/* <Footer /> */}
     </View>
   );
