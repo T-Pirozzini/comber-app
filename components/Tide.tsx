@@ -5,7 +5,10 @@ export default function Tide() {
 
   const [locations, setLocations] = useState('')
   const [currentStationId, setCurrentStationId] = useState("5cebf1df3d0f4a073c4bbbf3")
-  const [station, setStation] = useState("none")
+  const [stationName, setStationName] = useState("none")
+  const [stationLat, setStationLat] = useState("none")
+  const [stationLng, setStationLng] = useState("none")
+  const [waveHeight, setWaveHeight] = useState("none")
 
   const getTideStationInfo = async () => {
     try {
@@ -21,7 +24,10 @@ export default function Tide() {
           console.log("LATITUDE",json[i].latitude)
           console.log("LONGITIDUE",json[i].longitude)
           
-          setCurrentStationId(`${json[i].id}`)
+          setCurrentStationId(json[i].id)
+          setStationName(json[i].officialName)
+          setStationLat(json[i].latitude)
+          setStationLng(json[i].longitude)
         }
       }    
       // return json;
@@ -43,7 +49,8 @@ export default function Tide() {
         if (tideData[i].stationId == currentStationId) {
           // console.log("MATCH!!!!")
           // console.log("stationids2", tideData[i].stationId)
-          console.log("CURRENT WAVE HEIGHT", tideData[i].measurementPublicDTOs[i].value)            
+          console.log("CURRENT WAVE HEIGHT", tideData[i].measurementPublicDTOs[i].value)
+          setWaveHeight(tideData[i].measurementPublicDTOs[i].value)            
         }            
         // for (let j = 0; j < tideData[i].stationId.length; j++) {
         //   console.log("WAVE HEIGHT", tideData[i].measurementPublicDTOs[j].value) 
@@ -66,15 +73,15 @@ export default function Tide() {
         title="Wave-Height-Info"
         onPress={getWaveHeightInfo}
       />
-      <View>
-          {/* {locations.map((location) => {
-            return (
-              <View>
-                <Text>{location.name}</Text>
-              </View>
-            );
-          })} */}
-        </View>
+      <Text>
+        {"STATION NAME: " + stationName}
+        {"\n"}
+        {"STATION LAT: " + stationLat}
+        {"\n"}
+        {"STATION LNG: " + stationLng}
+        {"\n"}
+        {"STATION CURRENT WAVE HEIGHT: " + waveHeight}
+      </Text>
       
     </View>
     
