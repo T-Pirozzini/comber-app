@@ -374,8 +374,9 @@ export default function Map() {
         />
         {/* Display user's current region */}
         <Text style={styles.text}>Current latitude: {region.latitude}</Text>
-        <Text style={styles.text}>Current longitude: {region.longitude}</Text>
+        <Text style={styles.text}>Current longitude: {region.longitude}</Text>        
       </View>
+      
     </View>
   );
 }

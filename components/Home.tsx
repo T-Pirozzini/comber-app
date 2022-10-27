@@ -4,6 +4,7 @@ import Header from "./Header";
 import Footer from "./Footer";
 import LocationSearchHome from "./LocationSearchHome";
 import Tide from "./Tide"
+import Weather from "./Weather";
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
       {/* <Header /> */}
       <Text>This is the Home Page.</Text>
       <LocationSearchHome />
-      <Tide />      
+      <Tide />
+      <Weather />      
       {/* <Footer /> */}
     </View>
   );
