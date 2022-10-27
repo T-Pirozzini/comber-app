@@ -144,7 +144,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Butter Clam</Card.Title>
-            <Text>Max: 25</Text>
+            <Text>Max: 20</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -202,7 +202,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Geoduck</Card.Title>
-            <Text>Max: 25</Text>
+            <Text>Max: 3</Text>
           </View>
           <Card.Divider />
           <Card.Image
