@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { Button, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { Button, SpeedDial } from "@rneui/themed";
 
 export default function Tide() {
+  
+  const [open, setOpen] = useState(false)
   
   const [currentStationId, setCurrentStationId] = useState("")
   const [stationName, setStationName] = useState("")
@@ -69,20 +72,59 @@ export default function Tide() {
         title="tide-Station-Info"
         onPress={getTideStationInfo}
       />
-      <Text>
+      {/* <Text>
         {"STATION NAME: " + stationName}
         {"\n"}
         {"STATION LAT: " + stationLat}
         {"\n"}
         {"STATION LNG: " + stationLng}        
-      </Text>
+      </Text> */}
       <Button
         title="Wave-Height-Info"
         onPress={getWaveHeightInfo}
       />
-       <Text>       
+       {/* <Text>       
         {"STATION CURRENT WAVE HEIGHT: " + waveHeight}
-      </Text>      
+      </Text> */}
+
+      <SpeedDial
+        isOpen={open}
+        icon={{ name: 'waves', type: "material-community", color: '#B74F6F' }}
+        openIcon={{ name: 'close', color: '#B74F6F' }}
+        onOpen={() => setOpen(!open)}
+        onClose={() => setOpen(!open)}
+        overlayColor="rgba(235, 213, 211, 0.0)" // make overlay transparent
+        color="#031926"  
+      >
+        <SpeedDial.Action
+          icon={{ name: 'location', type: 'entypo', color: '#7DD181' }}
+          title={"Station: " + stationName}
+          onPress={() => console.log('Add Something')}
+          color="#fff"
+          containerStyle={{margin: 8}}           
+        />        
+        <SpeedDial.Action
+          icon={{name: 'latitude', type: "material-community", color: '#7DD181' }}
+          title={"Latitude: " + stationLat}
+          onPress={() => console.log('Delete Something')}
+          color="#fff"
+          containerStyle={{margin: 8}}
+        />    
+        <SpeedDial.Action
+          icon={{name: 'longitude', type: "material-community", color: '#7DD181' }}
+          title={"Longitude: " + stationLng}
+          onPress={() => console.log('Delete Something')}
+          color="#fff"
+          containerStyle={{margin: 8}}
+        />   
+        <SpeedDial.Action
+          icon={{name: 'waves-arrow-up', type: "material-community", color: '#7DD181' }}
+          title={"Wave Height: " + waveHeight}
+          onPress={() => console.log('Delete Something')}
+          color="#fff"
+          containerStyle={{margin: 8}}
+        />     
+      </SpeedDial>            
     </View>    
   )
 }
