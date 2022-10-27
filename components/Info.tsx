@@ -150,12 +150,73 @@ export default function Info() {
           <Card.Image
             style={{ padding: 0 }}
             source={{
-              uri: "https://www.pac.dhttps://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/butterclam.jpgfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/blue-mussel-moule-bleue.jpg",
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/butterclam.jpg",
             }}
           />
           <Text style={{ marginBottom: 10 }}>
             Large, thick-shelled with well developed concentric ridges but no
             radial lines.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Geoduck Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Geoduck</Card.Title>
+            <Text>Max: 25</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/geoduck.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Geoduck clams are bivalves, and have two shells that are white and
+            somewhat rectangular in shape. Geoduck clams are the largest
+            burrowing clams in the world, with a shell length that can exceed 20
+            centimetres. They generally weigh between 0.5 and 1.5 kilograms,
+            but, occasionally, grow as large as 3 kilograms.
           </Text>
           <View style={styles.button}>
             <Button
