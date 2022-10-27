@@ -35,9 +35,11 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris.
+            Thin, oval shell with irregular reddish or greenish upper surface.
+            Shell sometimes marked with blue or white. Often encrusted with
+            organisms. Iridescent white shell interior with faint pink and green
+            sheen. Series of three to six raised holes to allow water currents
+            to pass over gills.
           </Text>
           <View style={styles.button}>
             <Button
@@ -94,9 +96,127 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris.
+            Bluish-black shell, distinctive “D” or flattened teardrop shape.
+            Pearly violet or white shell interior.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Butter Clam Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Butter Clam</Card.Title>
+            <Text>Max: 20</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/butterclam.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Large, thick-shelled with well developed concentric ridges but no
+            radial lines.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Geoduck Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Geoduck</Card.Title>
+            <Text>Max: 3</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/geoduck.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Geoduck clams are bivalves, and have two shells that are white and
+            somewhat rectangular in shape. Geoduck clams are the largest
+            burrowing clams in the world, with a shell length that can exceed 20
+            centimetres. They generally weigh between 0.5 and 1.5 kilograms,
+            but, occasionally, grow as large as 3 kilograms.
           </Text>
           <View style={styles.button}>
             <Button
