@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Button, View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+import { Card, ListItem, Button, Icon, SpeedDial } from "@rneui/themed";
 
 // Open weather api
 const weatherKey = process.env.REACT_APP_WEATHER_API_KEY
@@ -12,6 +13,7 @@ export default function Weather() {
     humidity: "",
     desc: "",    
   })
+  const [open, setOpen] = useState(false)
   
   const getWeather = () => {
     // api endpoint for getting weather info by coords
@@ -35,7 +37,35 @@ export default function Weather() {
       <Text>City: {info.city}</Text>
       <Text>Temperature: {info.temp}</Text>
       <Text>Humidity: {info.humidity}</Text>
-      <Text>Description: {info.desc}</Text>      
+      <Text>Description: {info.desc}</Text>
+      <SpeedDial
+        isOpen={open}
+        icon={{ name: 'sun-o', type: "font-awesome", color: '#fff' }}
+        openIcon={{ name: 'close', color: '#fff' }}
+        onOpen={() => setOpen(!open)}
+        onClose={() => setOpen(!open)}
+      >
+        <SpeedDial.Action
+          icon={{ name: 'home-city', type: 'material-community', color: '#fff' }}
+          title="City"
+          onPress={() => console.log('Add Something')}
+        />        
+        <SpeedDial.Action
+          icon={{name: 'thermometer', type: "font-awesome", color: '#fff' }}
+          title="Temp"
+          onPress={() => console.log('Delete Something')}
+        />    
+        <SpeedDial.Action
+          icon={{name: 'drop', type: "entypo", color: '#fff' }}
+          title="Humidity"
+          onPress={() => console.log('Delete Something')}
+        />   
+        <SpeedDial.Action
+          icon={{name: 'sun', type: "feather", color: '#fff' }}
+          title="Description"
+          onPress={() => console.log('Delete Something')}
+        />     
+      </SpeedDial>      
     </View>    
   )
 }
