@@ -40,30 +40,37 @@ export default function Weather() {
       <Text>Description: {info.desc}</Text>
       <SpeedDial
         isOpen={open}
-        icon={{ name: 'sun-o', type: "font-awesome", color: '#fff' }}
-        openIcon={{ name: 'close', color: '#fff' }}
+        icon={{ name: 'sun-o', type: "font-awesome", color: '#B74F6F' }}
+        openIcon={{ name: 'close', color: '#B74F6F' }}
         onOpen={() => setOpen(!open)}
         onClose={() => setOpen(!open)}
+        overlayColor="rgba(235, 213, 211, 0.0)" // make overlay transparent
+        color="#031926"   
+        containerStyle={{}}     
       >
         <SpeedDial.Action
-          icon={{ name: 'home-city', type: 'material-community', color: '#fff' }}
+          icon={{ name: 'home-city', type: 'material-community', color: '#7DD181' }}
           title="City"
           onPress={() => console.log('Add Something')}
+          color="#fff"          
         />        
         <SpeedDial.Action
-          icon={{name: 'thermometer', type: "font-awesome", color: '#fff' }}
+          icon={{name: 'thermometer', type: "font-awesome", color: '#7DD181' }}
           title="Temp"
           onPress={() => console.log('Delete Something')}
+          color="#fff"
         />    
         <SpeedDial.Action
-          icon={{name: 'drop', type: "entypo", color: '#fff' }}
+          icon={{name: 'drop', type: "entypo", color: '#7DD181' }}
           title="Humidity"
           onPress={() => console.log('Delete Something')}
+          color="#fff"
         />   
         <SpeedDial.Action
-          icon={{name: 'sun', type: "feather", color: '#fff' }}
+          icon={{name: 'sun', type: "feather", color: '#7DD181' }}
           title="Description"
           onPress={() => console.log('Delete Something')}
+          color="#fff"
         />     
       </SpeedDial>      
     </View>    
