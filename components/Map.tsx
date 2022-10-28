@@ -410,7 +410,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   weather: {
-    flex: 1,    
+    flex: 1,   
   },
   clearButton: {
     paddingLeft: 5,
