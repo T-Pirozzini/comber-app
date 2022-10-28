@@ -253,6 +253,64 @@ export default function Info() {
             />
           </View>
         </Card>
+
+        {/* Littleneck Clam Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Littleneck Clam</Card.Title>
+            <Text>Max: 3</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/littleneck_clam-palourde_pacifique.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lines up and across outer shell surface, round, white shell
+            interior.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
       </ScrollView>
     </View>
   );
