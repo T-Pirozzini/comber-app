@@ -8,7 +8,7 @@ const weatherKey = process.env.REACT_APP_WEATHER_API_KEY
 
 export default function Weather({city}) {
 
-  const [currentCity, setCurrentCity] = useState("")
+  const [currentCity, setCurrentCity] = useState("nanaimo")
   const [open, setOpen] = useState(false)
   const [info, setInfo] = useState({
     city: "",
@@ -17,7 +17,7 @@ export default function Weather({city}) {
     desc: "",    
   })  
   
-  useEffect(() => {   
+  useEffect(() => {      
     getWeather()  
   }, [city])
   
@@ -34,8 +34,9 @@ export default function Weather({city}) {
       temp: results.main.temp,
       humidity: results.main.humidity,
       desc: results.weather[0].description,      
+    })    
     })
-    })
+    .catch(error => alert("Sorry, that city is not in our weather database. Try another city near by for weather information."))
   }
 
   return (    

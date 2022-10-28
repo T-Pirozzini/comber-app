@@ -28,7 +28,7 @@ export default function Map() {
 
   // sets the current city and coords to what is submitted in the search bar
   const [searchInput, setSearchInput] = useState({
-    locality: "",
+    locality: "nanaimo",
     lat: 0,
     lng: 0,
   })
