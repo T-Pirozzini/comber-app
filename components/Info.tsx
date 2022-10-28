@@ -35,7 +35,7 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Thin, oval shell with irregular reddish or greenish upper surface.
+            Thin, oval shell with irregular reddish or greenish upper surface.                       
             Shell sometimes marked with blue or white. Often encrusted with
             organisms. Iridescent white shell interior with faint pink and green
             sheen. Series of three to six raised holes to allow water currents
@@ -1251,9 +1251,9 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Coonstripe shrimp: Red-brown. Irregular brown and white oblique
             lines on shell and abdomen. Found in shallow water on or near
-            pilings and floats. <br />
+            pilings and floats. {"\n"} 
             Humpback shrimp: Red-tan. Dark red and bright white markings. Found
-            on soft or hard bottom. <br />
+            on soft or hard bottom. {"\n"} 
             Pink shrimp: Uniform translucent red. Live on soft bottom.
           </Text>
           <View style={styles.button}>
@@ -1313,10 +1313,10 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Opal squid: Pale lavender. Size: up to 13 cm in B.C. Found in
             inshore waters. Often gather in large schools to spawn in shallow
-            water. <br />
+            water. {"\n"} 
             Neon flying squid: Mauve on upper surface, silvery or gold below.
             Tentacle sucker rings have 4 large teeth with many smaller teeth
-            between. Size: up to 100 cm, 5 kg. <br />
+            between. Size: up to 100 cm, 5 kg. {"\n"} 
             Humboldt squid: Brown or red. Size: up to 200 cm, 45 kg
           </Text>
           <View style={styles.button}>
