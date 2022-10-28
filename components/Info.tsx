@@ -86,7 +86,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Blue Mussels</Card.Title>
-            <Text>Max: 25</Text>
+            <Text>Max: 75</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -98,6 +98,69 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Bluish-black shell, distinctive “D” or flattened teardrop shape.
             Pearly violet or white shell interior.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* California Mussels Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>California Mussels</Card.Title>
+            <Text>Max: 25</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://nathistoc.bio.uci.edu/Molluscs/Mytilus.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </Text>
           <View style={styles.button}>
             <Button
@@ -254,6 +317,69 @@ export default function Info() {
           </View>
         </Card>
 
+        {/* Horse Clam Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Horse Clam</Card.Title>
+            <Text>Max: 6</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://wdfw.wa.gov/sites/default/files/styles/half_width_slide/public/2020-02/horse_clam_4.jpg?itok=myZ0qXQV",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
         {/* Littleneck Clam Card */}
         <Card>
           <View
@@ -263,7 +389,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Littleneck Clam</Card.Title>
-            <Text>Max: 3</Text>
+            <Text>Max: 60</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -321,7 +447,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Manila Clam</Card.Title>
-            <Text>Max: 3</Text>
+            <Text>Max: 60</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -333,6 +459,132 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Lines up and across outer shell surface, elongated, purple shell
             interior.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Softshell Clam Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Softshell Clam</Card.Title>
+            <Text>Max: 25</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://static.wixstatic.com/media/9082a3_be15e72c86e841619554ba0c9c448c0f~mv2.jpg/v1/fill/w_640,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9082a3_be15e72c86e841619554ba0c9c448c0f~mv2.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Cockle Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Cockle</Card.Title>
+            <Text>Max: 25</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.dfw.state.or.us/mrp/shellfish/bayclams/images/cockle_out_ODFW.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
           </Text>
           <View style={styles.button}>
             <Button
@@ -438,7 +690,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Pacific Oyster</Card.Title>
-            <Text>Max: 0</Text>
+            <Text>Max: 12</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -489,6 +741,321 @@ export default function Info() {
           </View>
         </Card>
 
+        {/* Pink and Spiny Scallop Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Pink and Spiny Scallop</Card.Title>
+            <Text>Max: 75</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.centralcoastbiodiversity.org/uploads/1/4/9/9/14993002/1722928_orig.png",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Rock Scallop Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Rock Scallop</Card.Title>
+            <Text>Max: 6</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.centralcoastbiodiversity.org/uploads/1/4/9/9/14993002/6579911_orig.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Weathervane Scallop Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Weathervane Scallop</Card.Title>
+            <Text>Max: 6</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://i0.wp.com/robinbarefield.com/wp-content/uploads/2021/07/Weathervane-1.jpg?fit=259%2C194",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Moon Snail Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Moon Snail</Card.Title>
+            <Text>Max: 2</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.yournec.org/wp-content/uploads/2020/07/The-charismatic-Moon-Snail-on-the-move.-Photo-by-Casey-Cruikshank-scaled.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Snail Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Snail</Card.Title>
+            <Text>Max: 75</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Snail.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
         {/* Razor Clam Card */}
         <Card>
           <View
@@ -498,7 +1065,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Razor Clam</Card.Title>
-            <Text>Max: 3</Text>
+            <Text>Max: 12</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -555,7 +1122,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Varnish Clam</Card.Title>
-            <Text>Max: 0</Text>
+            <Text>Max: 60</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -567,6 +1134,190 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Shiny brown covering on outer shell surface, round, large external
             ligament at hinge.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Prawn Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Prawn</Card.Title>
+            <Text>Max: 125</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/spotprawn.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Red. White horizontal bars on shell, at least two pairs of white
+            spots on abdomen. Found in rocky areas. Largest shrimp in B.C., up
+            to 25 cm.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Shrimp Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Shrimp</Card.Title>
+            <Text>Max: 0</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/coonstripeshrimp.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Coonstripe shrimp: Red-brown. Irregular brown and white oblique
+            lines on shell and abdomen. Found in shallow water on or near
+            pilings and floats. <br />
+            Humpback shrimp: Red-tan. Dark red and bright white markings. Found
+            on soft or hard bottom. <br />
+            Pink shrimp: Uniform translucent red. Live on soft bottom.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Squid Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Squid</Card.Title>
+            <Text>Max: 20</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/opal-squid.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Opal squid: Pale lavender. Size: up to 13 cm in B.C. Found in
+            inshore waters. Often gather in large schools to spawn in shallow
+            water. <br />
+            Neon flying squid: Mauve on upper surface, silvery or gold below.
+            Tentacle sucker rings have 4 large teeth with many smaller teeth
+            between. Size: up to 100 cm, 5 kg. <br />
+            Humboldt squid: Brown or red. Size: up to 200 cm, 45 kg
           </Text>
           <View style={styles.button}>
             <Button
