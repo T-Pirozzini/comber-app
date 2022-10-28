@@ -18,11 +18,20 @@ import {
 } from "react-native";
 import { MaterialIcons, AntDesign } from "@expo/vector-icons";
 import * as Location from "expo-location";
+import Tide from "./Tide"
+import Weather from "./Weather"
 
 // Google places api
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export default function Map() {
+
+  // sets the current city and coords to what is submitted in the search bar
+  const [searchInput, setSearchInput] = useState({
+    locality: "nanaimo",
+    lat: 0,
+    lng: 0,
+  })
   
   // expo location package
   const [location, setLocation] = useState({
@@ -187,14 +196,12 @@ export default function Map() {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           });
-          // 'details' is provided when fetchDetails = true
-          // console.log(data, details)
-          // console.log("REGION", regionGoogleMap)
-          console.log(
-            "SearchLocationCoords",
-            details.geometry.location.lat,
-            details.geometry.location.lng
-          );
+          // set city and coords for search submitted          
+          setSearchInput({
+            locality: data.description.split(",")[0].toLowerCase(),
+            lat: details.geometry.location.lat,
+            lng: details.geometry.location.lng,
+          })              
           // coordinates for selected location
           const searchDestination = {
             latitude: details.geometry.location.lat,
@@ -203,13 +210,13 @@ export default function Map() {
             longitudeDelta: 0.0421,
           };
           // Animating to selected location
-          mapRef.current.animateToRegion(searchDestination, 3 * 1000);
+          mapRef.current.animateToRegion(searchDestination, 3 * 1000);          
         }}
         query={{
           key: googleKey,
           language: "en",
           components: "country:ca",
-          types: "establishment",
+          types: "locality",
           radius: 30000,
           location: `${regionGoogleMap.latitude}, ${regionGoogleMap.longitude}`,
         }}
@@ -221,7 +228,7 @@ export default function Map() {
 
               onPress={() => {
                 // Clear button always shows after initial input
-                // googlePlacesAutoCompleteRef.current?.clear();
+                googlePlacesAutoCompleteRef.current?.clear();
                 // setEx(false);
                 // Clear button disappears after clicking clear and clicking input field again
                 // googlePlacesAutoCompleteRef.current?.setAddressText("");
@@ -365,16 +372,18 @@ export default function Map() {
           fillColor="rgba(207, 47, 116, 0.5)"
         ></Polygon>
       </MapView>
-      <View style={styles.data}>
-        <Text>EXPO LOCATION OUTPUT: {text}</Text>
-        <Button
+      <View style={styles.speedDial}>
+        <Weather city={searchInput.locality} />
+        <Tide city={searchInput.locality} />
+        {/* <Text>EXPO LOCATION OUTPUT: {text}</Text> */}
+        {/* <Button
           // style={}
           onPress={() => goToVancouver()}
           title="Go to Vancouver"
         />
         {/* Display user's current region */}
-        <Text style={styles.text}>Current latitude: {region.latitude}</Text>
-        <Text style={styles.text}>Current longitude: {region.longitude}</Text>        
+        {/* <Text style={styles.text}>Current latitude: {region.latitude}</Text>
+        <Text style={styles.text}>Current longitude: {region.longitude}</Text>         */}
       </View>
       
     </View>
@@ -400,11 +409,8 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "flex-end",
   },
-  data: {
-    flex: 0,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    ...StyleSheet.absoluteFillObject,
+  speedDial: {
+    flex: 1,   
   },
   clearButton: {
     paddingLeft: 5,

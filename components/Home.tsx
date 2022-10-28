@@ -12,8 +12,8 @@ export default function Home() {
       {/* <Header /> */}
       <Text>This is the Home Page.</Text>
       <LocationSearchHome />
-      <Tide />
-      <Weather />      
+      {/* <Tide /> */}
+      {/* <Weather />       */}
       {/* <Footer /> */}
     </View>
   );
