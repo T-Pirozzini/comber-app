@@ -42,7 +42,7 @@ export default function Weather({city}) {
       openIcon={{ name: 'close', color: '#B74F6F' }}
       onOpen={() => setOpen(!open)}
       onClose={() => setOpen(!open)}
-      overlayColor="rgba(235, 213, 211, 0.8)" // make overlay transparent
+      overlayColor="rgba(235, 213, 211, 0.0)" // make overlay transparent
       color="#031926"
       placement='left'
       size="small"

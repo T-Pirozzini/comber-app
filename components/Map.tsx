@@ -372,9 +372,9 @@ export default function Map() {
           fillColor="rgba(207, 47, 116, 0.5)"
         ></Polygon>
       </MapView>
-      <View style={styles.weather}>
+      <View style={styles.speedDial}>
         <Weather city={searchInput.locality} />
-        {/* <Tide city={searchInput.locality} /> */}
+        <Tide city={searchInput.locality} />
         {/* <Text>EXPO LOCATION OUTPUT: {text}</Text> */}
         {/* <Button
           // style={}
@@ -409,7 +409,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "flex-end",
   },
-  weather: {
+  speedDial: {
     flex: 1,   
   },
   clearButton: {

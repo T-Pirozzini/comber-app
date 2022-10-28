@@ -20,7 +20,7 @@ export default function Tide({city}) {
         'https://api-iwls.dfo-mpo.gc.ca/api/v1/stations?chs-region-code=PAC'
       );
       const stationData = await response.json();
-      // console.log(json)
+      console.log("DATA", json)
       for (let i = 0; i < stationData.length; i++) {
         // Currently set to Nanaimo Harbour - Set this to dynamic city variable based on search
         if (stationData[i].officialName == 'Nanaimo Harbour') {          
@@ -67,25 +67,25 @@ export default function Tide({city}) {
  
 
   return (
-    <View>
-      <Button
-        title="tide-Station-Info"
-        onPress={getTideStationInfo}
-      />
-      {/* <Text>
-        {"STATION NAME: " + stationName}
-        {"\n"}
-        {"STATION LAT: " + stationLat}
-        {"\n"}
-        {"STATION LNG: " + stationLng}        
-      </Text> */}
-      <Button
-        title="Wave-Height-Info"
-        onPress={getWaveHeightInfo}
-      />
-       {/* <Text>       
-        {"STATION CURRENT WAVE HEIGHT: " + waveHeight}
-      </Text> */}
+    // <View>
+    //   <Button
+    //     title="tide-Station-Info"
+    //     onPress={getTideStationInfo}
+    //   />
+    //   {/* <Text>
+    //     {"STATION NAME: " + stationName}
+    //     {"\n"}
+    //     {"STATION LAT: " + stationLat}
+    //     {"\n"}
+    //     {"STATION LNG: " + stationLng}        
+    //   </Text> */}
+    //   <Button
+    //     title="Wave-Height-Info"
+    //     onPress={getWaveHeightInfo}
+    //   />
+    //    {/* <Text>       
+    //     {"STATION CURRENT WAVE HEIGHT: " + waveHeight}
+    //   </Text> */}
 
       <SpeedDial
         isOpen={open}
@@ -94,43 +94,42 @@ export default function Tide({city}) {
         onOpen={() => setOpen(!open)}
         onClose={() => setOpen(!open)}
         overlayColor="rgba(235, 213, 211, 0.0)" // make overlay transparent
-        color="#031926"  
+        color="#031926"
+        placement="right"
+        size="small" 
       >
         <SpeedDial.Action
           icon={{ name: 'location', type: 'entypo', color: '#7DD181' }}
           title={"Station: " + stationName}
+          titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
           onPress={() => console.log('Add Something')}
-          color="#fff"
-          containerStyle={{margin: 8}}           
+          color="#031926"
+          containerStyle={{margin: -15}}         
         />        
         <SpeedDial.Action
           icon={{name: 'latitude', type: "material-community", color: '#7DD181' }}
           title={"Latitude: " + stationLat}
-          onPress={() => console.log('Delete Something')}
-          color="#fff"
-          containerStyle={{margin: 8}}
+          titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
+          onPress={() => console.log('Delete Something')}          
+          color="#031926"
+          containerStyle={{margin: -15}}
         />    
         <SpeedDial.Action
           icon={{name: 'longitude', type: "material-community", color: '#7DD181' }}
           title={"Longitude: " + stationLng}
+          titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
           onPress={() => console.log('Delete Something')}
-          color="#fff"
-          containerStyle={{margin: 8}}
+          color="#031926"
+          containerStyle={{margin: -15}}
         />   
         <SpeedDial.Action
           icon={{name: 'waves-arrow-up', type: "material-community", color: '#7DD181' }}
           title={"Wave Height: " + waveHeight}
+          titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
           onPress={() => console.log('Delete Something')}
-          color="#fff"
-          containerStyle={{margin: 8}}
+          color="#031926"
+          containerStyle={{margin: -15}}
         />     
-      </SpeedDial>            
-    </View>    
+      </SpeedDial>           
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
