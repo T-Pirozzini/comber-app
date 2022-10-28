@@ -428,6 +428,181 @@ export default function Info() {
             />
           </View>
         </Card>
+
+        {/* Pacific Oyster Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Pacific Oyster</Card.Title>
+            <Text>Max: 0</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/pacific-oyster-huitre-creuse.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Large. Thick shell, rough sculptured appearance. Shell colour
+            varies: the outside is a combination of browns, greens and grays,
+            often with sharp purple fluting near the edges. The interior is
+            white and satin smooth.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Razor Clam Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Razor Clam</Card.Title>
+            <Text>Max: 3</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/razorclam.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Shiny brown covering on outer shell surface, oblong.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
+
+        {/* Varnish Clam Card */}
+        <Card>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <Card.Title h2>Varnish Clam</Card.Title>
+            <Text>Max: 0</Text>
+          </View>
+          <Card.Divider />
+          <Card.Image
+            style={{ padding: 0 }}
+            source={{
+              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/varnishclams.jpg",
+            }}
+          />
+          <Text style={{ marginBottom: 10 }}>
+            Shiny brown covering on outer shell surface, round, large external
+            ligament at hinge.
+          </Text>
+          <View style={styles.button}>
+            <Button
+              icon={
+                <Icon
+                  name="straighten"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="Actual Size"
+            />
+            <Button
+              icon={
+                <Icon
+                  name="collections"
+                  color="#ffffff"
+                  iconStyle={{ marginRight: 10 }}
+                />
+              }
+              buttonStyle={{
+                borderRadius: 0,
+                marginLeft: 0,
+                marginRight: 0,
+                marginBottom: 0,
+              }}
+              title="More Photos"
+            />
+          </View>
+        </Card>
       </ScrollView>
     </View>
   );
