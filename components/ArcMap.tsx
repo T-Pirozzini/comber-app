@@ -17,3 +17,33 @@
 //   )
 // }
 
+// import React from 'react'
+// import Map from "@arcgis/core/Map";
+// import MapView from "@arcgis/core/views/MapView"; 
+ 
+// // Default import
+// import WebMap from "@arcgis/core/WebMap";
+// // Namespace import
+// import * as projection from "@arcgis/core/geometry/projection";
+
+
+// const map = new Map ({
+//   basemap: "topo-vector"
+// });
+
+// const view = new MapView ({
+//   container: "viewDiv",
+//   map: map,
+//   zoom: 4,
+//   center: [15, 65]
+// });
+
+// export default function ArcMap() {
+//   return (
+//     <MapView>
+//       <Map></Map>      
+//     <MapView     
+//   )
+// }
+
+
