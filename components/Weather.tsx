@@ -6,7 +6,9 @@ import { Button, SpeedDial } from "@rneui/themed";
 const weatherKey = process.env.REACT_APP_WEATHER_API_KEY
 
 
-export default function Weather() {
+export default function Weather({city}) {
+
+  const [currentCity, setCurrentCity] = useState("")
   const [open, setOpen] = useState(false)
   const [info, setInfo] = useState({
     city: "",
@@ -15,18 +17,18 @@ export default function Weather() {
     desc: "",    
   })  
   
-  useEffect(() => {    
+  useEffect(() => {   
     getWeather()  
-  }, [])
+  }, [city])
   
 
   const getWeather = () => {
     // api endpoint for getting weather info by coords
     // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=49.1628&lon=-123.9235&appid=${weatherKey}&units=metric`)
     // api endpoint for getting weather info by city name
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=vancouver&appid=${weatherKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherKey}&units=metric`)
     .then(data => data.json())
-    .then(results => {    
+    .then(results => {         
     setInfo({
       city: results.name,
       temp: results.main.temp,
@@ -36,13 +38,7 @@ export default function Weather() {
     })
   }
 
-  return (
-    <View>      
-      <Button title="Get-Weather" onPress={getWeather}></Button>
-      {/* <Text>City: {info.city}</Text> */}
-      {/* <Text>Temperature: {info.temp}</Text> */}
-      {/* <Text>Humidity: {info.humidity}</Text> */}
-      {/* <Text>Description: {info.desc}</Text> */}
+  return (    
       <SpeedDial
         isOpen={open}
         icon={{ name: 'sun-o', type: "font-awesome", color: '#B74F6F' }}
@@ -50,7 +46,7 @@ export default function Weather() {
         onOpen={() => setOpen(!open)}
         onClose={() => setOpen(!open)}
         overlayColor="rgba(235, 213, 211, 0.0)" // make overlay transparent
-        color="#031926"  
+        color="#031926"        
       >
         <SpeedDial.Action
           icon={{ name: 'home-city', type: 'material-community', color: '#7DD181' }}
@@ -81,7 +77,6 @@ export default function Weather() {
           containerStyle={{margin: 8}}
         />     
       </SpeedDial>      
-    </View>    
   )
 }
 

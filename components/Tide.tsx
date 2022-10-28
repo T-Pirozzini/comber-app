@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { View, Text, StyleSheet } from "react-native";
 import { Button, SpeedDial } from "@rneui/themed";
 
-export default function Tide() {
+export default function Tide({city}) {
   
   const [open, setOpen] = useState(false)
   
@@ -55,7 +55,7 @@ export default function Tide() {
         if (tideData[i].stationId == currentStationId) {
           // console.log("MATCH!!!!")
           // console.log("stationids2", tideData[i].stationId)
-          console.log("CURRENT WAVE HEIGHT", tideData[i].measurementPublicDTOs[i].value)
+          console.log("CURRENT WAVE HEIGHT", tideData[i].measurementPublicDTOs[i].value)                   
           setWaveHeight(tideData[i].measurementPublicDTOs[i].value)            
         }                           
       }         
