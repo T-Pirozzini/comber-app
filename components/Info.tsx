@@ -42,7 +42,7 @@ export default function Info() {
             }}
           >
             <Card.Title h2>Abalone</Card.Title>
-            <Text>Max: 25</Text>
+            <Text>Max: 0</Text>
           </View>
           <Card.Divider />
           <Card.Image
@@ -58,6 +58,27 @@ export default function Info() {
             sheen. Series of three to six raised holes to allow water currents
             to pass over gills.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -200,6 +221,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -258,6 +300,27 @@ export default function Info() {
             Large, thick-shelled with well developed concentric ridges but no
             radial lines.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -319,6 +382,27 @@ export default function Info() {
             centimetres. They generally weigh between 0.5 and 1.5 kilograms,
             but, occasionally, grow as large as 3 kilograms.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -382,6 +466,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -440,6 +545,27 @@ export default function Info() {
             Lines up and across outer shell surface, round, white shell
             interior.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -498,6 +624,27 @@ export default function Info() {
             Lines up and across outer shell surface, elongated, purple shell
             interior.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -561,6 +708,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -624,6 +792,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -683,6 +872,27 @@ export default function Info() {
             Only native oyster on B.C. coast. Now small groupings, mainly at a
             few sites on west coast of Vancouver Island.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -743,6 +953,27 @@ export default function Info() {
             often with sharp purple fluting near the edges. The interior is
             white and satin smooth.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -806,6 +1037,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -869,6 +1121,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -932,6 +1205,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -995,6 +1289,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -1058,6 +1373,27 @@ export default function Info() {
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
             culpa qui officia deserunt mollit anim id est laborum.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -1115,6 +1451,27 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Shiny brown covering on outer shell surface, oblong.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -1173,6 +1530,27 @@ export default function Info() {
             Shiny brown covering on outer shell surface, round, large external
             ligament at hinge.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -1232,6 +1610,27 @@ export default function Info() {
             spots on abdomen. Found in rocky areas. Largest shrimp in B.C., up
             to 25 cm.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -1296,6 +1695,27 @@ export default function Info() {
             {"\n"}
             Pink shrimp: Uniform translucent red. Live on soft bottom.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -1359,6 +1779,27 @@ export default function Info() {
             teeth between. Size: up to 100 cm, 5 kg.{"\n"}
             {"\n"} Humboldt squid: Brown or red. Size: up to 200 cm, 45 kg
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
