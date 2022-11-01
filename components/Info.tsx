@@ -13,6 +13,23 @@ import { Card, ListItem, Button, Icon } from "@rneui/themed";
 import { ScrollView } from "react-native-gesture-handler";
 
 export default function Info() {
+  const [count, setCount] = useState(0);
+
+  // Increase Count
+  const increase = () => {
+    setCount(count + 1);
+  };
+  // Decrease Count
+  const decrease = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+  // Reset Count
+  const reset = () => {
+    setCount(0);
+  };
+
   return (
     <View style={styles.container}>
       <ScrollView>
@@ -99,6 +116,27 @@ export default function Info() {
             Bluish-black shell, distinctive “D” or flattened teardrop shape.
             Pearly violet or white shell interior.
           </Text>
+          <View style={styles.counter}>
+            <Button
+              title={"+"}
+              onPress={increase}
+              buttonStyle={{ borderRadius: 0, marginLeft: 5, width: 30 }}
+              color="success"
+            />
+            <Button
+              title={"-"}
+              onPress={decrease}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25, width: 30 }}
+              color="error"
+            />
+            <Button
+              title={"Reset"}
+              onPress={reset}
+              buttonStyle={{ borderRadius: 0, marginLeft: 25 }}
+              color="warning"
+            />
+            <Text style={styles.counterText}>{count}</Text>
+          </View>
           <View style={styles.button}>
             <Button
               icon={
@@ -143,7 +181,7 @@ export default function Info() {
               justifyContent: "space-between",
             }}
           >
-            <Card.Title h2>California Mussels</Card.Title>
+            <Card.Title h2>California{"\n"}Mussels</Card.Title>
             <Text>Max: 25</Text>
           </View>
           <Card.Divider />
@@ -1251,9 +1289,11 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Coonstripe shrimp: Red-brown. Irregular brown and white oblique
             lines on shell and abdomen. Found in shallow water on or near
-            pilings and floats. <br />
+            pilings and floats.{"\n"}
+            {"\n"}
             Humpback shrimp: Red-tan. Dark red and bright white markings. Found
-            on soft or hard bottom. <br />
+            on soft or hard bottom.{"\n"}
+            {"\n"}
             Pink shrimp: Uniform translucent red. Live on soft bottom.
           </Text>
           <View style={styles.button}>
@@ -1313,11 +1353,11 @@ export default function Info() {
           <Text style={{ marginBottom: 10 }}>
             Opal squid: Pale lavender. Size: up to 13 cm in B.C. Found in
             inshore waters. Often gather in large schools to spawn in shallow
-            water. <br />
-            Neon flying squid: Mauve on upper surface, silvery or gold below.
-            Tentacle sucker rings have 4 large teeth with many smaller teeth
-            between. Size: up to 100 cm, 5 kg. <br />
-            Humboldt squid: Brown or red. Size: up to 200 cm, 45 kg
+            water.{"\n"}
+            {"\n"} Neon flying squid: Mauve on upper surface, silvery or gold
+            below. Tentacle sucker rings have 4 large teeth with many smaller
+            teeth between. Size: up to 100 cm, 5 kg.{"\n"}
+            {"\n"} Humboldt squid: Brown or red. Size: up to 200 cm, 45 kg
           </Text>
           <View style={styles.button}>
             <Button
@@ -1377,5 +1417,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#EEEEFF",
+  },
+  counter: {
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    // alignItems: "flex-end",
+    width: 190,
+    height: 60,
+    // marginBottom: 10,
+    marginLeft: 10,
+  },
+  counterText: {
+    height: 70,
+    fontSize: 38,
+    marginLeft: 40,
+    // marginBottom: 20,
+    flexDirection: "row",
+    alignSelf: "flex-end",
   },
 });
