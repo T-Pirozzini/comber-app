@@ -1270,7 +1270,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Shiny brown covering on outer shell surface, oblong.
+            Oblong shaped with brittle brown to olive coloured shell and
+            extended siphon. Concentric rings on shell.{"\n"}
+            {"\n"}Size: Up to 15cm
           </Text>
           <View style={styles.counter}>
             <Button
