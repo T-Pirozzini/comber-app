@@ -1350,8 +1350,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Shiny brown covering on outer shell surface, round, large external
-            ligament at hinge.
+            Oval and flat, shiny brown and white coloured with purple interior
+            shell colour. Concentric rings on shell.{"\n"}
+            {"\n"}Size: Up to 7.5cm
           </Text>
           <View style={styles.counter}>
             <Button
