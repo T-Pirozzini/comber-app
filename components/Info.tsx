@@ -48,12 +48,14 @@ export default function Info() {
           <Card.Image
             style={{ padding: 0 }}
             source={{
-              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/blue-mussel-moule-bleue.jpg",
+              uri: "http://maps.bccdc.org/shellfish/img/mussels.png",
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Bluish-black shell, distinctive “D” or flattened teardrop shape.
-            Pearly violet or white shell interior.
+            Bluish-black oblong shell, distinctive “D” or flattened teardrop
+            shape. Pearly violet or white shell interior. {"\n"}
+            {"\n"}
+            Size: Up to 9 cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -131,13 +133,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Bluish-black oblong shells, anchored to substrates with brown byssal
+            threads.{"\n"}
+            {"\n"}Size: Up to 25cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -863,17 +861,14 @@ export default function Info() {
           <Card.Image
             style={{ padding: 0 }}
             source={{
-              uri: "https://www.centralcoastbiodiversity.org/uploads/1/4/9/9/14993002/1722928_orig.png",
+              uri: "http://maps.bccdc.org/shellfish/img/scallops.jpg",
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Radiating ribs from the hinge, with thin flattened shells, colour
+            white to pink.{"\n"}
+            {"\n"}
+            Size: Up to 12.5cm
           </Text>
           <View style={styles.counter}>
             <Button
