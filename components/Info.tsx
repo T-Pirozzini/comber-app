@@ -48,12 +48,14 @@ export default function Info() {
           <Card.Image
             style={{ padding: 0 }}
             source={{
-              uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/blue-mussel-moule-bleue.jpg",
+              uri: "http://maps.bccdc.org/shellfish/img/mussels.png",
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Bluish-black shell, distinctive “D” or flattened teardrop shape.
-            Pearly violet or white shell interior.
+            Bluish-black oblong shell, distinctive “D” or flattened teardrop
+            shape. Pearly violet or white shell interior. {"\n"}
+            {"\n"}
+            Size: Up to 9 cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -131,13 +133,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Bluish-black oblong shells, anchored to substrates with brown byssal
+            threads.{"\n"}
+            {"\n"}Size: Up to 25cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -215,8 +213,8 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Large, thick-shelled with well developed concentric ridges but no
-            radial lines.
+            Oval to round, white coloured. Concentric rings on shell. {"\n"}
+            {"\n"} Size: Up to 13cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -294,11 +292,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Geoduck clams are bivalves, and have two shells that are white and
-            somewhat rectangular in shape. Geoduck clams are the largest
-            burrowing clams in the world, with a shell length that can exceed 20
-            centimetres. They generally weigh between 0.5 and 1.5 kilograms,
-            but, occasionally, grow as large as 3 kilograms.
+            Oblong gaping shell, rounded on one end, white colour with extended
+            siphon.{"\n"}
+            {"\n"}Size: Shell size up to 25cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -376,13 +372,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Oval white coloured with brown and black patches worn off shell.
+            Concentric rings on shell.{"\n"}
+            {"\n"}Size: Up to 20cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -461,7 +453,8 @@ export default function Info() {
           />
           <Text style={{ marginBottom: 10 }}>
             Lines up and across outer shell surface, round, white shell
-            interior.
+            interior.{"\n"}
+            {"\n"}Size: Up to 9cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -540,7 +533,8 @@ export default function Info() {
           />
           <Text style={{ marginBottom: 10 }}>
             Lines up and across outer shell surface, elongated, purple shell
-            interior.
+            interior.{"\n"}
+            {"\n"}Size: Up to 9cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -702,13 +696,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Also known as Nuttall’s, basket or heart cockles. Yellow-brown thick
+            shells with strong radiating wavy ribs.{"\n"}
+            {"\n"}Size: Up to 14cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -863,17 +853,14 @@ export default function Info() {
           <Card.Image
             style={{ padding: 0 }}
             source={{
-              uri: "https://www.centralcoastbiodiversity.org/uploads/1/4/9/9/14993002/1722928_orig.png",
+              uri: "http://maps.bccdc.org/shellfish/img/scallops.jpg",
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Radiating ribs from the hinge, with thin flattened shells, colour
+            white to pink.{"\n"}
+            {"\n"}
+            Size: Up to 12.5cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -1035,13 +1022,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Radiating ribs from the hinge, one side flat, the other bulging,
+            colour brown to light orange/red.{"\n"}
+            {"\n"}Size: Up to 20cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -1287,7 +1270,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Shiny brown covering on outer shell surface, oblong.
+            Oblong shaped with brittle brown to olive coloured shell and
+            extended siphon. Concentric rings on shell.{"\n"}
+            {"\n"}Size: Up to 15cm
           </Text>
           <View style={styles.counter}>
             <Button
@@ -1365,8 +1350,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Shiny brown covering on outer shell surface, round, large external
-            ligament at hinge.
+            Oval and flat, shiny brown and white coloured with purple interior
+            shell colour. Concentric rings on shell.{"\n"}
+            {"\n"}Size: Up to 7.5cm
           </Text>
           <View style={styles.counter}>
             <Button
