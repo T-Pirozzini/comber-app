@@ -128,12 +128,12 @@ export default function Map() {
       let currentLocation = await Location.getCurrentPositionAsync({});
       if (currentLocation) {
         setLocation(currentLocation);
-        console.log("LOCATION:", location);
+        // console.log("LOCATION:", location);
       }
 
       // search form submitted do this
       let address = await Location.reverseGeocodeAsync(region.coords);
-      console.log("ADDRESS", address);
+      // console.log("ADDRESS", address);
 
       if (location) {
         let latitude = location.coords.latitude;
@@ -144,8 +144,8 @@ export default function Map() {
           latitude,
         });
         setAddress(regionName[0]);
-        console.log("REGIONNAME", address);
-        console.log(regionName, "nothing");
+        // console.log("REGIONNAME", address);
+        // console.log(regionName, "nothing");
       }
     })();
   }, []);

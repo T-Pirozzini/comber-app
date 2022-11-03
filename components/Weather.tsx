@@ -22,15 +22,16 @@ export default function Weather({city}) {
     // api endpoint for getting weather info by coords
     // fetch(`https://api.openweathermap.org/data/2.5/weather?lat=49.1628&lon=-123.9235&appid=${weatherKey}&units=metric`)
     // api endpoint for getting weather info by city name
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${weatherKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},ca&appid=${weatherKey}&units=metric`)
     .then(data => data.json())
-    .then(results => {         
-    setInfo({
-      city: results.name,
-      temp: results.main.temp,
-      humidity: results.main.humidity,
-      desc: results.weather[0].description,      
-    })    
+    .then(results => {
+      console.log("DATA", results)           
+      setInfo({
+        city: results.name,
+        temp: results.main.temp,
+        humidity: results.main.humidity,
+        desc: results.weather[0].description,      
+      }) 
     })
     .catch(error => alert("Sorry, that city is not in our weather database. Try another city near by for weather information."))
   }
