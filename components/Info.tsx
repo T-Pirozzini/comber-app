@@ -1022,13 +1022,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            Radiating ribs from the hinge, one side flat, the other bulging,
+            colour brown to light orange/red.{"\n"}
+            {"\n"}Size: Up to 20cm
           </Text>
           <View style={styles.counter}>
             <Button
