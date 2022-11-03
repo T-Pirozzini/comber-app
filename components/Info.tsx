@@ -213,8 +213,8 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Large, thick-shelled with well developed concentric ridges but no
-            radial lines.
+            Oval to round, white coloured. Concentric rings on shell. {"\n"}
+            {"\n"} Size: Up to 13cm
           </Text>
           <View style={styles.counter}>
             <Button
