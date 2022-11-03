@@ -533,7 +533,8 @@ export default function Info() {
           />
           <Text style={{ marginBottom: 10 }}>
             Lines up and across outer shell surface, elongated, purple shell
-            interior.
+            interior.{"\n"}
+            {"\n"}Size: Up to 9cm
           </Text>
           <View style={styles.counter}>
             <Button
