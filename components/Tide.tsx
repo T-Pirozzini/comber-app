@@ -11,9 +11,15 @@ export default function Tide({city}) {
   const [stationLng, setStationLng] = useState("")
   const [waveHeight, setWaveHeight] = useState("") 
 
+  const [lowTide, setLowTide] = useState(0)
+  const [highTide, setHighTide] = useState(0)
+
   useEffect(() => {
     getTideStationInfo();
     getWaveHeightInfo();
+    getHighLowTide(); 
+    console.log("LOW", lowTide)
+    console.log("HIGH", highTide)   
   },[city])
   
   // API CALL #1: Get Tide Station Information: ID, Name and Coords - Then set state
@@ -48,9 +54,9 @@ export default function Tide({city}) {
         'https://api-iwls.dfo-mpo.gc.ca/api/v1/stations/data/latest'
       );
       const tideData = await response.json();      
-      // loop through all canadian tide station data
+      // loop through all canadian tide station data      
       for (let i = 0; i < tideData.length; i++) {        
-        // if a tide station matches the current stations ID, return wave height        
+        // if a tide station matches the current stations ID, return wave height                
         if (tideData[i].stationId == currentStationId) {        
           setWaveHeight(tideData[i].measurementPublicDTOs[i].value)            
         }                           
@@ -60,6 +66,30 @@ export default function Tide({city}) {
       console.error(error);
     }
   }; 
+
+  // API CALL #3: Get high and low tide
+  const getHighLowTide = async () => {
+    try {
+      const response = await fetch(
+        `https://api-iwls.dfo-mpo.gc.ca/api/v1/stations/${currentStationId}/data?time-series-code=wlp-hilo&from=2022-11-02T00%3A00%3A00Z&to=2022-11-02T24%3A00%3A00Z`
+      );
+      const highLowData = await response.json();
+      console.log("High and Low Tide Info", highLowData)
+      setLowTide(highLowData[0].value)
+      setHighTide(highLowData[0].value)
+      for (let i = 0; i < highLowData.length; i++) {
+        console.log("VALUES:", highLowData[i].value)        
+        if (highLowData[i].value <= lowTide) {
+          setLowTide(highLowData[i].value)          
+        }
+        if (highLowData[i].value >= highTide) {
+          setHighTide(highLowData[i].value)          
+        }
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (  
     <SpeedDial
