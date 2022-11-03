@@ -292,11 +292,9 @@ export default function Info() {
             }}
           />
           <Text style={{ marginBottom: 10 }}>
-            Geoduck clams are bivalves, and have two shells that are white and
-            somewhat rectangular in shape. Geoduck clams are the largest
-            burrowing clams in the world, with a shell length that can exceed 20
-            centimetres. They generally weigh between 0.5 and 1.5 kilograms,
-            but, occasionally, grow as large as 3 kilograms.
+            Oblong gaping shell, rounded on one end, white colour with extended
+            siphon.{"\n"}
+            {"\n"}Size: Shell size up to 25cm
           </Text>
           <View style={styles.counter}>
             <Button
