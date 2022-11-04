@@ -30,17 +30,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "#031926",
     padding: 10,
-    alignItems: "center",
+    alignItems: "center",    
   },
   titleContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    flexGrow: 1,
+    flexGrow: 1,   
   },
   title: {
     color: "#B74F6F",
     fontSize: 40,
     padding: 10,
+    fontFamily: "PoorStory_400Regular"     
   },
   imageContainer: {
     // width: '100%',

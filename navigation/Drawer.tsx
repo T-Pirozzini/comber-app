@@ -45,6 +45,9 @@ export default function NavDrawer() {
           title: "Comb",
           headerTitleAlign: "center",
           headerTintColor: "#B74F6F",
+          headerTitleStyle: {
+            fontFamily: "PoorStory_400Regular"
+          },
           headerRight: () => (
             <MaterialCommunityIcons
               name={"jellyfish-outline"} // Change to Comb Logo
@@ -68,6 +71,7 @@ export default function NavDrawer() {
 const styles = StyleSheet.create({
   heading: {
     color: "red",
+    
   },
   // logo,
 });
