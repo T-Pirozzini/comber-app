@@ -20,8 +20,7 @@ export default function FooterTabs() {
       tabBarActiveTintColor: '#7DD181',
       tabBarActiveBackgroundColor: "#031926",
       tabBarInactiveBackgroundColor: "white",
-      
-      
+      headerShown: false      
     }}
     >      
       <Tab.Screen 
