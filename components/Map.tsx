@@ -16,23 +16,28 @@ import {
   Image,
   TextInput,
 } from "react-native";
-import { MaterialIcons, AntDesign } from "@expo/vector-icons";
+import {
+  MaterialIcons,
+  AntDesign,
+  Entypo,
+  MaterialCommunityIcons,
+} from "@expo/vector-icons";
 import * as Location from "expo-location";
-import Tide from "./Tide"
-import Weather from "./Weather"
+import Tide from "./Tide";
+import Weather from "./Weather";
+import Logo from "../assets/images/icon";
 
 // Google places api
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
 
 export default function Map() {
-
   // sets the current city and coords to what is submitted in the search bar
   const [searchInput, setSearchInput] = useState({
     locality: "nanaimo",
     lat: 0,
     lng: 0,
-  })
-  
+  });
+
   // expo location package
   const [location, setLocation] = useState({
     destination: "",
@@ -178,6 +183,29 @@ export default function Map() {
     // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
     mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
   };
+
+  // Nanoose Bay
+  const firstClamArea = {
+    latitude: 49.254,
+    longitude: -124.173,
+    latitudeDelta: 0.01,
+    longitudeDelta: 0.01,
+  };
+
+  // const secondClamArea = {
+  //   latitude: ,
+  //   longitude: ,
+  //   latitudeDelta: ,
+  //   longitudeDelta: ,
+  // }
+
+  // const thirdClamArea = {
+  //   latitude: ,
+  //   longitude: ,
+  //   latitudeDelta: ,
+  //   longitudeDelta: ,
+  // }
+
   return (
     <View style={styles.container}>
       {/* Google Places Autocomplete Component       */}
@@ -196,12 +224,12 @@ export default function Map() {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           });
-          // set city and coords for search submitted          
+          // set city and coords for search submitted
           setSearchInput({
             locality: data.description.split(",")[0].toLowerCase(),
             lat: details.geometry.location.lat,
             lng: details.geometry.location.lng,
-          })              
+          });
           // coordinates for selected location
           const searchDestination = {
             latitude: details.geometry.location.lat,
@@ -210,7 +238,7 @@ export default function Map() {
             longitudeDelta: 0.0421,
           };
           // Animating to selected location
-          mapRef.current.animateToRegion(searchDestination, 3 * 1000);          
+          mapRef.current.animateToRegion(searchDestination, 3 * 1000);
         }}
         query={{
           key: googleKey,
@@ -306,11 +334,46 @@ export default function Map() {
           coordinate={{
             latitude: regionGoogleMap.latitude,
             longitude: regionGoogleMap.longitude,
-          }}>
+          }}
+        >
           <Callout>
             <Text>I'm Here!!</Text>
           </Callout>
         </Marker>
+        <Marker
+          coordinate={{
+            latitude: 49.254,
+            longitude: -124.173,
+          }}
+        >
+          {/* <Image
+            source={require("../assets/images/clam-marker.jpg")}
+            style={{ width: 50, height: 50 }}
+            resizeMode="contain"
+          /> */}
+          <MaterialCommunityIcons name="shovel" size={24} color="black" />
+          <Entypo name="bucket" size={24} color="black" />
+          <Callout>
+            <View style={styles.callout}>
+              <Text>
+                Harvest Species: Horse, Littleneck and Manila clams. Geoduck.
+                Mussels. Oysters.
+              </Text>
+            </View>
+          </Callout>
+        </Marker>
+        {/* <Marker
+          pinColor="green"
+          icon={require("../assets/images/icon.png")}
+          coordinate={{
+            latitude: 49.254,
+            longitude: -124.173,
+          }}
+          style={{ width: 26, height: 28 }}
+          // resizeMode="contain"
+        >
+          
+        </Marker> */}
         <Marker
           coordinate={pin}
           pinColor="blue"
@@ -385,7 +448,6 @@ export default function Map() {
         {/* <Text style={styles.text}>Current latitude: {region.latitude}</Text>
         <Text style={styles.text}>Current longitude: {region.longitude}</Text>         */}
       </View>
-      
     </View>
   );
 }
@@ -410,7 +472,7 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   speedDial: {
-    flex: 1,   
+    flex: 1,
   },
   clearButton: {
     paddingLeft: 5,
@@ -422,5 +484,9 @@ const styles = StyleSheet.create({
   },
   searchIcon: {
     marginTop: 3,
+  },
+  callout: {
+    // resizeMode: "contain",
+    width: 300,
   },
 });
