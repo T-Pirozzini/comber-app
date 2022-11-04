@@ -29,6 +29,7 @@ export default function FooterTabs() {
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
+
         tabBarActiveTintColor: "#7DD181",
         tabBarActiveBackgroundColor: "#031926",
         tabBarInactiveBackgroundColor: "white",
@@ -40,16 +41,19 @@ export default function FooterTabs() {
         component={Map}
         options={{
           tabBarLabel: "Harvest Locations",
+
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="map" color={color} size={size} />
           ),
         }}
       />
+
       <Tab.Screen
         name="Chat"
         component={MessageBoard}
         options={{
           tabBarLabel: "Messgae Board",
+
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="chat" color={color} size={size} />
           ),
@@ -58,8 +62,10 @@ export default function FooterTabs() {
       <Tab.Screen
         name="Info"
         component={Info}
+
         options={{
-          tabBarLabel: "Info",
+          tabBarLabel: "Species Info",
+
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="information-outline"
