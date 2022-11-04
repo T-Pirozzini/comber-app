@@ -23,34 +23,24 @@ export default function FooterTabs() {
       
       
     }}
-    >
-      <Tab.Screen         
-        name="Home"
-        component={Home} 
-        options= {{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
-          ),
-        }}
-      />
+    >      
       <Tab.Screen 
         name="Map" 
         component={Map}
         options= {{
-          tabBarLabel: 'Map',
+          tabBarLabel: 'Harvest Locations',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="map" color={color} size={size} />
           ),
         }}        
       />
       <Tab.Screen 
-        name="Recipes" 
+        name="Chat" 
         component={Recipes}
         options= {{
-          tabBarLabel: 'Recipes',
+          tabBarLabel: 'News Feed',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="food" color={color} size={size} />
+            <MaterialCommunityIcons name="chat" color={color} size={size} />
           ),
         }}
       />
@@ -58,7 +48,7 @@ export default function FooterTabs() {
         name="Info" 
         component={Info}
         options= {{
-          tabBarLabel: 'Info',
+          tabBarLabel: 'Species Info',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="information-outline" color={color} size={size} />            
           ),
