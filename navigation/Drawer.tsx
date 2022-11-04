@@ -6,18 +6,13 @@ import {
   Image,
   SafeAreaView,
 } from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
 import About from "../components/About";
 import Login from "../components/Login";
 import Register from "../components/Register";
-import Home from "../components/Home";
-import Map from "../components/Map";
-import Header from "../components/Header";
-import { greaterThan } from "react-native-reanimated";
 import FooterTabs from "../components/FooterTabs";
 
-// import CombLogo from "../assets/images/comb_logo.png";
+import CombLogo from "../assets/images/comb_logo.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const Drawer = createDrawerNavigator();
@@ -40,18 +35,23 @@ export default function NavDrawer() {
     >
       <Drawer.Screen
         name="Home"
-        component={FooterTabs}
+        component={FooterTabs}        
         options={{
           title: "Comb",
           headerTitleAlign: "center",
           headerTintColor: "#B74F6F",
+          headerTitleStyle: {
+            fontFamily: "Alice_400Regular",
+            fontSize: 40,
+          },
+                   
           headerRight: () => (
             <MaterialCommunityIcons
               name={"jellyfish-outline"} // Change to Comb Logo
               title={"Comb"}
               color={"#B74F6F"}
-              size={32}
-              style={{ marginRight: 110 }}
+              size={36}
+              style={{ marginRight: 95 }}
             />
           ),
           headerStyle: { backgroundColor: "#031926" },
@@ -68,6 +68,7 @@ export default function NavDrawer() {
 const styles = StyleSheet.create({
   heading: {
     color: "red",
+    
   },
   // logo,
 });
