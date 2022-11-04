@@ -11,12 +11,17 @@ export default function Tide({city}) {
   const [stationLng, setStationLng] = useState("")
   const [waveHeight, setWaveHeight] = useState("") 
 
-  const [lowTide, setLowTide] = useState(0)
-  const [highTide, setHighTide] = useState(0)
+  const [lowTide, setLowTide] = useState(2)
+  const [highTide, setHighTide] = useState(2)
+  const [lowTime, setLowTime] = useState("")
+  const [highTime, setHighTime] = useState("")
 
   useEffect(() => {
     getTideStationInfo();
-    getWaveHeightInfo();
+    getWaveHeightInfo();     
+  },[city])
+
+  useEffect(() => {   
     getHighLowTide(); 
     console.log("LOW", lowTide)
     console.log("HIGH", highTide)   
@@ -29,16 +34,16 @@ export default function Tide({city}) {
         'https://api-iwls.dfo-mpo.gc.ca/api/v1/stations?chs-region-code=PAC'
       );
       const stationData = await response.json();     
-      // loop through all stationData
+      // loop through all stationData      
       for (let i = 0; i < stationData.length; i++) {        
         // if city is is longer than one word, city equals only the first word
         if (city.split(" ").length > 1) {
-          city = city.split(' ')[0]          
+          city = city.split(' ')[0]                  
         }
         // Set state if current city matches station Name
         if (stationData[i].officialName.split(" ")[0].toLowerCase() == `${city}`) {         
           setCurrentStationId(stationData[i].id)
-          setStationName(stationData[i].officialName)
+          setStationName(stationData[i].officialName)          
           setStationLat(stationData[i].latitude)
           setStationLng(stationData[i].longitude)
         } 
@@ -75,15 +80,17 @@ export default function Tide({city}) {
       );
       const highLowData = await response.json();
       console.log("High and Low Tide Info", highLowData)
-      setLowTide(highLowData[0].value)
-      setHighTide(highLowData[0].value)
+      // setLowTide(highLowData[0].value)
+      // setHighTide(highLowData[0].value)
       for (let i = 0; i < highLowData.length; i++) {
-        console.log("VALUES:", highLowData[i].value)        
+        // console.log("VALUES:", highLowData[i].value)           
         if (highLowData[i].value <= lowTide) {
-          setLowTide(highLowData[i].value)          
+          setLowTide(highLowData[i].value)
+          setLowTime(highLowData[i].eventDate.split("T")[1].slice(0,5))                  
         }
         if (highLowData[i].value >= highTide) {
-          setHighTide(highLowData[i].value)          
+          setHighTide(highLowData[i].value)
+          setHighTime(highLowData[i].eventDate.split("T")[1].slice(0,5))                    
         }
       }
     } catch (error) {
@@ -112,29 +119,29 @@ export default function Tide({city}) {
         containerStyle={{margin: -15}}         
       />        
       <SpeedDial.Action
-        icon={{name: 'latitude', type: "material-community", color: '#7DD181' }}
-        title={"Latitude: " + stationLat}
+        icon={{name: 'earth', type: "material-community", color: '#7DD181' }}
+        title={"Lat: " + Number(stationLat).toFixed(2) + "°" + "  Lng: " + Number(stationLng).toFixed(2) + "°"}
         titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
         onPress={() => console.log('Delete Something')}          
         color="#031926"
         containerStyle={{margin: -15}}
-      />    
-      <SpeedDial.Action
-        icon={{name: 'longitude', type: "material-community", color: '#7DD181' }}
-        title={"Longitude: " + stationLng}
-        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
-        onPress={() => console.log('Delete Something')}
-        color="#031926"
-        containerStyle={{margin: -15}}
       />   
       <SpeedDial.Action
-        icon={{name: 'waves-arrow-up', type: "material-community", color: '#7DD181' }}
-        title={"Wave Height: " + waveHeight}
+        icon={{name: 'arrow-up', type: "material-community", color: '#7DD181' }}
+        title={"High Tide: " + highTide + " @ " + highTime}
         titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
         onPress={() => console.log('Delete Something')}
         color="#031926"
         containerStyle={{margin: -15}}
-      />     
+      />
+      <SpeedDial.Action
+        icon={{name: 'arrow-down', type: "material-community", color: '#7DD181'}}         
+        title={"Low Tide: " + lowTide + " @ " + lowTime}
+        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
+        onPress={() => console.log('Delete Something')}
+        color="#031926"
+        containerStyle={{margin: -15}}
+      />        
     </SpeedDial>            
   )
 }
