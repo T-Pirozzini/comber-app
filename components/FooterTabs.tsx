@@ -15,7 +15,11 @@ import Home from "./Home";
 import Map from "./Map";
 import Newsfeed from "./Newsfeed";
 import Info from "./Info";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  Ionicons,
+  FontAwesome,
+} from "@expo/vector-icons";
 // import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
@@ -51,12 +55,15 @@ export default function FooterTabs() {
         }}
       />
       <Tab.Screen
-        name="Recipes"
+        name="Newsfeed"
         component={Newsfeed}
         options={{
-          tabBarLabel: "Recipes",
+          tabBarLabel: "Newsfeed",
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="food" color={color} size={size} />
+            <Ionicons name="newspaper-outline" color={color} size={size} />
+            // <Ionicons name="md-newspaper-outline" color={color} size={size} />
+
+            // <FontAwesome name="newspaper-o" color={color} size={size} />
           ),
         }}
       />
