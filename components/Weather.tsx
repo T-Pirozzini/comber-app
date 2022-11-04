@@ -25,7 +25,7 @@ export default function Weather({city}) {
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},ca&appid=${weatherKey}&units=metric`)
     .then(data => data.json())
     .then(results => {
-      console.log("DATA", results)           
+      // console.log("DATA", results)           
       setInfo({
         city: results.name,
         temp: results.main.temp,
