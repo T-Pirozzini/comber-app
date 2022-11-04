@@ -59,7 +59,7 @@ export default function FooterTabs() {
         name="Info"
         component={Info}
         options={{
-          tabBarLabel: "Info",
+          tabBarLabel: "Species Info",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons
               name="information-outline"
