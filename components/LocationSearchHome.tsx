@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     height: 43,
     borderColor: '#7DD181',
     borderWidth: 2,
+    fontFamily: "TitilliumWeb_400Regular"
   },
   buttonContainer: {
     width: 177,      

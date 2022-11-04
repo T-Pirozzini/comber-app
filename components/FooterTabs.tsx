@@ -13,7 +13,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Home from "./Home";
 import Map from "./Map";
-import Newsfeed from "./Newsfeed";
+import MessageBoard from "./MessageBoard";
 import Info from "./Info";
 import {
   MaterialCommunityIcons,
@@ -32,35 +32,26 @@ export default function FooterTabs() {
         tabBarActiveTintColor: "#7DD181",
         tabBarActiveBackgroundColor: "#031926",
         tabBarInactiveBackgroundColor: "white",
+        headerShown: false,
       }}
     >
-      <Tab.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarLabel: "Home",
-          tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name="home" color={color} size={size} />
-          ),
-        }}
-      />
       <Tab.Screen
         name="Map"
         component={Map}
         options={{
-          tabBarLabel: "Map",
+          tabBarLabel: "Harvest Locations",
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="map" color={color} size={size} />
           ),
         }}
       />
       <Tab.Screen
-        name="Newsfeed"
-        component={Newsfeed}
+        name="Chat"
+        component={MessageBoard}
         options={{
-          tabBarLabel: "Newsfeed",
+          tabBarLabel: "Messgae Board",
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="newspaper-outline" color={color} size={size} />
+            <MaterialCommunityIcons name="chat" color={color} size={size} />
           ),
         }}
       />
