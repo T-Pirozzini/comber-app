@@ -61,9 +61,6 @@ export default function FooterTabs() {
           tabBarLabel: "Newsfeed",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="newspaper-outline" color={color} size={size} />
-            // <Ionicons name="md-newspaper-outline" color={color} size={size} />
-
-            // <FontAwesome name="newspaper-o" color={color} size={size} />
           ),
         }}
       />
