@@ -11,6 +11,7 @@ import { NavigationContainer } from "@react-navigation/native";
 // add custom fonts
 import { useFonts } from 'expo-font';
 import { PoorStory_400Regular } from "@expo-google-fonts/poor-story";
+import { Alice_400Regular } from "@expo-google-fonts/alice";
 import {
   TitilliumWeb_200ExtraLight,
   TitilliumWeb_200ExtraLight_Italic,
@@ -41,6 +42,7 @@ export default function App() {
     TitilliumWeb_700Bold,
     TitilliumWeb_700Bold_Italic,
     TitilliumWeb_900Black,
+    Alice_400Regular
   });  
 
   const isLoadingComplete = useCachedResources();

@@ -6,7 +6,7 @@ import {
   Image,
   SafeAreaView,
 } from "react-native";
-import { createDrawerNavigator } from "@react-navigation/drawer";
+import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import About from "../components/About";
 import Login from "../components/Login";
@@ -41,20 +41,28 @@ export default function NavDrawer() {
       <Drawer.Screen
         name="Home"
         component={FooterTabs}
+        
         options={{
           title: "Comb",
           headerTitleAlign: "center",
           headerTintColor: "#B74F6F",
           headerTitleStyle: {
-            fontFamily: "TitilliumWeb_600SemiBold"
+            fontFamily: "Alice_400Regular",
+            fontSize: 40,
           },
+          // drawerIcon: (
+          //   <Image
+          //   style={{ width: 24, height: 24 }}
+          //   source={require("../assets/images/icon.png")}
+          // />
+          // ),          
           headerRight: () => (
             <MaterialCommunityIcons
               name={"jellyfish-outline"} // Change to Comb Logo
               title={"Comb"}
               color={"#B74F6F"}
               size={32}
-              style={{ marginRight: 110 }}
+              style={{ marginRight: 100 }}
             />
           ),
           headerStyle: { backgroundColor: "#031926" },
