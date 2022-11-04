@@ -46,7 +46,7 @@ export default function NavDrawer() {
           headerTitleAlign: "center",
           headerTintColor: "#B74F6F",
           headerTitleStyle: {
-            fontFamily: "PoorStory_400Regular"
+            fontFamily: "TitilliumWeb_600SemiBold"
           },
           headerRight: () => (
             <MaterialCommunityIcons

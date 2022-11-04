@@ -40,8 +40,7 @@ const styles = StyleSheet.create({
   title: {
     color: "#B74F6F",
     fontSize: 40,
-    padding: 10,
-    fontFamily: "PoorStory_400Regular"     
+    padding: 10,        
   },
   imageContainer: {
     // width: '100%',
