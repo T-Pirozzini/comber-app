@@ -35,7 +35,7 @@ export default function NavDrawer() {
     >
       <Drawer.Screen
         name="Home"
-        component={FooterTabs}        
+        component={FooterTabs}
         options={{
           title: "Comb",
           headerTitleAlign: "center",
@@ -44,7 +44,7 @@ export default function NavDrawer() {
             fontFamily: "Alice_400Regular",
             fontSize: 40,
           },
-                   
+
           headerRight: () => (
             <MaterialCommunityIcons
               name={"jellyfish-outline"} // Change to Comb Logo
@@ -68,7 +68,6 @@ export default function NavDrawer() {
 const styles = StyleSheet.create({
   heading: {
     color: "red",
-    
   },
   // logo,
 });
