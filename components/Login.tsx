@@ -33,6 +33,12 @@ export default function Login() {
         <TouchableOpacity onPress={() => {}} style={styles.button}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {}}
+          style={[styles.button, styles.buttonOutline]}
+        >
+          <Text style={styles.buttonOutlineText}>Register</Text>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   );
@@ -43,7 +49,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "gray",
+    backgroundColor: "#6D6D6D",
   },
   inputContainer: {
     width: "80%",
@@ -65,25 +71,29 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    backgroundColor: "#33A5FF",
+    backgroundColor: "#6495ED",
     width: "100%",
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
   },
 
-  // buttonOutline: {
-  //   backgroundColor: "#FFFFF",
-  //   borderColor: "#0782F9",
-  //   marginTop: 5,
-  //   borderWidth: 2,
-  // },
+  buttonOutline: {
+    backgroundColor: "white",
+    borderColor: "#6495ED",
+    marginTop: 5,
+    borderWidth: 2,
+  },
 
-  // buttonOutlineText: {},
+  buttonOutlineText: {
+    color: "#6495ED",
+    fontWeight: "700",
+    fontSize: 18,
+  },
 
   buttonText: {
     color: "#FFFFF",
     fontWeight: "700",
-    fontSize: 16,
+    fontSize: 18,
   },
 });
