@@ -14,10 +14,23 @@ import FooterTabs from "../components/FooterTabs";
 
 import CombLogo from "../assets/images/comb_logo.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { auth } from "../firebase/firebase-config";
+import { signOut } from "firebase/auth";
+import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
 
 export default function NavDrawer() {
+  const navigation = useNavigation();
+  const handleSignOut = () => {
+    signOut
+      .then(() => {
+        navigation.replace("Login");
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
+  };
   return (
     <Drawer.Navigator
       initialRouteName="Home"
@@ -35,7 +48,7 @@ export default function NavDrawer() {
     >
       <Drawer.Screen
         name="Home"
-        component={FooterTabs}        
+        component={FooterTabs}
         options={{
           title: "Comb",
           headerTitleAlign: "center",
@@ -44,7 +57,7 @@ export default function NavDrawer() {
             fontFamily: "Alice_400Regular",
             fontSize: 40,
           },
-                   
+
           headerRight: () => (
             <MaterialCommunityIcons
               name={"jellyfish-outline"} // Change to Comb Logo
@@ -61,6 +74,7 @@ export default function NavDrawer() {
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Login" component={Login} />
       <Drawer.Screen name="Register" component={Register} />
+      <Button title="Logout" onPress={handleSignOut} />
     </Drawer.Navigator>
   );
 }
@@ -68,7 +82,6 @@ export default function NavDrawer() {
 const styles = StyleSheet.create({
   heading: {
     color: "red",
-    
   },
   // logo,
 });
