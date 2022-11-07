@@ -25,6 +25,7 @@ export default function NavDrawer() {
   const handleSignOut = () => {
     signOut
       .then(() => {
+        // replacing current screen with Login Screen
         navigation.replace("Login");
       })
       .catch((error) => {
@@ -74,7 +75,7 @@ export default function NavDrawer() {
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Login" component={Login} />
       <Drawer.Screen name="Register" component={Register} />
-      <Button title="Logout" onPress={handleSignOut} />
+      {/* <Button title="Logout" onPress={handleSignOut} /> */}
     </Drawer.Navigator>
   );
 }
