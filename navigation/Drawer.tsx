@@ -74,7 +74,7 @@ export default function NavDrawer() {
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Login" component={Login} />
       <Drawer.Screen name="Register" component={Register} />
-      <Button title="Logout" onPress={handleSignOut} />
+      {/* <Button title="Logout" onPress={handleSignOut} /> */}
     </Drawer.Navigator>
   );
 }
