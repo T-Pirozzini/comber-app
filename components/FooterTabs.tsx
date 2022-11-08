@@ -27,7 +27,7 @@ const Tab = createBottomTabNavigator();
 export default function FooterTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="FooterHome"
       screenOptions={{
         tabBarActiveTintColor: "#7DD181",
         tabBarActiveBackgroundColor: "#031926",
