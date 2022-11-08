@@ -28,10 +28,10 @@ export default function NavDrawer() {
   const [currentUser, setCurrentUser] = useState("Billy")
   const navigation = useNavigation();
   const handleSignOut = () => {
-    signOut
+    auth.signOut()
       .then(() => {
         // replacing current screen with Login Screen
-        navigation.replace("Login");
+        navigation.navigate("Login");
       })
       .catch((error) => {
         alert(error.message);
@@ -68,7 +68,7 @@ export default function NavDrawer() {
                 title={"Comb"}
                 color={"#B74F6F"}
                 size={36}
-                style={{ marginRight: 125 }}
+                style={{ marginRight: 120 }}
               />
               <View style={styles.logout}>
                 <Text style={{ fontSize: 12, color:"#7DD181" }}>Hi, {currentUser}</Text>               
