@@ -26,6 +26,9 @@ import * as Location from "expo-location";
 import Tide from "./Tide";
 import Weather from "./Weather";
 import Logo from "../assets/images/icon";
+import { auth } from "../firebase/firebase-config";
+import { signOut } from "firebase/auth";
+import { useNavigation } from "@react-navigation/native";
 
 // Google places api
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -447,7 +450,7 @@ export default function Map() {
         {/* Display user's current region */}
         {/* <Text style={styles.text}>Current latitude: {region.latitude}</Text>
         <Text style={styles.text}>Current longitude: {region.longitude}</Text>         */}
-      </View>
+      </View>      
     </View>
   );
 }
@@ -485,8 +488,7 @@ const styles = StyleSheet.create({
   searchIcon: {
     marginTop: 3,
   },
-  callout: {
-    // resizeMode: "contain",
+  callout: {    
     width: 300,
   },
 });

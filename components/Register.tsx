@@ -19,11 +19,12 @@ import {
 import { auth } from "../firebase/firebase-config";
 import Map from "./Map";
 
-export default function Login() {
+export default function Register() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   const navigation = useNavigation();
 
@@ -42,6 +43,9 @@ export default function Login() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+
+        console.log("USER", user.email.split("@")[0])
+        setUsername(user.email.split("@")[0])
       })
       .catch((error) => {
         alert(error.message);
