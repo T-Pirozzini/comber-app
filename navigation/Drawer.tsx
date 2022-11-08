@@ -11,7 +11,7 @@ import {
 import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
 import About from "../components/About";
 import Login from "../components/Login";
-import Register from "../components/Register";
+import Register from "../components/Register"
 import FooterTabs from "../components/FooterTabs";
 
 import CombLogo from "../assets/images/comb_logo.png";
@@ -21,11 +21,12 @@ import { signOut } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 import { withTheme } from '@rneui/themed';
 
+
 const Drawer = createDrawerNavigator();
 
-export default function NavDrawer() {
-
-  const [currentUser, setCurrentUser] = useState("Billy")
+export default function NavDrawer() { 
+  
+  const username = "ted"
   const navigation = useNavigation();
   const handleSignOut = () => {
     auth.signOut()
@@ -71,7 +72,7 @@ export default function NavDrawer() {
                 style={{ marginRight: 120 }}
               />
               <View style={styles.logout}>
-                <Text style={{ fontSize: 12, color:"#7DD181" }}>Hi, {currentUser}</Text>               
+                <Text style={{ fontSize: 12, color:"#7DD181" }}>Hi, {username}</Text>               
                 <TouchableOpacity onPress={handleSignOut} style={styles.logoutBtn}>
                   <Text style={styles.logoutText}>Logout</Text>
                 </TouchableOpacity>                

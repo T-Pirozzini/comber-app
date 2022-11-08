@@ -22,6 +22,7 @@ import Map from "./Map";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("Heather");
 
   const navigation = useNavigation();
 
@@ -40,6 +41,10 @@ export default function Login() {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        // console.log("USER", user.email)
+        
+        console.log("USER", user.email.split("@")[0])
+        setUsername(user.email.split("@")[0])
       })
       .catch((error) => {
         alert(error.message);
@@ -142,3 +147,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+
