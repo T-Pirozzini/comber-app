@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import {  
   View,
   Text,
@@ -7,7 +7,7 @@ import {
 } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import About from "../components/About";
-import Login from "../components/Login";
+import Login from "../components/Login"
 import Register from "../components/Register"
 import FooterTabs from "../components/FooterTabs";
 
@@ -17,30 +17,32 @@ import { signOut, updateCurrentUser } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
-
-// get current user from firebase
+//get currentUser object from firebase
 const currentUser = auth.currentUser;
 
 export default function NavDrawer() { 
-const [username, setUsername] = useState("")
-  
+const [username, setUsername] = useState(null)
+
 useEffect(() => {
   if (currentUser) {  
-    setUsername(currentUser.email.split("@")[0]) 
-  }  
-}, [])
+    setUsername(currentUser.email)  
+  } else {
+    setUsername(null)
+  }
+},[setUsername])
 
-  const navigation = useNavigation();
+const navigation = useNavigation();
 
-  const handleSignOut = () => {
-    auth.signOut()
-      .then(() => {
-        // replacing current screen with Login Screen
-        navigation.navigate("Login");      
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+const handleSignOut = () => {
+  auth.signOut()
+    .then(() => {
+      // replacing current screen with Login Screen
+      navigation.navigate("Map"); 
+      setUsername(null)             
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
   };
   return (
     <Drawer.Navigator

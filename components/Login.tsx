@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import {
-  getAuth,
+import {  
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
@@ -9,20 +8,17 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
-  View,
-  Image,
-  TextInput,
-  Button,
-  FlatList,
+  View,  
+  TextInput,  
   KeyboardAvoidingView,
 } from "react-native";
 import { auth } from "../firebase/firebase-config";
-import Map from "./Map";
 
 
 export default function Login() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");   
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("")   
 
   const navigation = useNavigation();
 
@@ -40,7 +36,8 @@ export default function Login() {
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;        
+        const user = userCredential.user;
+        setUsername(user.email.split("@")[0])        
       })
       .catch((error) => {
         alert(error.message);
@@ -96,6 +93,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#6D6D6D",
+    marginTop: 100,
   },
   inputContainer: {
     width: "80%",
