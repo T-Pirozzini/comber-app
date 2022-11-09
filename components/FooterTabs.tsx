@@ -27,7 +27,7 @@ const Tab = createBottomTabNavigator();
 export default function FooterTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="FooterHome"
       screenOptions={{
         tabBarActiveTintColor: "#7DD181",
         tabBarActiveBackgroundColor: "#031926",
@@ -51,7 +51,7 @@ export default function FooterTabs() {
         name="Chat"
         component={MessageBoard}
         options={{
-          tabBarLabel: "Messgae Board",
+          tabBarLabel: "Message Board",
 
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="chat" color={color} size={size} />

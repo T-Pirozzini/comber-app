@@ -9,7 +9,7 @@ import { Button, View, StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 
 // add custom fonts
-import { useFonts } from 'expo-font';
+import { useFonts } from "expo-font";
 import { PoorStory_400Regular } from "@expo-google-fonts/poor-story";
 import { Alice_400Regular } from "@expo-google-fonts/alice";
 import {
@@ -25,6 +25,7 @@ import {
   TitilliumWeb_700Bold_Italic,
   TitilliumWeb_900Black,
 } from "@expo-google-fonts/titillium-web";
+import Login from "./components/Login";
 
 export default function App() {
 
@@ -42,8 +43,8 @@ export default function App() {
     TitilliumWeb_700Bold,
     TitilliumWeb_700Bold_Italic,
     TitilliumWeb_900Black,
-    Alice_400Regular
-  });  
+    Alice_400Regular,
+  });
 
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
@@ -51,11 +52,10 @@ export default function App() {
   if (!isLoadingComplete) {
     return null;
   } else {
-    return (
-      <NavigationContainer>
+    return (      
+      <NavigationContainer>            
         <Drawer />        
-      </NavigationContainer>   
-    ) 
+      </NavigationContainer>           
+    );
   }
 }
-

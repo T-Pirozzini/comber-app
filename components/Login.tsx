@@ -19,9 +19,10 @@ import {
 import { auth } from "../firebase/firebase-config";
 import Map from "./Map";
 
+
 export default function Login() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("");   
 
   const navigation = useNavigation();
 
@@ -29,7 +30,7 @@ export default function Login() {
     // when leaving listener, will unsubscribe so stops pinging
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate(Map);
+        navigation.navigate("Map");
       }
     });
     return unsubscribe;
@@ -39,7 +40,7 @@ export default function Login() {
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        const user = userCredential.user;        
       })
       .catch((error) => {
         alert(error.message);
@@ -49,13 +50,13 @@ export default function Login() {
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        const user = userCredential.user;        
       })
       .catch((error) => {
         alert(error.message);
       });
   };
-
+ 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.inputContainer}>
@@ -142,3 +143,4 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+

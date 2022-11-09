@@ -1,9 +1,10 @@
-// // Import the functions you need from the SDKs you need
+// Commented top code here is example from youtube guide
+// Import the functions you need from the SDKs you need
 // import {} from "firebase/app";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-// // Your web app's Firebase configuration
+// Your web app's Firebase configuration
 // const firebaseConfig = {
 //   apiKey: "AIzaSyBC_X3WvK79RTqB2-TmKhoh9kDt_8wJSa8",
 //   authDomain: "comber-app-365823.firebaseapp.com",
