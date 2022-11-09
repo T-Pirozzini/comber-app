@@ -19,10 +19,10 @@ import {
 import { auth } from "../firebase/firebase-config";
 import Map from "./Map";
 
+
 export default function Login() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("Heather");
+  const [password, setPassword] = useState("");   
 
   const navigation = useNavigation();
 
@@ -40,11 +40,7 @@ export default function Login() {
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        // console.log("USER", user.email)
-        
-        console.log("USER", user.email.split("@")[0])
-        setUsername(user.email.split("@")[0])
+        const user = userCredential.user;        
       })
       .catch((error) => {
         alert(error.message);
@@ -54,13 +50,13 @@ export default function Login() {
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
+        const user = userCredential.user;        
       })
       .catch((error) => {
         alert(error.message);
       });
   };
-
+ 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.inputContainer}>

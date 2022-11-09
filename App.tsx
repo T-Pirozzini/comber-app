@@ -28,6 +28,7 @@ import {
 import Login from "./components/Login";
 
 export default function App() {
+
   // add custom font options here
   let [fontsLoaded, error] = useFonts({
     PoorStory_400Regular,
@@ -51,11 +52,10 @@ export default function App() {
   if (!isLoadingComplete) {
     return null;
   } else {
-    return (
-      <NavigationContainer>
-        {/* user ? (<Drawer />) : (<Login />) */}
-        <Drawer />
-      </NavigationContainer>
+    return (      
+      <NavigationContainer>            
+        <Drawer />        
+      </NavigationContainer>           
     );
   }
 }
