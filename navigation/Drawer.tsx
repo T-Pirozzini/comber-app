@@ -8,7 +8,7 @@ import {
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import About from "../components/About";
 import Login from "../components/Login";
-import Register from "../components/Register"
+import Register from "../components/Register";
 import FooterTabs from "../components/FooterTabs";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -33,7 +33,8 @@ useEffect(() => {
   const navigation = useNavigation();
 
   const handleSignOut = () => {
-    auth.signOut()
+    auth
+      .signOut()
       .then(() => {
         // replacing current screen with Login Screen
         navigation.navigate("Login");      
@@ -44,7 +45,7 @@ useEffect(() => {
   };
   return (
     <Drawer.Navigator
-      initialRouteName="DrawerHome"      
+      initialRouteName="DrawerHome"
       screenOptions={{
         drawerStyle: {
           backgroundColor: "#031926",
@@ -60,14 +61,14 @@ useEffect(() => {
       <Drawer.Screen
         name="Comb"
         component={FooterTabs}
-        options={{                
+        options={{
           headerTintColor: "#B74F6F",
           headerTitleStyle: {
             fontFamily: "Alice_400Regular",
-            fontSize: 40,          
-          },        
+            fontSize: 40,
+          },
           headerRight: () => (
-            <View style={styles.heading}>              
+            <View style={styles.heading}>
               <MaterialCommunityIcons
                 name={"jellyfish-outline"} // Change to Comb Logo
                 title={"Comb"}
@@ -86,9 +87,8 @@ useEffect(() => {
                 </TouchableOpacity>
                 )}                
               </View>
-              
-            </View> 
-          ),          
+            </View>
+          ),
           headerStyle: { backgroundColor: "#031926" },
         }}
       />
@@ -106,10 +106,10 @@ useEffect(() => {
 }
 
 const styles = StyleSheet.create({
-  heading: {   
+  heading: {
     alignContent: "space-between",
-    flexDirection: "row",   
-    alignItems: "center"
+    flexDirection: "row",
+    alignItems: "center",
   },
   logout: {
     justifyContent: "space-between",
@@ -126,5 +126,5 @@ const styles = StyleSheet.create({
   logoutText: {
     color: "white",
     fontWeight: "700",
-  }
+  },
 });

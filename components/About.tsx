@@ -6,7 +6,7 @@ export default function About() {
   return (
     <View style={styles.container}>
       {/* <Header /> */}
-      <Text>This is the About Page.</Text>         
+      <Text>This is the About Page.</Text>
     </View>
   );
 }
