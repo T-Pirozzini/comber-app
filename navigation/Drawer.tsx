@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import React, { useState, useEffect, useRef } from 'react'
-import {  
-  View,
-  Text,
-  StyleSheet,  
-  TouchableOpacity
-} from "react-native";
+import React, { useState, useEffect, useRef } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import About from "../components/About";
 import Login from "../components/Login";
@@ -30,18 +23,19 @@ export default function NavDrawer() {
     }
   }, []);
 
-const navigation = useNavigation();
+  const navigation = useNavigation();
 
-const handleSignOut = () => {
-  auth.signOut()
-    .then(() => {
-      // replacing current screen with Login Screen
-      navigation.navigate("Map"); 
-      setUsername(null)             
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+  const handleSignOut = () => {
+    auth
+      .signOut()
+      .then(() => {
+        // replacing current screen with Login Screen
+        navigation.navigate("Map");
+        setUsername(null);
+      })
+      .catch((error) => {
+        alert(error.message);
+      });
   };
   return (
     <Drawer.Navigator
