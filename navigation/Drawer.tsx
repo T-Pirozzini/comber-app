@@ -7,8 +7,10 @@ import {
 } from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import About from "../components/About";
-import Login from "../components/Login"
-import Register from "../components/Register"
+
+import Login from "../components/Login";
+import Register from "../components/Register";
+
 import FooterTabs from "../components/FooterTabs";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -33,6 +35,7 @@ useEffect(() => {
 
 const navigation = useNavigation();
 
+
 const handleSignOut = () => {
   auth.signOut()
     .then(() => {
@@ -43,10 +46,11 @@ const handleSignOut = () => {
     .catch((error) => {
       alert(error.message);
     });
+
   };
   return (
     <Drawer.Navigator
-      initialRouteName="DrawerHome"      
+      initialRouteName="DrawerHome"
       screenOptions={{
         drawerStyle: {
           backgroundColor: "#031926",
@@ -62,14 +66,14 @@ const handleSignOut = () => {
       <Drawer.Screen
         name="Comb"
         component={FooterTabs}
-        options={{                
+        options={{
           headerTintColor: "#B74F6F",
           headerTitleStyle: {
             fontFamily: "Alice_400Regular",
-            fontSize: 40,          
-          },        
+            fontSize: 40,
+          },
           headerRight: () => (
-            <View style={styles.heading}>              
+            <View style={styles.heading}>
               <MaterialCommunityIcons
                 name={"jellyfish-outline"} // Change to Comb Logo
                 title={"Comb"}
@@ -88,25 +92,27 @@ const handleSignOut = () => {
                 </TouchableOpacity>
                 )}                
               </View>
-              
-            </View> 
-          ),          
+            </View>
+          ),
           headerStyle: { backgroundColor: "#031926" },
         }}
       />
 
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Login" component={Login} />
-      <Drawer.Screen name="Register" component={Register} />      
+
+      <Drawer.Screen name="Register" component={Register} />
+      {/* <Button title="Logout" onPress={handleSignOut} /> */}
+
     </Drawer.Navigator>
   );
 }
 
 const styles = StyleSheet.create({
-  heading: {   
+  heading: {
     alignContent: "space-between",
-    flexDirection: "row",   
-    alignItems: "center"
+    flexDirection: "row",
+    alignItems: "center",
   },
   logout: {
     justifyContent: "space-between",
@@ -123,5 +129,5 @@ const styles = StyleSheet.create({
   logoutText: {
     color: "white",
     fontWeight: "700",
-  }
+  },
 });
