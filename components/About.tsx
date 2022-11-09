@@ -9,7 +9,7 @@ export default function About() {
     <View style={styles.container}>
       {/* <Header /> */}
       <Text>This is the About Page.</Text>
-      <Footer />      
+      <Footer />
     </View>
   );
 }
