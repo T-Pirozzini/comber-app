@@ -113,32 +113,28 @@ export default function Tide({city}) {
       <SpeedDial.Action
         icon={{ name: 'location', type: 'entypo', color: '#7DD181' }}
         title={"Station: " + stationName}
-        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
-        onPress={() => console.log('Add Something')}
+        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}        
         color="#031926"
         containerStyle={{margin: -15}}         
       />        
       <SpeedDial.Action
         icon={{name: 'earth', type: "material-community", color: '#7DD181' }}
         title={"Lat: " + Number(stationLat).toFixed(2) + "°" + "  Lng: " + Number(stationLng).toFixed(2) + "°"}
-        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
-        onPress={() => console.log('Delete Something')}          
+        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}                 
         color="#031926"
         containerStyle={{margin: -15}}
       />   
       <SpeedDial.Action
         icon={{name: 'arrow-up', type: "material-community", color: '#7DD181' }}
         title={"High Tide: " + highTide + " @ " + highTime}
-        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
-        onPress={() => console.log('Delete Something')}
+        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}        
         color="#031926"
         containerStyle={{margin: -15}}
       />
       <SpeedDial.Action
         icon={{name: 'arrow-down', type: "material-community", color: '#7DD181'}}         
         title={"Low Tide: " + lowTide + " @ " + lowTime}
-        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
-        onPress={() => console.log('Delete Something')}
+        titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}        
         color="#031926"
         containerStyle={{margin: -15}}
       />        

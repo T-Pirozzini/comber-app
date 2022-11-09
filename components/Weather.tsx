@@ -58,7 +58,7 @@ export default function Weather({city}) {
       />        
       <SpeedDial.Action
         icon={{name: 'thermometer', type: "font-awesome", color: '#7DD181' }}
-        title={"Temperature: " + info.temp}
+        title={"Temperature: " + Number(info.temp).toFixed(1) + "°C"}
         titleStyle = {{backgroundColor: "rgba(3, 25, 38, 1)", color: "#7DD181" }}
         onPress={() => console.log('Delete Something')}
         color="#031926"
