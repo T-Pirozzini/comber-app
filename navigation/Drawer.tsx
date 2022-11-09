@@ -1,19 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState, useEffect, useRef } from 'react'
+import {  
+  View,
+  Text,
+  StyleSheet,  
+  TouchableOpacity
+} from "react-native";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import About from "../components/About";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import FooterTabs from "./FooterTabs";
-
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { auth } from "../firebase/firebase-config";
 import { signOut, updateCurrentUser } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
-
-// get current user from firebase
+//get currentUser object from firebase
 const currentUser = auth.currentUser;
 
 export default function NavDrawer() {
@@ -25,18 +30,18 @@ export default function NavDrawer() {
     }
   }, []);
 
-  const navigation = useNavigation();
+const navigation = useNavigation();
 
-  const handleSignOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        // replacing current screen with Login Screen
-        navigation.navigate("Login");
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+const handleSignOut = () => {
+  auth.signOut()
+    .then(() => {
+      // replacing current screen with Login Screen
+      navigation.navigate("Map"); 
+      setUsername(null)             
+    })
+    .catch((error) => {
+      alert(error.message);
+    });
   };
   return (
     <Drawer.Navigator
@@ -92,7 +97,6 @@ export default function NavDrawer() {
           headerStyle: { backgroundColor: "#031926" },
         }}
       />
-
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Login" component={Login} />
       <Drawer.Screen name="Register" component={Register} />
