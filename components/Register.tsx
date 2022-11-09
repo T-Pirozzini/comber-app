@@ -17,7 +17,7 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import { auth } from "../firebase/firebase-config";
-import Map from "./Map";
+import Map from "../screens/Map";
 
 export default function Register() {
   const [fullName, setFullName] = useState("");
@@ -44,8 +44,8 @@ export default function Register() {
       .then((userCredential) => {
         const user = userCredential.user;
 
-        console.log("USER", user.email.split("@")[0])
-        setUsername(user.email.split("@")[0])
+        console.log("USER", user.email.split("@")[0]);
+        setUsername(user.email.split("@")[0]);
       })
       .catch((error) => {
         alert(error.message);
@@ -71,9 +71,6 @@ export default function Register() {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={handleLogin} style={styles.button}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
         <TouchableOpacity
           onPress={handleSignUp}
           style={[styles.button, styles.buttonOutline]}

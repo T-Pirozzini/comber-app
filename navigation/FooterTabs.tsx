@@ -11,10 +11,10 @@ import {
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import Home from "./Home";
-import Map from "./Map";
-import MessageBoard from "./MessageBoard";
-import Info from "./Info";
+// import Home from "./Home";
+import Map from "../screens/Map";
+import MessageBoard from "../screens/MessageBoard";
+import Info from "../screens/Info";
 import {
   MaterialCommunityIcons,
   Ionicons,

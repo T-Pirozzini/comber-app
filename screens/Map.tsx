@@ -6,12 +6,12 @@ import MapView, {
   PROVIDER_GOOGLE,
 } from "react-native-maps";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import {  
+import {
   View,
   Text,
   StyleSheet,
   Dimensions,
-  TouchableOpacity,  
+  TouchableOpacity,
 } from "react-native";
 import {
   MaterialIcons,
@@ -20,8 +20,8 @@ import {
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
 import * as Location from "expo-location";
-import Tide from "./Tide";
-import Weather from "./Weather";
+import Tide from "../components/Tide";
+import Weather from "../components/Weather";
 
 // Google places api
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
@@ -443,7 +443,7 @@ export default function Map() {
         {/* Display user's current region */}
         {/* <Text style={styles.text}>Current latitude: {region.latitude}</Text>
         <Text style={styles.text}>Current longitude: {region.longitude}</Text>         */}
-      </View>      
+      </View>
     </View>
   );
 }
@@ -481,7 +481,7 @@ const styles = StyleSheet.create({
   searchIcon: {
     marginTop: 3,
   },
-  callout: {    
+  callout: {
     width: 300,
   },
 });

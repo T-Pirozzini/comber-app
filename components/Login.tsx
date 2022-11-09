@@ -13,13 +13,13 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 import { auth } from "../firebase/firebase-config";
+import Map from "../screens/Map";
 
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("")   
-
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -47,13 +47,13 @@ export default function Login() {
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;        
+        const user = userCredential.user;
       })
       .catch((error) => {
         alert(error.message);
       });
   };
- 
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.inputContainer}>
@@ -141,4 +141,3 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
-
