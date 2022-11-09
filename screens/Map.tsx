@@ -63,15 +63,15 @@ export default function Map() {
       // if compass clicked do this
       const getCurrentLocation = async () => {
         let { coords } = await Location.getCurrentPositionAsync({});
-        console.log("PRE: LOCATION COORDS:", coords);
+        // console.log("PRE: LOCATION COORDS:", coords);
         setTargetClicked(false);
         if (!coords) {
           console.log("No Location");
         }
         if (coords) {
           setLocation(coords);
-          console.log("POST: LOCATION COORDS:", location);
-          console.log(targetClicked);
+          // console.log("POST: LOCATION COORDS:", location);
+          // console.log(targetClicked);
         }
       };
 

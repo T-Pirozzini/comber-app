@@ -7,22 +7,11 @@ import Register from "../components/Register";
 import FooterTabs from "./FooterTabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { auth } from "../firebase/firebase-config";
-import { signOut, updateCurrentUser } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
 
 const Drawer = createDrawerNavigator();
-//get currentUser object from firebase
-const currentUser = auth.currentUser;
 
-export default function NavDrawer() {
-  const [username, setUsername] = useState("");
-
-  useEffect(() => {
-    if (currentUser) {
-      setUsername(currentUser.email.split("@")[0]);
-    }
-  }, []);
-
+export default function NavDrawer() { 
   const navigation = useNavigation();
 
   const handleSignOut = () => {
@@ -30,12 +19,9 @@ export default function NavDrawer() {
       .signOut()
       .then(() => {
         // replacing current screen with Login Screen
-        navigation.navigate("Map");
-        setUsername(null);
+        navigation.navigate("Map");        
       })
-      .catch((error) => {
-        alert(error.message);
-      });
+      .catch((error) => { alert(error.message) });
   };
   return (
     <Drawer.Navigator
@@ -70,14 +56,13 @@ export default function NavDrawer() {
                 size={36}
                 style={{ marginRight: 120 }}
               />
-              <View style={styles.logout}>
-                {/* Render username if user is signed in */}
-                {currentUser && (
+              <View style={styles.logout}>               
+                {auth.currentUser && (
                   <Text style={{ fontSize: 12, color: "#7DD181" }}>
-                    Hi, {username}
+                    Hi, {auth.currentUser?.email.split("@")[0]}
                   </Text>
                 )}
-                {currentUser && (
+                {auth.currentUser && (
                   <TouchableOpacity
                     onPress={handleSignOut}
                     style={styles.logoutBtn}

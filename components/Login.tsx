@@ -1,25 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
-import {  
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 import { useState, useEffect } from "react";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-  View,  
-  TextInput,  
-  KeyboardAvoidingView,
-} from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View, TextInput, KeyboardAvoidingView} from "react-native";
 import { auth } from "../firebase/firebase-config";
-import Map from "../screens/Map";
-
 
 export default function Login() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("")   
+  const [password, setPassword] = useState("");   
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -32,30 +19,25 @@ export default function Login() {
     return unsubscribe;
   }, []);
 
-  // const auth = getAuth();
   const handleSignUp = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        setUsername(user.email.split("@")[0])        
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+        const user = userCredential.user;                
+    })
+    .catch((error) => { alert(error.message) });
   };
 
   const handleLogin = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-      })
-      .catch((error) => {
-        alert(error.message);
-      });
+        console.log(user.email) 
+    })
+    .catch((error) => { alert(error.message) });
   };
 
   return (
-    <KeyboardAvoidingView style={styles.container} behavior="padding">
+    <KeyboardAvoidingView style={styles.container}>
       <View style={styles.inputContainer}>
         <TextInput
           placeholder="Email"
@@ -73,13 +55,12 @@ export default function Login() {
       </View>
 
       <View style={styles.buttonContainer}>
+        {/* Login button */}
         <TouchableOpacity onPress={handleLogin} style={styles.button}>
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={handleSignUp}
-          style={[styles.button, styles.buttonOutline]}
-        >
+        {/* Register button */}
+        <TouchableOpacity onPress={handleSignUp} style={[styles.button, styles.buttonOutline]}>
           <Text style={styles.buttonOutlineText}>Register</Text>
         </TouchableOpacity>
       </View>
@@ -92,8 +73,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#6D6D6D",
-    marginTop: 100,
+    backgroundColor: "#6D6D6D",    
   },
   inputContainer: {
     width: "80%",
