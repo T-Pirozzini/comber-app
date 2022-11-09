@@ -1,12 +1,10 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
 import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
-import Drawer from "./navigation/Drawer";
+
 import "react-native-gesture-handler";
-import { Button, View, StyleSheet } from "react-native";
+
 import { NavigationContainer } from "@react-navigation/native";
+import Drawer from "./navigation/Drawer";
 
 // add custom fonts
 import { useFonts } from "expo-font";
@@ -25,10 +23,9 @@ import {
   TitilliumWeb_700Bold_Italic,
   TitilliumWeb_900Black,
 } from "@expo-google-fonts/titillium-web";
-import Login from "./components/Login";
+
 
 export default function App() {
-
   // add custom font options here
   let [fontsLoaded, error] = useFonts({
     PoorStory_400Regular,
