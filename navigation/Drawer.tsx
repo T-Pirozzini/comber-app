@@ -1,38 +1,42 @@
 import React, { useState, useEffect } from 'react'
-import {
-  Button,
+import {  
   View,
   Text,
-  StyleSheet,
-  Image,
-  SafeAreaView,
+  StyleSheet,  
   TouchableOpacity
 } from "react-native";
-import { createDrawerNavigator, DrawerItem } from "@react-navigation/drawer";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import About from "../components/About";
 import Login from "../components/Login";
 import Register from "../components/Register"
 import FooterTabs from "../components/FooterTabs";
 
-import CombLogo from "../assets/images/comb_logo.png";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { auth } from "../firebase/firebase-config";
-import { signOut } from "firebase/auth";
+import { signOut, updateCurrentUser } from "firebase/auth";
 import { useNavigation } from "@react-navigation/native";
-import { withTheme } from '@rneui/themed';
-
 
 const Drawer = createDrawerNavigator();
 
+// get current user from firebase
+const currentUser = auth.currentUser;
+
 export default function NavDrawer() { 
+const [username, setUsername] = useState("")
   
-  const username = "ted"
+useEffect(() => {
+  if (currentUser) {  
+    setUsername(currentUser.email.split("@")[0]) 
+  }  
+}, [])
+
   const navigation = useNavigation();
+
   const handleSignOut = () => {
     auth.signOut()
       .then(() => {
         // replacing current screen with Login Screen
-        navigation.navigate("Login");
+        navigation.navigate("Login");      
       })
       .catch((error) => {
         alert(error.message);
@@ -72,10 +76,15 @@ export default function NavDrawer() {
                 style={{ marginRight: 120 }}
               />
               <View style={styles.logout}>
-                <Text style={{ fontSize: 12, color:"#7DD181" }}>Hi, {username}</Text>               
+                {/* Render username if user is signed in */}
+                {currentUser && (
+                <Text style={{ fontSize: 12, color:"#7DD181" }}>Hi, {username}</Text>
+                )}
+                {currentUser && (               
                 <TouchableOpacity onPress={handleSignOut} style={styles.logoutBtn}>
                   <Text style={styles.logoutText}>Logout</Text>
-                </TouchableOpacity>                
+                </TouchableOpacity>
+                )}                
               </View>
               
             </View> 

@@ -6,15 +6,12 @@ import MapView, {
   PROVIDER_GOOGLE,
 } from "react-native-maps";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import {
-  Button,
+import {  
   View,
   Text,
   StyleSheet,
   Dimensions,
-  TouchableOpacity,
-  Image,
-  TextInput,
+  TouchableOpacity,  
 } from "react-native";
 import {
   MaterialIcons,
@@ -25,10 +22,6 @@ import {
 import * as Location from "expo-location";
 import Tide from "./Tide";
 import Weather from "./Weather";
-import Logo from "../assets/images/icon";
-import { auth } from "../firebase/firebase-config";
-import { signOut } from "firebase/auth";
-import { useNavigation } from "@react-navigation/native";
 
 // Google places api
 const googleKey = process.env.REACT_APP_GOOGLE_API_KEY;
