@@ -18,7 +18,13 @@ const currentTime = String(moment().fromNow());
 
 export default function MessageBoard() {
   const [text, setText] = useState("");
+  const [user, setUser] = useState("")
+  const [time, setTime] = useState("")
+  const [comment, setComment] = useState("")
+
   // const [userPost, setUserPost] = useState("");
+
+  const posts: object[] = [];
 
   const addPost = async () => {
     try {
@@ -37,12 +43,17 @@ export default function MessageBoard() {
 
   const getPosts = async () => {
     const querySnapshot = await getDocs(collection(db, "comments"));
-    querySnapshot.forEach((doc) => (
-      <View>
-        <Text>${doc.id}</Text>
-      </View>
-    ));
-    // console.log(`${doc.id} => ${doc.data().currentUser}`);
+    let submittedPosts = {};
+    querySnapshot.forEach((doc) => {      
+        setUser(`${doc.id} => ${doc.data().currentUser}`)
+        setTime(`${doc.id} => ${doc.data().timestamp}`)
+        setComment(`${doc.id} => ${doc.data().text}`)
+        console.log(`${doc.id} => ${doc.data().timestamp}`);
+        // console.log(`${doc.id} => ${doc.data().timestamp}`);
+        // console.log(`${doc.id} => ${doc.data().postbox}`);
+        submittedPosts = {user: `${doc.data().currentUser.email}`, timestamp: `${doc.data().currentTime}`, postbox: `${doc.data().text}`}
+        posts.push(submittedPosts)
+    })         
   };
 
   // getPosts();
@@ -62,6 +73,13 @@ export default function MessageBoard() {
       <TouchableOpacity onPress={getPosts}>
         <Text>Get Docs</Text>
       </TouchableOpacity>
+      <Text>{user}</Text>
+      <Text>{time}</Text>
+      <Text>{comment}</Text>
+      {/* <FlatList
+        data={posts}
+      />        */}
+          
     </View>
   );
 }
