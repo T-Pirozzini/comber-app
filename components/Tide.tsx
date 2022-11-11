@@ -26,8 +26,8 @@ export default function Tide({city}) {
 
   useEffect(() => {   
     getHighLowTide();
-    console.log("LOW", lowTide)
-    console.log("HIGH", highTide) 
+    // console.log("LOW", lowTide)
+    // console.log("HIGH", highTide) 
   },[city, stationName])
   
   // API CALL #1: Get Tide Station Information: ID, Name and Coords - Then set state

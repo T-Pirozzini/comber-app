@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect, createContext } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import MapView, {
   Callout,
   Marker,
@@ -32,21 +32,13 @@ export default function Map() {
     locality: "nanaimo",
     lat: 0,
     lng: 0,
-  });  
-
-  // expo location package
+  }); 
   const [location, setLocation] = useState({
     destination: "",
   });
   const [errorMsg, setErrorMsg] = useState(null);
-  const [address, setAddress] = useState(null);
-  const [getLocation, setGetLocation] = useState(null);
-
-  // const [currentLocation, setCurrentLocation] = useState(null);
+  const [address, setAddress] = useState(null); 
   const [targetClicked, setTargetClicked] = useState(false);
-
-  const [coords, setCoords] = useState(null);
-
   const [pin, setPin] = useState({ latitude: 37.78825, longitude: -122.4324 });
   const [regionGoogleMap, setRegionGoogleMap] = useState({
     latitude: 37.78825,
@@ -145,8 +137,8 @@ export default function Map() {
           latitude,
         });
         setAddress(regionName[0]);
-        // console.log("REGIONNAME", address);
-        // console.log(regionName, "nothing");
+        console.log("REGIONNAME", address);
+        console.log(regionName, "nothing");
       }
     })();
   }, []);
@@ -213,7 +205,7 @@ export default function Map() {
           rankby: "distance",
         }}
         onPress={(data, details = null) => {
-          // Trying to test animating to clicked on location
+          // Animating to clicked on location
           setRegionGoogleMap({
             latitude: details.geometry.location.lat,
             longitude: details.geometry.location.lng,
@@ -248,26 +240,17 @@ export default function Map() {
         renderRightButton={() =>
           googlePlacesAutoCompleteRef.current?.getAddressText() ? (
             <TouchableOpacity
-              // style={styles.clearButton}
-
               onPress={() => {
-                // Clear button always shows after initial input
                 googlePlacesAutoCompleteRef.current?.clear();
-                // setEx(false);
-                // Clear button disappears after clicking clear and clicking input field again
-                // googlePlacesAutoCompleteRef.current?.setAddressText("");
               }}
             >
-              <AntDesign
-                //white background, white circle X
-                // gonna Search how to implement how to add button inside Search Bar (not sure if possible)
-                // name={"closecircleo"}
-                // black background, black circle X
-                name={"closecircle"}
-                color={"#7DD181"}
-                size={20}
-                style={styles.clearButton}
-              />
+            {/* Clear Button */}
+            <AntDesign
+              name={"closecircle"}
+              color={"#7DD181"}
+              size={20}
+              style={styles.clearButton}
+            />
             </TouchableOpacity>
           ) : null
         }
@@ -319,34 +302,28 @@ export default function Map() {
         showsUserLocation={true}
         showsMyLocationButton={true}
         initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
+          latitude: 49.2827,
+          longitude: -123.1207,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
         onRegionChangeComplete={(region) => setRegion(region)}
       >
+        {/* Starting marker location */}
         <Marker
           coordinate={{
             latitude: regionGoogleMap.latitude,
             longitude: regionGoogleMap.longitude,
           }}
         >
-          <Callout>
-            <Text>I'm Here!!</Text>
-          </Callout>
         </Marker>
+        {/* Nanoose Bay Harvest Location */}
         <Marker
           coordinate={{
             latitude: 49.254,
             longitude: -124.173,
           }}
         >
-          {/* <Image
-            source={require("../assets/images/clam-marker.jpg")}
-            style={{ width: 50, height: 50 }}
-            resizeMode="contain"
-          /> */}
           <MaterialCommunityIcons name="shovel" size={24} color="black" />
           <Entypo name="bucket" size={24} color="black" />
           <Callout>
@@ -358,91 +335,10 @@ export default function Map() {
             </View>
           </Callout>
         </Marker>
-        {/* <Marker
-          pinColor="green"
-          icon={require("../assets/images/icon.png")}
-          coordinate={{
-            latitude: 49.254,
-            longitude: -124.173,
-          }}
-          style={{ width: 26, height: 28 }}
-          // resizeMode="contain"
-        >
-          
-        </Marker> */}
-        <Marker
-          coordinate={pin}
-          pinColor="blue"
-          draggable={true}
-          onDragStart={(e) => {
-            console.log("Drag Start", e.nativeEvent.coordinate);
-          }}
-          onDragEnd={(e) => {
-            setPin({
-              latitude: e.nativeEvent.coordinate.latitude,
-              longitude: e.nativeEvent.coordinate.longitude,
-            });
-          }}
-        >
-          <Callout>
-            <Text>I'm here!!!!!!</Text>
-          </Callout>
-        </Marker>
-        <Polygon
-          coordinates={[
-            {
-              latitude: 37.78825,
-              longitude: -122.4324,
-            },
-            {
-              latitude: 37.79825,
-              longitude: -122.5324,
-            },
-            {
-              latitude: 37.88825,
-              longitude: -122.4324,
-            },
-            {
-              latitude: 37.8825,
-              longitude: -122.4324,
-            },
-          ]}
-          fillColor="rgba(207, 47, 116, 0.5)"
-        ></Polygon>
-        <Polygon
-          coordinates={[
-            {
-              latitude: 49.1527,
-              longitude: -124.0712,
-            },
-            {
-              latitude: 49.1525,
-              longitude: -124.0554,
-            },
-            // {
-            //   latitude: 50.25,
-            //   longitude: -124.65,
-            // },
-            // {
-            //   latitude: 49.15,
-            //   longitude: -124.07,
-            // },
-          ]}
-          fillColor="rgba(207, 47, 116, 0.5)"
-        ></Polygon>
       </MapView>
       <View style={styles.speedDial}>
         <Weather city={searchInput.locality} />
         <Tide city={searchInput.locality} />
-        {/* <Text>EXPO LOCATION OUTPUT: {text}</Text> */}
-        {/* <Button
-          // style={}
-          onPress={() => goToVancouver()}
-          title="Go to Vancouver"
-        />
-        {/* Display user's current region */}
-        {/* <Text style={styles.text}>Current latitude: {region.latitude}</Text>
-        <Text style={styles.text}>Current longitude: {region.longitude}</Text>         */}
       </View>
     </View>
   );} 
