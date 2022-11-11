@@ -36,44 +36,18 @@ export default function Map() {
   const [location, setLocation] = useState({
     destination: "",
   });
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [address, setAddress] = useState(null); 
-  const [targetClicked, setTargetClicked] = useState(false);
+  const [errorMsg, setErrorMsg] = useState(null);  
   const [pin, setPin] = useState({ latitude: 37.78825, longitude: -122.4324 });
   const [regionGoogleMap, setRegionGoogleMap] = useState({
-    latitude: 37.78825,
-    longitude: -122.4324,
+    latitude: 49.2827,
+    longitude: -123.1207,
     latitudeDelta: 0.0922,
     longitudeDelta: 0.0421,
   });
 
-  // Attempting to split up useEffects for location data retrieval //
-
-  // 1 . Current location Data
-  useEffect(() => {
-    if (targetClicked) {
-      // if compass clicked do this
-      const getCurrentLocation = async () => {
-        let { coords } = await Location.getCurrentPositionAsync({});
-        // console.log("PRE: LOCATION COORDS:", coords);
-        setTargetClicked(false);
-        if (!coords) {
-          console.log("No Location");
-        }
-        if (coords) {
-          setLocation(coords);
-          // console.log("POST: LOCATION COORDS:", location);
-          // console.log(targetClicked);
-        }
-      };
-
-      getCurrentLocation();
-    }
-  }, [location]);
-
-  // 2. Location permission status data
-  useEffect(() => {
-    const getLocationPermission = async () => {
+  // Attempting to split up useEffects for location data retrieval // 
+  const getLocationPermission = async () => {
+    try {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== "granted") {
         setErrorMsg("Permission to access location was denied");
@@ -81,118 +55,37 @@ export default function Map() {
         return;
       }
       if (status == "granted") {
-        setTargetClicked(true);
+        getCurrentLocation()
       }
-    };
+    } catch (error) {console.log("ERROR", error)}
+  }; 
 
-    getLocationPermission();
+  const getCurrentLocation = async () => {
+    try {
+      let { coords } = await Location.getCurrentPositionAsync({});
+      if (!coords) {
+        console.log("No Location");
+      }
+      if (coords) {        
+        setLocation(coords);       
+      }
+    } catch (error) {console.log("ERROR", error)}
+  };
 
-    // 3. Get specific city data by using coordinates data
-
-    // search form submitted do this
-    // let address = await Location.reverseGeocodeAsync(region.coords);
-    // console.log("ADDRESS", address);
-
-    // if (location) {
-    //   let latitude = location.coords.latitude;
-    //   let longitude = location.coords.longitude;
-
-    //   let regionName = await Location.reverseGeocodeAsync({
-    //     longitude,
-    //     latitude,
-    //   });
-    //   setAddress(regionName[0]);
-    //   console.log("REGIONNAME", address);
-    //   console.log(regionName, "nothing");
-    // }
-    // })();
-  }, []);
-
-  // 3. The original useEffect before I messed around with it
-  // get current location/set current location on compass click
   useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-      // if compass clicked do this
-      let currentLocation = await Location.getCurrentPositionAsync({});
-      if (currentLocation) {
-        setLocation(currentLocation);
-        // console.log("LOCATION:", location);
-      }
+    getLocationPermission()
+  },[regionGoogleMap])     
 
-      // search form submitted do this
-      let address = await Location.reverseGeocodeAsync(region.coords);
-      // console.log("ADDRESS", address);
-
-      if (location) {
-        let latitude = location.coords.latitude;
-        let longitude = location.coords.longitude;
-
-        let regionName = await Location.reverseGeocodeAsync({
-          longitude,
-          latitude,
-        });
-        setAddress(regionName[0]);
-        console.log("REGIONNAME", address);
-        console.log(regionName, "nothing");
-      }
-    })();
-  }, []);
-
-  let text = "Waiting..";
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
 
   const [region, setRegion] = useState({
-    coords: { latitude: 37.78825, longitude: -122.4324 },
+    coords: { latitude: 47.78825, longitude: -122.4324 },
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   });
 
   // because of Typescript, need to set type to not null.
   const mapRef = useRef(null);
-  const googlePlacesAutoCompleteRef = useRef(null);
-  const vancouverArea = {
-    latitude: 49.2827,
-    longitude: -123.1207,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  };
-
-  // this function below works even though shows error
-  const goToVancouver = () => {
-    // Animate user to Vancouver area, 2nd argument determines how many seconds to complete
-    mapRef.current.animateToRegion(vancouverArea, 3 * 1000);
-  };
-
-  // Nanoose Bay
-  const firstClamArea = {
-    latitude: 49.254,
-    longitude: -124.173,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  };
-
-  // const secondClamArea = {
-  //   latitude: ,
-  //   longitude: ,
-  //   latitudeDelta: ,
-  //   longitudeDelta: ,
-  // }
-
-  // const thirdClamArea = {
-  //   latitude: ,
-  //   longitude: ,
-  //   latitudeDelta: ,
-  //   longitudeDelta: ,
-  // }
+  const googlePlacesAutoCompleteRef = useRef(null); 
 
   return (
     <View style={styles.container}>

@@ -27,7 +27,7 @@ export default function MessageBoard(props) {
   const [text, setText] = useState("");   
   const [data, setData] = useState(null)  
 
-  console.log("CITY:", props)
+  // console.log("CITY:", props)
      
   const addPost = async () => {
     try {
