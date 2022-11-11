@@ -51,7 +51,7 @@ export default function Info() {
               uri: "http://maps.bccdc.org/shellfish/img/mussels.png",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Bluish-black oblong shell, distinctive “D” or flattened teardrop
             shape. Pearly violet or white shell interior. {"\n"}
             {"\n"}
@@ -132,7 +132,7 @@ export default function Info() {
               uri: "https://nathistoc.bio.uci.edu/Molluscs/Mytilus.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Bluish-black oblong shells, anchored to substrates with brown byssal
             threads.{"\n"}
             {"\n"}Size: Up to 25cm
@@ -212,7 +212,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/butterclam.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Oval to round, white coloured. Concentric rings on shell. {"\n"}
             {"\n"} Size: Up to 13cm
           </Text>
@@ -291,7 +291,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/geoduck.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Oblong gaping shell, rounded on one end, white colour with extended
             siphon.{"\n"}
             {"\n"}Size: Shell size up to 25cm
@@ -371,7 +371,7 @@ export default function Info() {
               uri: "https://wdfw.wa.gov/sites/default/files/styles/half_width_slide/public/2020-02/horse_clam_4.jpg?itok=myZ0qXQV",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Oval white coloured with brown and black patches worn off shell.
             Concentric rings on shell.{"\n"}
             {"\n"}Size: Up to 20cm
@@ -451,7 +451,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/littleneck_clam-palourde_pacifique.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Lines up and across outer shell surface, round, white shell
             interior.{"\n"}
             {"\n"}Size: Up to 9cm
@@ -531,7 +531,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/manila_clam-palourde_japonaise-1.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Lines up and across outer shell surface, elongated, purple shell
             interior.{"\n"}
             {"\n"}Size: Up to 9cm
@@ -611,7 +611,7 @@ export default function Info() {
               uri: "https://static.wixstatic.com/media/9082a3_be15e72c86e841619554ba0c9c448c0f~mv2.jpg/v1/fill/w_640,h_480,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/9082a3_be15e72c86e841619554ba0c9c448c0f~mv2.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -695,7 +695,7 @@ export default function Info() {
               uri: "https://www.dfw.state.or.us/mrp/shellfish/bayclams/images/cockle_out_ODFW.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Also known as Nuttall’s, basket or heart cockles. Yellow-brown thick
             shells with strong radiating wavy ribs.{"\n"}
             {"\n"}Size: Up to 14cm
@@ -775,7 +775,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/pacific-oyster-huitre-creuse.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Large. Thick shell, rough sculptured appearance. Shell colour
             varies: the outside is a combination of browns, greens and grays,
             often with sharp purple fluting near the edges. The interior is
@@ -856,7 +856,7 @@ export default function Info() {
               uri: "http://maps.bccdc.org/shellfish/img/scallops.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Radiating ribs from the hinge, with thin flattened shells, colour
             white to pink.{"\n"}
             {"\n"}
@@ -937,7 +937,7 @@ export default function Info() {
               uri: "https://www.centralcoastbiodiversity.org/uploads/1/4/9/9/14993002/6579911_orig.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -1021,7 +1021,7 @@ export default function Info() {
               uri: "https://i0.wp.com/robinbarefield.com/wp-content/uploads/2021/07/Weathervane-1.jpg?fit=259%2C194",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Radiating ribs from the hinge, one side flat, the other bulging,
             colour brown to light orange/red.{"\n"}
             {"\n"}Size: Up to 20cm
@@ -1101,7 +1101,7 @@ export default function Info() {
               uri: "https://www.yournec.org/wp-content/uploads/2020/07/The-charismatic-Moon-Snail-on-the-move.-Photo-by-Casey-Cruikshank-scaled.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -1185,7 +1185,7 @@ export default function Info() {
               uri: "https://upload.wikimedia.org/wikipedia/commons/c/cc/Snail.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -1269,7 +1269,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/razorclam.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Oblong shaped with brittle brown to olive coloured shell and
             extended siphon. Concentric rings on shell.{"\n"}
             {"\n"}Size: Up to 15cm
@@ -1349,7 +1349,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/varnishclams.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Oval and flat, shiny brown and white coloured with purple interior
             shell colour. Concentric rings on shell.{"\n"}
             {"\n"}Size: Up to 7.5cm
@@ -1429,7 +1429,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/spotprawn.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Red. White horizontal bars on shell, at least two pairs of white
             spots on abdomen. Found in rocky areas. Largest shrimp in B.C., up
             to 25 cm.
@@ -1509,7 +1509,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/coonstripeshrimp.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Coonstripe shrimp: Red-brown. Irregular brown and white oblique
             lines on shell and abdomen. Found in shallow water on or near
             pilings and floats.{"\n"}
@@ -1584,7 +1584,7 @@ export default function Info() {
               justifyContent: "space-between",
             }}
           >
-            <Card.Title h2>Squid</Card.Title>
+            <Card.Title h2 style={styles.cardTitle}>Squid</Card.Title>
             <Text>Max: 20</Text>
           </View>
           <Card.Divider />
@@ -1594,7 +1594,7 @@ export default function Info() {
               uri: "https://www.pac.dfo-mpo.gc.ca/fm-gp/rec/images/identify-identifier/opal-squid.jpg",
             }}
           />
-          <Text style={{ marginBottom: 10 }}>
+          <Text style={styles.cardTitle}>
             Opal squid: Pale lavender. Size: up to 13 cm in B.C. Found in
             inshore waters. Often gather in large schools to spawn in shallow
             water.{"\n"}
@@ -1670,10 +1670,15 @@ const styles = StyleSheet.create({
     height: 100,
     marginLeft: 10,
   },
+  cardTitle: {
+    fontFamily: "TitilliumWeb_400Regular",
+    marginBottom: 10,
+  },
   title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginLeft: 10,
+    fontSize: 24,
+    // fontWeight: "bold",
+    // marginLeft: 10,
+    fontFamily: "TitilliumWeb_700Bold"    
   },
   button: {
     flexDirection: "row",
