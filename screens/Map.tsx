@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useLayoutEffect } from "react";
+import React, { useState, useRef, useEffect, useLayoutEffect, createContext } from "react";
 import MapView, {
   Callout,
   Marker,
@@ -32,7 +32,7 @@ export default function Map() {
     locality: "nanaimo",
     lat: 0,
     lng: 0,
-  });
+  });  
 
   // expo location package
   const [location, setLocation] = useState({
@@ -445,8 +445,7 @@ export default function Map() {
         <Text style={styles.text}>Current longitude: {region.longitude}</Text>         */}
       </View>
     </View>
-  );
-}
+  );} 
 
 const styles = StyleSheet.create({
   container: {
@@ -485,3 +484,4 @@ const styles = StyleSheet.create({
     width: 300,
   },
 });
+
