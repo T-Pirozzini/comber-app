@@ -65,51 +65,90 @@ export default function MessageBoard() {
   const renderItem = ({ item }) => (    
     <ScrollView>
       <Card>    
-        <Text style={{textAlign: "center", fontWeight: "700"}}>{item.currentUser}</Text>
+        <Text style={styles.commentTitle}>{item.currentUser.split('@')[0]}</Text>
         <Card.Divider />
-        <Text>{item.postbox}</Text>    
+        <Text style={styles.comment}>{item.postbox}</Text>    
         <Card.Divider />
-        <Text style={{fontSize: 12}}>{item.timestamp.toString()}</Text>
+        <Text style={{fontSize: 12, textAlign: "center"}}>{item.timestamp.toString()}</Text>
       </Card>
     </ScrollView>
   );
 
   return (
-    <View style={styles.postContainer}>
-
-       <View>
-        <Text style={styles.text}>Add a Comment</Text>
-        <TextInput
-          placeholder="enter a comment here"
-          value={text}
-          onChangeText={(text) => setText(text)}
-        ></TextInput>
-        <TouchableOpacity onPress={addPost}>
-          <Text>Submit</Text>
-        </TouchableOpacity>
-      </View>   
-
-      <View>
+   <View style={styles.mainContainer}>
+    <View style={styles.commentContainer}>
+      <Text style={styles.postTitle}>Post an update:</Text>
+      <TextInput
+        placeholder="Enter a comment..."
+        value={text}
+        onChangeText={(text) => setText(text)}
+        style={styles.input}
+      ></TextInput>
+      <TouchableOpacity 
+        onPress={addPost}
+        style={styles.btn}>
+        <Text style={styles.btnText}>SUBMIT COMMENT</Text>
+      </TouchableOpacity>
+    </View>   
+    <View style={styles.postContainer}>      
       {data && (
         <FlatList
           data={data}
           renderItem={renderItem}          
         />
-      )}        
-      </View>     
-
-    </View>    
+      )}      
+    </View>
+  </View>     
   );
 }
 
 
 const styles = StyleSheet.create({
-  text: {
-    flexDirection: "row",
-    color: "#FF5733",
-    // justifyContent: "center",
-  },
-  postContainer: {
+  mainContainer: {
     flex: 1,
-  },  
+    alignItems: "center",    
+  },
+  postTitle: {
+    flexDirection: "row",
+    color: "black",
+    fontSize: 16,
+    fontFamily: "TitilliumWeb_400Regular"
+  },
+  postContainer: {    
+    width: "100%",   
+  },
+  commentContainer: {    
+    alignItems: "center",
+    backgroundColor: "#7DD181",
+    margin: 5,
+    padding: 5,    
+    borderRadius: 10,
+  },
+  input: {
+    backgroundColor: "white",    
+    margin: 5,
+    padding: 5,
+    width: 250,
+    fontFamily: "TitilliumWeb_400Regular"
+  },
+  btn: {   
+    backgroundColor: "#031926",
+    width: "60%",
+    borderRadius: 4,
+    padding: 10,
+    marginTop: 5,
+
+  },
+  btnText: {
+    color: "#B74F6F",
+    fontFamily: "TitilliumWeb_400Regular"    
+  },
+  commentTitle: {
+    textAlign: "center",
+    fontSize: 16,
+    fontFamily: "TitilliumWeb_700Bold"
+  },
+  comment: {
+    fontFamily: "TitilliumWeb_400Regular",   
+  }  
 });
