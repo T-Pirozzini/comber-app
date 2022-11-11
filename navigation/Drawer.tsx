@@ -54,7 +54,7 @@ export default function NavDrawer() {
                 title={"Comb"}
                 color={"#B74F6F"}
                 size={36}
-                style={{ marginRight: 120 }}
+                style={{ marginRight: 90 }}
               />
               <View style={styles.logout}>               
                 {auth.currentUser && (

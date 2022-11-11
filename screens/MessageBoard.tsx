@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   StyleSheet,
   TouchableOpacity,
@@ -10,85 +10,146 @@ import {
   FlatList,
 } from "react-native";
 
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, query, orderBy } from "firebase/firestore";
 import { db, auth } from "../firebase/firebase-config";
 import moment from "moment";
+import { setBackgroundColorAsync } from "expo-system-ui";
+import { RecaptchaVerifier } from "firebase/auth";
+import { Card } from "@rneui/themed";
+import { ScrollView } from "react-native-gesture-handler";
 
-const currentTime = String(moment().fromNow());
 
-export default function MessageBoard() {
-  const [text, setText] = useState("");
-  const [user, setUser] = useState("")
-  const [time, setTime] = useState("")
-  const [comment, setComment] = useState("")
+const getTime = () => {
+  return moment().format('LLL');
+}
 
-  // const [userPost, setUserPost] = useState("");
+export default function MessageBoard(props) {
+  const [text, setText] = useState("");   
+  const [data, setData] = useState(null)  
 
-  const posts: object[] = [];
-
+  console.log("CITY:", props)
+     
   const addPost = async () => {
     try {
       const docRef = await addDoc(collection(db, "comments"), {
         currentUser: auth.currentUser?.email,
-        timestamp: currentTime,
+        timestamp: getTime(),
         postbox: text,
       });
-      console.log(currentTime);
-      console.log(auth.currentUser?.email);
+      // console.log(currentTime);
+      // console.log(auth.currentUser?.email);
       console.log("Document written with ID: ", docRef.id);
+      getPosts();
     } catch (e) {
       console.error("Error adding document: ", e);
     }
   };
-
+  
   const getPosts = async () => {
-    const querySnapshot = await getDocs(collection(db, "comments"));
-    let submittedPosts = {};
-    querySnapshot.forEach((doc) => {      
-        setUser(`${doc.id} => ${doc.data().currentUser}`)
-        setTime(`${doc.id} => ${doc.data().timestamp}`)
-        setComment(`${doc.id} => ${doc.data().text}`)
-        console.log(`${doc.id} => ${doc.data().timestamp}`);
-        // console.log(`${doc.id} => ${doc.data().timestamp}`);
-        // console.log(`${doc.id} => ${doc.data().postbox}`);
-        submittedPosts = {user: `${doc.data().currentUser.email}`, timestamp: `${doc.data().currentTime}`, postbox: `${doc.data().text}`}
-        posts.push(submittedPosts)
-    })         
-  };
+    const q = query(collection(db, "comments"), orderBy("timestamp", "desc"))
+    try {
+    const querySnapshot = await getDocs(q);
+    let results = [];    
+    querySnapshot.forEach((doc) => {  
+      results.push({ id: doc.id, ...doc.data() })
+    });
+    setData(results)
+    } catch (e) {
+    console.error("Error adding document: ", e);
+    }
+  }
 
-  // getPosts();
+  useEffect(() => {
+    getPosts();
+  }, [])
+  
+  const renderItem = ({ item }) => (    
+    <ScrollView>
+      <Card>    
+        <Text style={styles.commentTitle}>{item.currentUser.split('@')[0]}</Text>
+        <Card.Divider />
+        <Text style={styles.comment}>{item.postbox}</Text>    
+        <Card.Divider />
+        <Text style={{fontSize: 12, textAlign: "center"}}>{item.timestamp.toString()}</Text>
+      </Card>
+    </ScrollView>
+  );
 
   return (
-    <View style={styles.postContainer}>
-      <Text style={styles.text}>Add a Comment</Text>
-
+   <View style={styles.mainContainer}>
+    <View style={styles.commentContainer}>
+      <Text style={styles.postTitle}>Post an update:</Text>
       <TextInput
-        placeholder="enter a comment here"
+        placeholder="Enter a comment..."
         value={text}
         onChangeText={(text) => setText(text)}
+        style={styles.input}
       ></TextInput>
-      <TouchableOpacity onPress={addPost}>
-        <Text>Submit</Text>
+      <TouchableOpacity 
+        onPress={addPost}
+        style={styles.btn}>
+        <Text style={styles.btnText}>SUBMIT COMMENT</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={getPosts}>
-        <Text>Get Docs</Text>
-      </TouchableOpacity>
-      <Text>{user}</Text>
-      <Text>{time}</Text>
-      <Text>{comment}</Text>
-      {/* <FlatList
-        data={posts}
-      />        */}
-          
+    </View>   
+    <View style={styles.postContainer}>      
+      {data && (
+        <FlatList
+          data={data}
+          renderItem={renderItem}          
+        />
+      )}      
     </View>
+  </View>     
   );
 }
 
+
 const styles = StyleSheet.create({
-  text: {
-    flexDirection: "row",
-    color: "#FF5733",
-    // justifyContent: "center",
+  mainContainer: {
+    flex: 1,
+    alignItems: "center",    
   },
-  postContainer: {},
+  postTitle: {
+    flexDirection: "row",
+    color: "black",
+    fontSize: 16,
+    fontFamily: "TitilliumWeb_400Regular"
+  },
+  postContainer: {    
+    width: "100%",   
+  },
+  commentContainer: {    
+    alignItems: "center",
+    backgroundColor: "#7DD181",
+    margin: 5,
+    padding: 5,    
+    borderRadius: 10,
+  },
+  input: {
+    backgroundColor: "white",    
+    margin: 5,
+    padding: 5,
+    width: 250,
+    fontFamily: "TitilliumWeb_400Regular"
+  },
+  btn: {   
+    backgroundColor: "#031926",
+    width: "60%",
+    borderRadius: 4,
+    padding: 10,
+    marginTop: 5,
+
+  },
+  btnText: {
+    color: "#B74F6F",
+    fontFamily: "TitilliumWeb_400Regular"    
+  },
+  commentTitle: {
+    textAlign: "center",
+    fontSize: 16,
+    fontFamily: "TitilliumWeb_700Bold"
+  },
+  comment: {
+    fontFamily: "TitilliumWeb_400Regular",   
+  }  
 });
