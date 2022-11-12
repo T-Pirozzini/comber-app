@@ -1,10 +1,10 @@
-# Comb
+# Comb :shell:
 
 Comb is a convenient mobile app that helps you find types of shellfish available in your local area by utilizing React Native, Google Maps, and Firebase.
 
 ## Final Product
 ### Try the app (mobile only)
-exp://exp.host/@tpirozzini/comber-app?release-channel=default
+[Deployed App](exp://exp.host/@tpirozzini/comber-app?release-channel=default)
 
 ### Application Demo
 https://user-images.githubusercontent.com/90930100/201450667-b8e91074-778a-4f37-95d6-569e725a1235.mp4
@@ -13,20 +13,24 @@ https://user-images.githubusercontent.com/90930100/201450667-b8e91074-778a-4f37-
   <tr>
     <th><h4>Home Page</h4></th>
     <th><h4>Google Autocomplete</h4></th>
-    <th><h4>Custom Marker</h4></th>
   </tr>
   <tr>
     <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162121_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
     <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162811_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
-    <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162158_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
   </tr>
   <tr>
+    <th><h4>Custom Marker</h4></th>
     <th><h4>Message Board</h4></th>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162158_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
+    <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162210_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
+  </tr>
+  <tr>
     <th><h4>Info Page</h4><th>
     <th><h4>Info Page</h4><th>
   </tr>
   <tr>
-    <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162210_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
     <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162323_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
     <td><img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162343_Expo%20Go.jpg?raw=true" width="300" height="680"></td>
   </tr>
