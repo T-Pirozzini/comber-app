@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import MapView, {
   Callout,
   Marker,
-  Polygon,
   PROVIDER_GOOGLE,
 } from "react-native-maps";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
