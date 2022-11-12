@@ -9,7 +9,7 @@ import {
   FlatList,
 } from "react-native";
 
-import { Card, ListItem, Button, Icon } from "@rneui/themed";
+import { Card, Button, Icon } from "@rneui/themed";
 import { ScrollView } from "react-native-gesture-handler";
 
 export default function Info() {

@@ -3,18 +3,14 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
-  View,
-  Image,
-  TextInput,
-  Button,
+  View,  
+  TextInput,  
   FlatList,
 } from "react-native";
 
 import { collection, addDoc, getDocs, query, orderBy } from "firebase/firestore";
 import { db, auth } from "../firebase/firebase-config";
 import moment from "moment";
-import { setBackgroundColorAsync } from "expo-system-ui";
-import { RecaptchaVerifier } from "firebase/auth";
 import { Card } from "@rneui/themed";
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -23,11 +19,11 @@ const getTime = () => {
   return moment().format('LLL');
 }
 
-export default function MessageBoard(props) {
+export default function MessageBoard() {
   const [text, setText] = useState("");   
   const [data, setData] = useState(null)  
 
-  console.log("CITY:", props)
+  // console.log("CITY:", props)
      
   const addPost = async () => {
     try {

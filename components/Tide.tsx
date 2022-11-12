@@ -19,17 +19,7 @@ export default function Tide({city}) {
 
   const currentDate = moment().format().split("T")[0];
 
-  useEffect(() => {
-    getTideStationInfo();
-    getWaveHeightInfo();                 
-  },[city])
-
-  useEffect(() => {   
-    getHighLowTide();
-    console.log("LOW", lowTide)
-    console.log("HIGH", highTide) 
-  },[city, stationName])
-  
+   
   // API CALL #1: Get Tide Station Information: ID, Name and Coords - Then set state
   const getTideStationInfo = async () => {
     try {
@@ -100,6 +90,18 @@ export default function Tide({city}) {
       console.error(error);
     }
   };
+
+  // Moved from above functions to here : nov 11 @ 2:51pm
+  useEffect(() => {
+    getTideStationInfo();
+    getWaveHeightInfo();                 
+  },[city])
+
+  useEffect(() => {   
+    getHighLowTide();
+    // console.log("LOW", lowTide)
+    // console.log("HIGH", highTide) 
+  },[city, stationName])
 
   return (  
     <SpeedDial

@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import About from "../components/About";
 import Login from "../components/Login";
-import Register from "../components/Register";
+// import Register from "../components/Register";
 import FooterTabs from "./FooterTabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { auth } from "../firebase/firebase-config";
@@ -54,7 +54,7 @@ export default function NavDrawer() {
                 title={"Comb"}
                 color={"#B74F6F"}
                 size={36}
-                style={{ marginRight: 90 }}
+                style={{ marginRight:80 }}
               />
               <View style={styles.logout}>               
                 {auth.currentUser && (
@@ -78,7 +78,7 @@ export default function NavDrawer() {
       />
       <Drawer.Screen name="About" component={About} />
       <Drawer.Screen name="Login" component={Login} />
-      <Drawer.Screen name="Register" component={Register} />
+      {/* <Drawer.Screen name="Register" component={Register} /> */}
     </Drawer.Navigator>
   );
 }
