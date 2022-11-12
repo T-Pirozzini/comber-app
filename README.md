@@ -1,5 +1,5 @@
 # Comb
-Comb is a convenient mobile app that helps you find types of shellfish available in your local area by utilizing React Native, Google Maps, and Firebase.a
+Comb is a convenient mobile app that helps you find types of shellfish available in your local area by utilizing React Native, Google Maps, and Firebase.
 
 ## Final Product
 <!-- templates -->
