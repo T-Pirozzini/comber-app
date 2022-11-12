@@ -4,7 +4,8 @@ Comb is a convenient mobile app that helps you find types of shellfish available
 
 ## Final Product
 ### Try the app (mobile only)
-<a href="exp://exp.host/@tpirozzini/comber-app?release-channel=default">Deployed App: Click Here!</a>
+<a href="exp://exp.host/@tpirozzini/comber-app?release-channel=default/">Deployed App: Click Here!</a>
+<a href="https://62857e96c2d87717e882e101--earnest-swan-080405.netlify.app/">Click Here!</a>
 
 ### Application Demo
 https://user-images.githubusercontent.com/90930100/201450667-b8e91074-778a-4f37-95d6-569e725a1235.mp4
