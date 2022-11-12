@@ -3,19 +3,21 @@ Comb is a convenient mobile app that helps you find types of shellfish available
 
 ## Final Product
 <!-- templates -->
-!["Home Page."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162121_Expo%20Go.jpg?raw=true =250x250)
+![Comb Preview 1 - Made with Clipchamp](https://user-images.githubusercontent.com/90930100/201450098-92f5323a-8378-4b36-b1a8-d1d326e11e34.gif)
 
-!["Google Places Autocomplete Feature."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162811_Expo%20Go.jpg?raw=true)
-
-!["Custom Shellfish Location Marker."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162158_Expo%20Go.jpg?raw=true)
-
-!["Message Board."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162210_Expo%20Go.jpg?raw=true)
-
-!["Info page."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162323_Expo%20Go.jpg?raw=true)
-
-!["Info page."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162343_Expo%20Go.jpg?raw=true)
-
-!["Login Page"](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162413_Expo%20Go.jpg?raw=true)
+<h4>Home Page</h4>
+<img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162121_Expo%20Go.jpg?raw=true" width="300" height="680">
+<h4>Google Autocomplete</h4>
+<img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162811_Expo%20Go.jpg?raw=true" width="300" height="680">
+<h4>Custom Marker</h4>
+<img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162158_Expo%20Go.jpg?raw=true" width="300" height="680">
+<h4>Message Board</h4>
+<img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162210_Expo%20Go.jpg?raw=true" width="300" height="680"><h4>Info Page</h4>
+<img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162323_Expo%20Go.jpg?raw=true" width="300" height="680">
+<h4>Info Page</h4>
+<img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162343_Expo%20Go.jpg?raw=true" width="300" height="680">
+<h4>Login Page</h4>
+<img src="https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162413_Expo%20Go.jpg?raw=true" width="300" height="680">
 
 ## Setup and Running the App
 
