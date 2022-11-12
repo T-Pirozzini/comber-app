@@ -1,8 +1,10 @@
 # Comb
-Comb is a convenient mobile app that helps you find types of shellfish available in your local area by utilizing React Native, Google Maps, and Firebase.a
+
+Comb is a convenient mobile app that helps you find types of shellfish available in your local area by utilizing React Native, Google Maps, and Firebase.
 
 ## Final Product
 <!-- templates -->
+
 !["Home Page."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162121_Expo%20Go.jpg?raw=true)
 
 !["Google Places Autocomplete Feature."](https://github.com/T-Pirozzini/comber-app/blob/mapHooks/assets/screenshots/Screenshot_20221111-162811_Expo%20Go.jpg?raw=true)
@@ -20,6 +22,7 @@ Comb is a convenient mobile app that helps you find types of shellfish available
 ## Setup and Running the App
 
 ## Dependencies
+
 - React ^18.0.0
 - React Native ^0.69.6
 - Expo ~46.0.13
@@ -43,11 +46,12 @@ Comb is a convenient mobile app that helps you find types of shellfish available
 - React Native Maps 0.31.1
 - React Native Gesture Handler ~2.5.0
 
-
 ## Dev Dependencies
+
 - TypeScript ~4.3.5
 
 ## API's
+
 - Weather data: Open Weather
 - Tide data: api-iwls.dfo-mpo.gc.ca
 - Location data: Google Places
