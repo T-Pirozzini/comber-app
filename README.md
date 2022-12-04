@@ -47,19 +47,19 @@ https://user-images.githubusercontent.com/90930100/201450667-b8e91074-778a-4f37-
 - React ^18.0.0
 - React Native ^0.69.6
 - Expo ~46.0.13
-  - Sub Expo Location ^14.3.0
-  - Sub Expo Vector Icons ^13.0.0
-  - Sub Expo Webpack Config ^0.17.0
-  - Sub Expo Google Fonts Alice ^0.2.2
-  - Sub Expo Google Fonts Titillium Web ^0.2.2
+  - Expo Location ^14.3.0
+  - Expo Vector Icons ^13.0.0
+  - Expo Webpack Config ^0.17.0
+  - Expo Google Fonts Alice ^0.2.2
+  - Expo Google Fonts Titillium Web ^0.2.2
 - React Navigation ^6.0.2
   - React Navigation Drawer ^6.5.0
-  - Sub React Navigation Bottom Tabs ^6.0.5
-  - Sub React Navigation Native Stack ^6.1.0
+  - React Navigation Bottom Tabs ^6.0.5
+  - React Navigation Native Stack ^6.1.0
 - React Navigation
-  - Sub React Navigation Drawer ^6.5.0
-  - Sub React Navigation Bottom Tabs ^6.0.5
-  - Sub React Navigation Native Stack ^6.1.0
+  - React Navigation Drawer ^6.5.0
+  - React Navigation Bottom Tabs ^6.0.5
+  - React Navigation Native Stack ^6.1.0
 - React Native Community Geolocation ^3.0.2
 - Moment ^2.29.4
 - Firebase ^9.13.0
