@@ -19,7 +19,7 @@ export default function NavDrawer() {
       .signOut()
       .then(() => {
         // replacing current screen with Login Screen
-        navigation.navigate("Map");        
+        navigation.navigate("Info");        
       })
       .catch((error) => { alert(error.message) });
   };

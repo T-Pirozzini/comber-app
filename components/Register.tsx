@@ -32,7 +32,7 @@ export default function Register() {
     // when leaving listener, will unsubscribe so stops pinging
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        navigation.navigate("Map");
+        navigation.navigate("Info");
       }
     });
     return unsubscribe;
