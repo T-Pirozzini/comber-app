@@ -3,10 +3,24 @@
 Comb is a convenient mobile app that helps you find types of shellfish available in your local area by utilizing React Native, Google Maps, and Firebase.
 
 ## Final Product
+
 ### Try the app (mobile only)
-<a href="https://expo.dev/@tpirozzini/comber-app">Deployed App: Click Here!</a>
+
+<strong>Expo Go Download Instructions:</strong>
+
+- Download Expo Go for IOS or Android.
+- Click on the link below and scan with your qr code scanner
+- QR code will redirect you to Comb within Expo's App Store
+  <a href="https://expo.dev/@tpirozzini/comber-app">Deployed App: Click Here!</a>
+  <br>
+  <strong>Apple App Store</strong>
+- Still in production
+  <br>
+  <strong>Google Play Store</strong>
+- Still in production
 
 ### Application Demo
+
 https://user-images.githubusercontent.com/90930100/201450667-b8e91074-778a-4f37-95d6-569e725a1235.mp4
 
 <table>
