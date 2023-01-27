@@ -9,7 +9,7 @@ Comb is a convenient mobile app that helps you find types of shellfish available
 #### Expo Go Download Instructions:
 
 - Download Expo Go for IOS or Android
-- Click on the link below and scan with your qr code scanner
+- Click on the link below and scan with your QR code scanner
 - QR code will redirect you to Comb within Expo's App Store
 - <a href="https://expo.dev/@tpirozzini/comber-app">Deployed App: Click Here!</a>
 
