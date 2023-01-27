@@ -2,13 +2,13 @@
   "expo": {
     "name": "Comb",
     "slug": "comber-app",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./assets/images/comb_logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,11 +21,18 @@
     },
     "android": {
       "package": "com.CombHarvestingCompanion.app",
-      "versionCode": 6,
-      "versionName": "5.0",
+      "versionCode": 8,      
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "process.env.REACT_APP_GOOGLE_API_KEY"
+        },
+        "openWeather": {
+          "apiKey": "process.env.REACT_APP_WEATHER_API_KEY"
+        }
       }
     },
     "web": {
