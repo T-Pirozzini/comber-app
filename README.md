@@ -2,6 +2,12 @@
 
 Comb is a convenient mobile app that helps you find types of shellfish available in your local area by utilizing React Native, Google Maps, and Firebase.
 
+- It features a google maps search bar that will provide the user with Tide and Weather information based on their search input.
+- Shellfish icons populate the map and indicate popular harvesting locations.
+- If logged in, a user can post and view status updates on the live message board.
+- There is also an info tab is also available that serves as an information database and images of local shellfish in the region.
+- The info tab doubles as a shellfish counter for you to keep track of your catches while harvesting.
+
 ## Final Product
 
 ### Try the app (mobile only)
